@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Jag kommer vara konsekvent och döpa alla filer på engelska, dels för att det inte ska spreta, 
+  bredare kodgrupp förstår filnamnen och risken att någon webserver inte kan läsa in filen upstår -->
+  <link rel="stylesheet" href="style/style.css">
+  <title>Café Choco-Latte</title>
+</head>
+<!-- All h-element rubriker kommer i en rubrikstruktur som följer standard för att dels screen 
+  readers ska hitta logiskt på sidorna.
+ -->
+<body>
+  <!-- I header-elementet väljer jag att lägga det som ska finnas på alla sidor. -->
+  <header>
+    <h1>Café Choco-Latte</h1>
+    <h2>Fantastiskt kaffe och läckra bakverk</h2>
+    <p>
+      Vi vill vara en kaffeoas där du kan känna de intensiva aromerna av kaffe när du kliver in genom dörren. 
+      Vi är en plats där du kommer att uppleva sann njutning och smaksensation med varje kopp kaffe och bakverk. 
+      Vi vill ge dig hög kvalitet utan att kompromissa med rättvisan gentemot kaffe- och kakaoodlare.
+    </p>
+    <!-- Här kommer sidnavigationen som ligger i en oordnad lista. -->
+    <nav aria-label="Huvudmeny">
+      <ul>
+        <li><a href="index.html">Hem</a></li>
+        <li>
+          <a href="chocolate_tasting.html">Chokladprovning</a>
+          <ul>
+            <li><a href="bokning.html">Boka Chokladprovning</a></li>
+          </ul>
+        </li>
+        <li><a href="about_cacao.html">Om Kakaoträdet</a></li>
+      </ul>
+    </nav>
+    <!-- Väljer att ha horisontell linje (<hr>) i header kontainern för att det tillhör header-elementet som
+    ska finnas på alla sidor. -->
+    <hr>
+  </header>
+    <!-- Sektioner () med dess element, bilder har rätt fysik storlek så inga attribut är satta,
+  sätts med css senare antar jag, a-taggatna har ingen url än då sidorna inte är skapade än -->
+  <section>
+    <h3>Om ...</h3>
+    <p>
+        Nedan hittar du svar på de frågor du kan ha om chokladprovning, till exempel vad det är, 
+        hur det fungerar och kostnaden. Vill du sedan boka en tid så går du till vårt
+        <a href="#">bokningsformulär</a> här nedan.
+    </p>
+    <p>
+        Vill du veta mer om kakaoträdet, dess historia och vilka sorter som finns så kan du gå till sidan 
+        <a href="about_cacao.html">Kakaoträdet</a>
+    </p>
+
+    <h3>Vad är chokladprovning?</h3>
+    <p>
+        Chokladprovning liknar vinprovning. Du tittar, luktar och smakar för att göra en bedömning av kvalitet, 
+        stil och ursprung. Hos oss handlar det om att lära dig mer om choklad och dess historia, olika bönor och deras kvalitet, 
+        och att provsmaka olika typer av choklad med olika kakaoinnehåll.
+    </p>
+
+    <h3>Hur fungerar det?</h3>
+    <p>
+        Vi sitter tillsammans i gruppen med en bricka fylld med 12 olika chokladbitar och ett glas vatten. 
+        Vi berättar historier och berättar för varandra när det är dags att äta en bit och vilken vi ska ta. 
+        Mellan varje chokladbit sköljer vi munnen genom att dricka vatten.
+    </p>
+
+    <h3>Vad ska jag tänka på?</h3>
+    <p>
+        Det är bra att äta en lätt måltid innan du kommer så att du verkligen kan njuta och känna chokladens 
+        smak och inte tro att du är hungrig. Men du kommer att vara ganska mätt efter tillfället eftersom 
+        chokladen är ganska mättande. Undvik att använda starka dofter (parfym, aftershave, lotion, schampo etc.)
+        eftersom det kan försämra smakupplevelsen.
+    </p>
+
+    <h2>Tider och priser</h2>
+    <p>
+        Chokladprovningen äger rum på kvällarna måndagar och onsdagar mellan 19.00 och 21.00.<br>
+        Max antal personer per provning är 12.<br>
+        Priset per person är 525 kr.<br>
+    </p>
+    <div>
+        <img src="images/chocolate-cake-2.jpg" alt="kaffekopp med rykand kaffe">
+        <img src="images/chocolate-chip-cookies.jpg" alt="kaffekopp med rykand kaffe">
+        <img src="images/chokladpraliner.jpg" alt="kaffekopp med rykand kaffe">
+    </div>
+  </section>
+  <hr>
+  <!-- Sidfot för webbsajten. Footer-elementet med lite sajt-information -->
+  <footer>
+    <p>© copyright 2025 | Café Choco-Latte</p>
+  </footer>
+</body>
+</html>
