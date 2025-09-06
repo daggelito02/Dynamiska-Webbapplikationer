@@ -3,16 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Jag kommer vara konsekvent och döpa alla filer på engelska, dels för att det inte ska spreta, 
-  bredare kodgrupp förstår filnamnen och risken att någon webserver inte kan läsa in filen upstår -->
   <link rel="stylesheet" href="style/style.css">
   <title>Café Choco-Latte</title>
 </head>
-<!-- All h-element rubriker kommer i en rubrikstruktur som följer standard för att dels screen 
-  readers ska hitta logiskt på sidorna.
- -->
+<!-- Sidor med anndra element får nya kommentarer -->
 <body>
-  <!-- I header-elementet väljer jag att lägga det som ska finnas på alla sidor. -->
   <header>
     <h1>Café Choco-Latte</h1>
     <h2>Fantastiskt kaffe och läckra bakverk</h2>
@@ -21,7 +16,6 @@
       Vi är en plats där du kommer att uppleva sann njutning och smaksensation med varje kopp kaffe och bakverk. 
       Vi vill ge dig hög kvalitet utan att kompromissa med rättvisan gentemot kaffe- och kakaoodlare.
     </p>
-    <!-- Här kommer sidnavigationen som ligger i en oordnad lista. -->
     <nav aria-label="Huvudmeny">
       <ul>
         <li><a href="index.html">Hem</a></li>
@@ -34,18 +28,14 @@
         <li><a href="about_cacao.html">Om Kakaoträdet</a></li>
       </ul>
     </nav>
-    <!-- Väljer att ha horisontell linje (<hr>) i header kontainern för att det tillhör header-elementet som
-    ska finnas på alla sidor. -->
     <hr>
   </header>
-    <!-- Sektioner () med dess element, bilder har rätt fysik storlek så inga attribut är satta,
-  sätts med css senare antar jag, a-taggatna har ingen url än då sidorna inte är skapade än -->
   <section>
-    <h3>Chokladprovning</h3>
+    <h2>Chokladprovning</h2>
     <p>
         Nedan hittar du svar på de frågor du kan ha om chokladprovning, till exempel vad det är, 
         hur det fungerar och kostnaden. Vill du sedan boka en tid så går du till vårt
-        <a href="#">bokningsformulär</a> här nedan.
+        <a href="bokning.html">bokningsformulär</a> här nedan.
     </p>
     <p>
         Vill du veta mer om kakaoträdet, dess historia och vilka sorter som finns så kan du gå till sidan 
@@ -81,9 +71,11 @@
         Priset per person är 525 kr.<br>
     </p>
     <div>
-        <img src="images/chocolate-cake-2.jpg" alt="kaffekopp med rykand kaffe">
-        <img src="images/chocolate-chip-cookies.jpg" alt="kaffekopp med rykand kaffe">
-        <img src="images/chokladpraliner.jpg" alt="kaffekopp med rykand kaffe">
+        <!-- Här komme inlinestyle, värdena är satta för att få liknade storlek.
+        Antar att vi kommer beskära och styla med css senare i kursen -->
+        <img src="images/chocolate-cake-2.jpg" style="width: 33%;" alt="kaffekopp med rykand kaffe">
+        <img src="images/chocolate-dessert.jpg" style="width: 33%;" alt="kaffekopp med rykand kaffe">
+        <img src="images/hot-chocolate.jpg" style="width: 33%; height: 215px;" alt="kaffekopp med rykand kaffe">
     </div>
   </section>
   <hr>
