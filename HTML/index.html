@@ -3,10 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Jag kommer vara konsekvent och döpa alla filer på engelska, dels för att det inte ska spreta, 
+  bredare kodgrupp förstår filnamnen och risken att någon webserver inte kan läsa in filen upstår -->
   <link rel="stylesheet" href="style/style.css">
   <title>Café Choco-Latte</title>
 </head>
+<!-- All h-element rubriker kommer i en rubrikstruktur som följer standard för att dels screen 
+  readers ska hitta logiskt på sidorna.
+ -->
 <body>
+  <!-- I header-elementet väljer jag att lägga det som ska finnas på alla sidor. -->
   <header>
     <h1>Café Choco-Latte</h1>
     <h2>Fantastiskt kaffe och läckra bakverk</h2>
@@ -15,18 +21,25 @@
       Vi är en plats där du kommer att uppleva sann njutning och smaksensation med varje kopp kaffe och bakverk. 
       Vi vill ge dig hög kvalitet utan att kompromissa med rättvisan gentemot kaffe- och kakaoodlare.
     </p>
-    <ul>
-      <li><a href="index.html">Hem</a></li>
-      <li>
-        <a href="chocolate_tasting.html">Chokladprovning</a>
-        <ul>
-          <li><a href="bokning.html">Boka Chokladprovning</a></li>
-        </ul>
-      </li>
-      <li><a href="about_cacao.html">Om Kakaoträdet</a></li>
-    </ul>
+    <!-- Här kommer sidnavigationen som ligger i en oordnad lista. -->
+    <nav aria-label="Huvudmeny">
+      <ul>
+        <li><a href="index.html">Hem</a></li>
+        <li>
+          <a href="chocolate_tasting.html">Chokladprovning</a>
+          <ul>
+            <li><a href="bokning.html">Boka Chokladprovning</a></li>
+          </ul>
+        </li>
+        <li><a href="about_cacao.html">Om Kakaoträdet</a></li>
+      </ul>
+    </nav>
+    <!-- Väljer att ha horisontell linje (<hr>) i header kontainern för att det tillhör header-elementet som
+    ska finnas på alla sidor. -->
     <hr>
   </header>
+    <!-- Sektioner () med dess element, bilder har rätt fysik storlek så inga attribut är satta,
+  sätts med css senare antar jag, a-taggatna har ingen url än då sidorna inte är skapade än -->
   <section>
     <h3>Fantastiskt kaffe</h3>
     <img src="images/cols-img.png" alt="kaffekopp med rykand kaffe">
@@ -66,8 +79,9 @@
     </p>
   </section>
   <hr>
+  <!-- Sidfot för webbsajten. Footer-elementet med lite sajt-information -->
   <footer>
-    © copyright 2025 | Café Choco-Latte
+    <p>© copyright 2025 | Café Choco-Latte</p>
   </footer>
 </body>
 </html>
