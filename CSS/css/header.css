@@ -1,0 +1,80 @@
+.logo {
+    height: 2.2rem;
+}
+.top-menu-list, .breadcrumb-list {
+    display: flex;
+    list-style-type: none; 
+    margin: 0;
+}
+.top-menu-item:nth-child(5) {
+    margin-left: auto;   /* Skapar utrymme mellan de första tre och de sista två */ 
+}
+.top-menu-link,
+.top-menu-link:visited {
+    display: inline-flex;
+    text-decoration: none;
+    padding: 0.6rem 0.8rem;
+    color: var(--color-base-font); 
+    font-weight: 600;
+    position: relative;
+    font-size: 1rem!important;
+}
+.top-menu-link:hover {
+    background-color: var(--color-link-hover);
+    color: var(--color-main-black);
+}
+.top-menu-link.selected,
+.top-menu-link.selected:hover {
+    background-color: var(--color-link-selected-background);
+    color: var(--color-main-white);
+    border-left: 0.0625rem solid var(--color-link-border);
+    border-right: 0.0625rem solid var(--color-link-border);
+    padding-left: calc(0.8rem - 0.0625rem);
+    padding-right: calc(0.8rem - 0.0625rem);
+}
+.top-menu-link.selected--news {
+    border-bottom: 0.125rem solid var(--color-main-white);
+}
+.top-menu-link.selected:hover {
+    cursor: auto;
+}
+.top-menu-link:focus {
+    color: var(--color-main-white);
+    background-color: var(--color-link-focus-background);
+}
+.top-menu { 
+    border-top: 0.0625rem solid var(--color-border);
+    border-bottom: 0.0625rem solid var(--color-border);
+}
+.top-menu-text { 
+    padding-left: 1.3rem;
+    position: relative;
+    z-index: 1;
+}
+.material-symbols-outlined.home {
+    color: var(--color-main-white);
+    font-size: 1.35rem;
+    font-weight: 600;
+    position: absolute;
+    top: 0.5875rem;
+    left: 0.25rem;
+    z-index: 0;
+}
+.top-menu-link:hover .material-symbols-outlined.home {
+    color: var(--color-main-black);
+    background-color: var(--color-link-hover);
+}
+.top-menu-link:focus .material-symbols-outlined.home {
+    color: var(--color-main-white);
+    background-color: var(--color-link-focus-background);
+}
+.selected .material-symbols-outlined.home {
+    color: var(--color-main-white);
+    background: var(--color-link-selected-background);
+    left: .2rem
+
+}
+.top-menu-link.selected:hover .material-symbols-outlined.home {
+    color: var(--color-main-white);
+    background: var(--color-link-selected-background);
+}

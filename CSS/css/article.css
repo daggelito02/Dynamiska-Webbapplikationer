@@ -1,0 +1,163 @@
+.photo-article {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    row-gap: 0.6rem;
+    color: var(--color-base-font);
+}
+.photo-article-header {
+    font-weight: 600;
+    font-size: var(--photo-article-header-font-size);
+    line-height: 1.3;
+    margin: 0;
+}
+.photo-article-datetime {
+    margin-top: -0.3rem;
+}
+.photo-article-datetime--article {
+    margin-top: 0.1rem;
+    text-align: right;
+    font-size: var(--datetime-font-size);
+    color: var(--color-base-font);
+}
+.photo-article-link {
+    text-decoration: none;
+    color: var(--color-base-font);
+}
+.photo-page-article__information {
+    border: 0.0625rem #fff solid;
+    padding: 1rem 1.4rem;
+    min-width: 16rem;
+    height: fit-content;
+    flex: 1;
+}
+.photo-article-image img { /* Höjd och vidd sätts för att det innehållet inte ska röra sig om bild-inladdniingen tar tid*/
+    display: block;
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+    max-height: 56.25%; /* Ihop med width får bilden ett 16/9 ratio */
+    border-radius: 0.1875rem;
+    aspect-ratio: 16 / 9;
+    object-fit: scale-down;
+}
+.photo-article-header {
+    transition: all 0.3s ease-in-out;
+}
+.photo-article-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 0;
+}
+.photo-article-link:hover .photo-article-image img {
+    filter: brightness(50%);
+}
+.photo-article-link:hover .photo-article-header {
+    text-decoration: underline;
+    transition: all 0.3s ease-in-out;
+}
+.photo-article-image--about {
+    max-width: 45%;
+    float: inline-end;
+    margin: 0 0 0 2rem;
+}
+
+/* The article page */
+.photo-page-article__wrapper {
+    display: flex;
+    gap: 2rem;
+}
+.photo-page-article__text-container {
+    max-width: 62rem; /* 992px */
+}
+.photo-page-article {
+    max-width: 75rem; /* 1200px */
+    width: 100%;
+} 
+.photo-page-article__image {
+    max-width: 70%; 
+}
+.photo-page-article__image img {
+    border-radius: 0.125rem;
+}
+.photo-page-article__image + h1 {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+.photo-page-article__ingress {
+    font-size: var(--ingress-font-size);
+}
+.photo-page-article h2 {
+    font-size: var(--photo-page-article-h2-font-size);
+    font-weight: 500;
+    margin: 0;
+}
+.photo-page-article__text-section {
+    margin: 0.2rem 0 1rem;
+}
+.photo-page-article .photo-page-article__text-section p {
+    margin: 0;
+}
+.photo-page-article p {
+    margin: 0 0 1rem;
+}
+.photo-page-article__divider {
+    height: 0.0625rem;
+    background-color: var(--color-border);
+    transform: scaleY(0.5);
+    transform-origin: center;
+    margin: 1.4rem 0 1rem;
+}
+.photo-page-article__download {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--color-link-button);
+    color: var(--color-main-white);
+    padding: 0.5rem 1.2rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    margin-bottom: 0.4rem;
+    max-height: 2.5rem;
+    align-items: center;
+}
+.photo-page-article__download-container {
+    display: flex;
+    justify-content: center;
+}
+.photo-page-article__download:hover {
+    background-color: var(--color-link-button-hover);
+}
+.material-symbols-outlined.download {
+    font-size: 1.4rem;
+    position: relative;
+    top: -0.0625rem;
+    left: 0.25rem;
+}
+@media (max-width: 48rem) { /* Media query som sätter full bredd stående ipad mini  */
+    .photo-page-article__wrapper--portrait {
+        flex-wrap: wrap;
+    }
+    .photo-page-article__wrapper {
+        gap: 1.3rem;
+    }
+    .photo-page-article__image {
+        max-width: 100%;
+        order: 1;
+    }
+
+    .photo-page-article__information {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0.5rem 1.2rem;
+        justify-content: space-between;
+        column-gap: 1.5rem;
+    }
+    .photo-page-article h2 {        
+        width: 100%;
+    }
+}

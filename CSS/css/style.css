@@ -1,0 +1,11 @@
+/* Delar upp all css i olika css-filer för att få bätter överblick och inte så 
+långa filer för att hitta lättare och få en bra överblick.
+namnen på filerna ska vara talande för området css:en berör */
+
+@import url("tokens.css"); /* importerar css variabler */
+@import url("reset.css"); /* importerar Joch Comeaus reset-styles */
+@import url("header.css"); /* importerar header styles */
+@import url("main.css"); /* importerar main styles */
+@import url("footer.css"); /* importerar footer styles */
+@import url("article.css"); /* importerar article styles */
+@import url("compact-view.css"); /* importerar compact-view styles */
