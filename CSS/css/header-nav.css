@@ -1,0 +1,21 @@
+header {
+    grid-area: header; /* mappar header kontainern grid rad */
+    display: flex;
+    justify-content: center;
+}
+nav {
+    grid-area: nav; /* mappar header kontainern grid rad */
+    /* display: flex;
+    justify-content: center;
+    padding: 0.5rem 0;
+    border-top: 0.0625rem solid var(--color-border);
+    border-bottom: 0.0625rem solid var(--color-border); */
+}
+nav ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+}
+nav li {
+    padding: 0 1rem;
+}

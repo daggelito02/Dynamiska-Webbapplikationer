@@ -1,0 +1,98 @@
+/* Alla var(token) värden hämtas från tokens.css filen */
+body {
+    font-family: 'Darkmode Trial', Arial, Helvetica, sans-serif;
+    font-size: var(--body-font-size);
+    display: grid;
+  
+    /* Grid: vänstermarginal, main, aside, högermarginal */
+    grid-template-columns: 
+     1fr /* infinity marginal */
+    minmax(auto, var(--max-width-main-area)) /* main centrerd med aside */
+    minmax(auto, var(--max-width-aside-area)) /* aside centrerd med main */
+    1fr; /* infinity marginal */
+  
+    grid-template-areas:
+      "header header header header"
+      "nav nav nav nav"
+      ". main aside ."
+      "footer footer footer footer";
+  
+    background-color: var(--color-main-background);
+    color: var(--color-base-font);
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+#container {
+    display: contents;
+}
+h1 {
+    font-size: var(--h1-font-size);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+h2 {
+    font-size: var(--h2-font-size);
+    font-weight: 500;
+    margin: 0.5rem 0 1.5rem;
+}
+h3 {
+    font-size: var(--h3-font-size);
+    margin-bottom: 0.2rem;
+}
+p {
+    margin: 0 0 1.2rem;
+}
+ul {
+    margin: 0.5rem 1rem 1rem -1.4rem;
+}
+nav, footer {
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem 0;
+    border-top: 0.0625rem solid var(--color-border);
+    border-bottom: 0.0625rem solid var(--color-border);
+}
+
+
+
+
+
+
+/* Tre kolumner */
+/* .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20.75625rem, 1fr)); 
+    gap: 1.5rem;
+    position: relative;
+    padding-top: 4rem;
+} */
+/* Blir två kolumner */
+/* @media (max-width: 68.75rem) {
+    .photo-grid {
+        grid-template-columns: repeat(auto-fit, minmax(19.318125rem, 1fr)); 
+    }
+} */
+.photo-page-content {
+    max-width: var(--photo-page-content-max-width);
+    width: 100%;
+}
+/* Default styles för googles material ikoner */
+.material-symbols-outlined {
+    font-size: 1rem;
+    position: relative;
+    top: 0.1875rem;
+    padding-left: 0.25rem;
+    right: 0.3125rem;
+    color: var(--color-base-font);
+}
+
+.button-accept {
+    background-color: var(--color-link-button);
+    color: var(--color-main-white);
+    border: solid #999 0.0625rem;
+    padding: 0.625rem 1.25rem;
+    margin-left: 1.25rem;
+    cursor: pointer;
+    border-radius: 0.3125rem;
+    font-size: 1.125rem;
+}
