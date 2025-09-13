@@ -1,7 +1,7 @@
 :root {
     /* Size units */
-    --max-width-main-area: 60rem;
-    --max-width-aside-area: 30rem;
+    --max-width-main-area: 70rem;
+    --max-width-aside-area: 20rem;
 
     /* Color units */
     --color-main-background: #56859e; /*https://encycolorpedia.se/search?q=Surf+Blue */

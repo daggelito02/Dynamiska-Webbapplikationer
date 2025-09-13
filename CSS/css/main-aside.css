@@ -1,10 +1,66 @@
+main {
+    grid-area: main;
+    margin: 0 2rem;
+}
+#products {
+    /* display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20.75625rem, 1fr));
+    gap: 1.5rem;
+    position: relative;
+    padding-top: 4rem; */
+}
+.promote {
+    display: grid;
+    grid-template-columns: 220px 1fr;   /* vänster kolumn för bild, höger för text */
+    grid-template-rows: auto 1fr;       /* första rad för rubriker, andra för bild+text */
+    grid-template-areas:
+      "heading heading"
+      "image content";
+    gap: 1rem;
+    align-items: start;
+    max-width: 900px;
+  }
+  
+  /* wrapper som hållar h2 + h3 på samma rad */
+  .promote-heading {
+    grid-area: heading;
+    display: flex;
+    gap: 1rem;
+    align-items: baseline; /* eller center beroende på utseende */
+    flex-wrap: wrap;       /* bra att tillåta wrap på små skärmar */
+  }
+  
+  /* bild i vänster kolumn */
+  .promote img {
+    grid-area: image;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    justify-self: start;
+    max-width: 220px; /* matchar kolumnens bredd */
+  }
+  
+  /* innehåll i höger kolumn */
+  .promote-content {
+    grid-area: content;
+  }
+  
+  /* enkel reset för rubriker och stycken */
+  .promote h2 { margin: 0; }
+  .promote h3 { margin: 0; font-weight: 400; color: #666; }
+  .promote p { margin: 0 0 1rem 0; line-height: 1.5; }
+  
+
+
+
+
+
+
+
 aside {
     grid-area: aside;
+    margin-right: 2rem;
 }
-main {
-    grid-area: main; /* mappar main kontainern grid rad */
-}
-
 
 
 .photo-article {
