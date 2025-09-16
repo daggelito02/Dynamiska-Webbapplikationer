@@ -1,66 +1,150 @@
 main {
     grid-area: main;
-    margin: 0 2rem;
+    margin: 2rem;
 }
-#products {
-    /* display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20.75625rem, 1fr));
-    gap: 1.5rem;
-    position: relative;
-    padding-top: 4rem; */
-}
-.promote {
-    display: grid;
-    grid-template-columns: 220px 1fr;   /* vänster kolumn för bild, höger för text */
-    grid-template-rows: auto 1fr;       /* första rad för rubriker, andra för bild+text */
-    grid-template-areas:
-      "heading heading"
-      "image content";
-    gap: 1rem;
-    align-items: start;
-    max-width: 900px;
-  }
-  
-  /* wrapper som hållar h2 + h3 på samma rad */
-  .promote-heading {
-    grid-area: heading;
-    display: flex;
-    gap: 1rem;
-    align-items: baseline; /* eller center beroende på utseende */
-    flex-wrap: wrap;       /* bra att tillåta wrap på små skärmar */
-  }
-  
-  /* bild i vänster kolumn */
-  .promote img {
-    grid-area: image;
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    justify-self: start;
-    max-width: 220px; /* matchar kolumnens bredd */
-  }
-  
-  /* innehåll i höger kolumn */
-  .promote-content {
-    grid-area: content;
-  }
-  
-  /* enkel reset för rubriker och stycken */
-  .promote h2 { margin: 0; }
-  .promote h3 { margin: 0; font-weight: 400; color: #666; }
-  .promote p { margin: 0 0 1rem 0; line-height: 1.5; }
-  
-
-
-
-
-
-
 
 aside {
     grid-area: aside;
     margin-right: 2rem;
+    margin: 2rem;
 }
+
+.promote {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    grid-template-areas:
+    "headings2 headings3"
+    "img content";
+    column-gap: 1rem;
+    row-gap: 0.5rem;
+    align-items: start;
+    margin-top: 0;
+}
+.promote h2 {
+    grid-area: headings2;
+    margin: 0;
+    padding-top: 0;
+}
+
+.promote h3 {
+    grid-area: headings3;
+    justify-self: end;
+    align-self: end;
+    margin: 0;
+    width: unset;
+    min-width: unset;
+}
+  
+.promote img {
+    grid-area: img;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+.promote p {
+    grid-area: content;
+    margin: 0;
+}
+
+article {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+article h2 {
+    width: max-content;
+    padding-top: 6px;
+    min-width: 50%;
+}
+
+article h3 {
+    min-width: 50%;
+    align-self: center;
+    display: flex;
+    justify-content: end;
+}
+
+article img {
+    order: 4;
+    width: 20%;
+}
+
+article p {
+    flex: 1;
+    margin-right: 2rem;
+}
+
+#newsletter ul {
+    list-style-type: none;
+    margin: 0;
+}
+#newsletter h2 {
+    margin: 0.1rem 0 0.4rem;
+}
+#newsletter form > ul {
+    padding: 1rem;
+    border: solid 0.0625rem var(--color-border);
+}
+#newsletter h3 {
+    margin: 1rem 0 .5rem;
+}
+
+[for="form-name"], 
+[for="form-email"] {
+    display: block;
+    margin-bottom: .2rem;
+}
+[for="form-email"] {
+    margin-top: 1rem;
+}
+[name="form-name"],
+[name="form-email"] {
+    width: 100%;
+    height: 2.4rem;
+    padding: 0 1rem 0 .5rem;
+    background-color: var(--color-main-white);;
+    border: 0;
+    border-radius: .2rem;
+}
+
+[type="Submit"] {
+    background-color: color-mix(in srgb, var(--color-main-background) 80%, white 20%);
+    color: var(--color-main-white);
+    border: solid 0.0625rem var(--color-border);
+    padding: 0.425rem 1rem;
+    margin: .5rem 0 0;
+    cursor: pointer;
+    border-radius: 0.3125rem;
+    font-size: 1.125rem;
+}
+[type="Submit"]:hover {
+    border: solid 0.0625rem var(--color-border);
+    background-color: var(--color-base-font);
+    color: var(--color-main-black);
+}
+/* Ta bort standardutseendet */
+input[type="radio"] {
+    appearance: none; /* webkit/blink */
+    -webkit-appearance: none; /* safari */
+    -moz-appearance: none; /* firefox */
+    width: 1rem;
+    height: 1rem;
+    border: .1rem solid var(--color-border);
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    margin-right: 0.3rem;
+  }
+  
+  input[type="radio"]:checked {
+    padding: .1rem;
+    background-color: color-mix(in srgb, var(--color-main-background) 80%, white 20%); 
+    border-color: #fff;
+  }
+
 
 
 .photo-article {
@@ -158,3 +242,5 @@ aside {
         width: 100%;
     }
 }
+
+
