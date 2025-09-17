@@ -1,0 +1,65 @@
+#newsletter ul {
+    list-style-type: none;
+    margin: 0;
+}
+#newsletter h2 {
+    margin: 0 0 1rem;
+    border-bottom: solid 0.0625rem var(--color-border);
+}
+#newsletter form > ul {
+    padding: 1rem;
+    border: solid 0.0625rem var(--color-border);
+}
+#newsletter h3 {
+    margin: 1rem 0 .5rem;
+}
+[for="form-name"], 
+[for="form-email"] {
+    display: block;
+    margin-bottom: .2rem;
+}
+[for="form-email"] {
+    margin-top: 1rem;
+}
+[name="form-name"],
+[name="form-email"] {
+    width: 100%;
+    height: 2.2rem;
+    padding: 0 1rem 0 .5rem;
+    background-color: var(--color-main-white);;
+    border: 0;
+    border-radius: .2rem;
+}
+[type="Submit"] {
+    background-color: color-mix(in srgb, var(--color-main-background) 80%, white 20%);
+    color: var(--color-main-white);
+    border: solid 0.0625rem var(--color-border);
+    padding: 0.3rem 1rem;
+    margin: 1rem 0 0;
+    cursor: pointer;
+    border-radius: 0.3125rem;
+    font-size: 1.125rem;
+}
+[type="Submit"]:hover {
+    border: solid 0.0625rem var(--color-border);
+    background-color: var(--color-base-font);
+    color: var(--color-main-black);
+}
+input[type="radio"] {
+    appearance: none; 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 1rem;
+    height: 1rem;
+    border: .1rem solid var(--color-border);
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    margin-right: 0.3rem;
+}
+input[type="radio"]:checked {
+    padding: .1rem;
+    background-color: color-mix(in srgb, var(--color-main-black) 70%, var(--color-main-background) 100%); 
+    border-color: #fff;
+}

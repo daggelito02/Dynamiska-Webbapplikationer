@@ -21,7 +21,15 @@ body {
     color: var(--color-base-font);
     margin-top: 1rem;
     margin-bottom: 2rem;
-  }
+}
+main {
+    grid-area: main;
+    margin: 2rem;
+}
+aside {
+    grid-area: aside;
+    margin: 2rem;
+}
 #container {
     display: contents;
 }
@@ -62,48 +70,4 @@ nav, footer {
     justify-content: center;
     border-top: 0.0625rem solid var(--color-border);
     border-bottom: 0.0625rem solid var(--color-border);
-}
-
-
-
-
-
-
-/* Tre kolumner */
-/* .photo-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20.75625rem, 1fr)); 
-    gap: 1.5rem;
-    position: relative;
-    padding-top: 4rem;
-} */
-/* Blir två kolumner */
-/* @media (max-width: 68.75rem) {
-    .photo-grid {
-        grid-template-columns: repeat(auto-fit, minmax(19.318125rem, 1fr)); 
-    }
-} */
-.photo-page-content {
-    max-width: var(--photo-page-content-max-width);
-    width: 100%;
-}
-/* Default styles för googles material ikoner */
-.material-symbols-outlined {
-    font-size: 1rem;
-    position: relative;
-    top: 0.1875rem;
-    padding-left: 0.25rem;
-    right: 0.3125rem;
-    color: var(--color-base-font);
-}
-
-.button-accept {
-    background-color: var(--color-link-button);
-    color: var(--color-main-white);
-    border: solid #999 0.0625rem;
-    padding: 0.625rem 1.25rem;
-    margin-left: 1.25rem;
-    cursor: pointer;
-    border-radius: 0.3125rem;
-    font-size: 1.125rem;
 }

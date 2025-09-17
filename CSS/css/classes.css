@@ -1,0 +1,12 @@
+#classes th,
+#classes td {
+    padding: 1rem 1rem  .5rem 0;
+    border-bottom: solid 0.0625rem var(--color-border);
+}
+#classes th {
+    text-align: left;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}

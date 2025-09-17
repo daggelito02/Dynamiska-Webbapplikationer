@@ -1,0 +1,26 @@
+article {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    border-bottom: solid 0.0625rem var(--color-border);
+    padding-bottom: 2rem;
+}
+article h2 {
+    width: max-content;
+    padding-top: 6px;
+    min-width: 50%;
+}
+article h3 {
+    min-width: 50%;
+    align-self: center;
+    display: flex;
+    justify-content: end;
+}
+article img {
+    order: 4;
+    width: 20%;
+}
+article p {
+    flex: 1;
+    margin-right: 2rem;
+}

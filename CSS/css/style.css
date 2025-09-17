@@ -6,6 +6,10 @@ namnen på filerna ska vara talande för området css:en berör */
 @import url("reset.css"); /* importerar Joch Comeaus reset-styles */
 @import url("common.css"); /* importerar common styles */
 @import url("header-nav.css"); /* importerar header & nav styles */
-@import url("main-aside.css"); /* importerar footer styles */
+@import url("promote.css"); /* importerar promote styles */
+@import url("article.css"); /* importerar article styles */
+@import url("newsletter.css"); /* importerar newsletter styles */
+@import url("classes.css"); /* importerar classes styles */
+@import url("story.css"); /* importerar story styles */
 @import url("footer.css"); /* importerar footer styles */
 @import url("compact-view.css"); /* importerar compact-view styles */
