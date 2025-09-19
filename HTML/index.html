@@ -11,6 +11,15 @@
 <!-- All h-element rubriker kommer i en rubrikstruktur som följer standard för att dels screen 
   readers ska hitta logiskt på sidorna.
  -->
+ <!-- En bra semantisk struktur är bra för tillgänglighet (screenreaders kan tolka på ett koden bättre) tydligare både för utvecklare, användare och sökmotorer. 
+  Bättre SEO som rejtar sajten högre upp i sökträffar.
+
+  <header> används för sidans topp, t.ex. logotyp och meny.  
+  <main> är sidans huvudinnehåll och skiljs från header/footer.  
+  <section> delar upp innehållet i logiska delar med egen rubrik.  
+  <article> passar för innehåll som kan stå för sig självt, t.ex. en nyhet eller inlägg.  
+  <footer> är sidans avslutning med extra info eller länkar.  -->
+
 <body>
   <!-- Header-elementet finns på alla sidor och innehåller bland annat huvudmenyn och Sajt information. -->
   <header>
@@ -42,58 +51,64 @@
     <!-- Sektioner (section) med rubrik, img, a, och paragraf element, bilder har rätt fysik storlek så inga attribut är satta,
   sätts med css senare antar jag, vissa av a-taggatna har ingen url än då sidorna inte är skapade än 
     h-tagger för rubriker
-    ing-taggar för bilder
+    img-taggar för bilder
     p-taggar för löptexter
     a-taggar för länkar -->
-  <section>
-    <h3>Fantastiskt kaffe</h3>
-    <!-- Bild taggar med beskrivningtext -->
-    <img src="images/cols-img.png" alt="kaffekopp med rykand kaffe">
-    <!-- Paragraf (paragraph) tagg med text och länk -->
-    <p>
-      Intensiva aromer, fylliga smaker och oavsett rostning och tillagning finns det kaffe för alla smaker. 
-      Vårt kaffe är fantastiskt! 
-      <!-- Riktig kommer när sida finns -->
-      <a href="#" title="Länken inte inplementerad än">Vår kaffemeny</a>
-    </p>
+  <main>
+    <section>
+      <h3>Fantastiskt kaffe</h3>
+      <!-- Bild taggar med beskrivningtext -->
+      <img src="images/cols-img.png" alt="kaffekopp med rykand kaffe">
+      <!-- Paragraf (paragraph) tagg med text och länk -->
+      <p>
+        Intensiva aromer, fylliga smaker och oavsett rostning och tillagning finns det kaffe för alla smaker. 
+        Vårt kaffe är fantastiskt! 
+        <!-- Riktig kommer när sida finns -->
+        <a href="#" title="Länken inte inplementerad än">Vår kaffemeny</a>
+      </p>
 
-    <h3>Läckra bakverk</h3>
-    <img src="images/cols-img2.png" alt="Smarrig cup cake">
-    <p>
-      Högkvalitativ choklad i varje bakverk. Kraftfullt och smakrikt. Himmelriket för chokladälskaren! 
-      <!-- Riktig kommer när sida finns -->
-      <a href="#" title="Länken inte inplementerad än">Vår chokladmeny</a>
-    </p>
-    
-    <h3>Här hittar du oss</h3>
-    <img src="images/cols-img3.png" alt="Penna & linjal">
-    <p>
-      Du hittar oss på en bakgata nära Kungsparken. Kolla in kartan och besök oss. 
-      <!-- Riktig kommer när sida finns -->
-      <a href="#" title="Länken inte inplementerad än">Se karta</a>
-    </p>
-  </section>
-  <!-- Horisontell linje (<hr>) mellan sektions element -->
-  <hr>
-  <section>
-    <h3>Nyheter</h3>
-    <h4>Chokladprovning 25 april</h4>
-    <p>
-      Boka dig själv, dina kollegor, dina vänner för en kväll där vi testar choklad från olika kakaobönor 
-      och pratar om chokladens historia.<br>
-      <a href="chocolate_tasting.html">Läs mer om chokladprovning</a>
-    </p>
-    <h4>Ny kaffesmak 22 april</h4>
-    <p>
-      Vi testar ständigt nya rostningar och smaker. Idag är det premiär för vår nya smak Roman arches.<br>
-      <!-- Riktig kommer när sida finns -->
-      <a href="#" title="Länken inte inplementerad än">Läs mer om kaffesmaker</a>
-    </p>
-  </section>
-  <hr>
-  <!-- Sidfot för webbsajten. Footer-elementet med lite sajt-information -->
+      <h3>Läckra bakverk</h3>
+      <img src="images/cols-img2.png" alt="Smarrig cup cake">
+      <p>
+        Högkvalitativ choklad i varje bakverk. Kraftfullt och smakrikt. Himmelriket för chokladälskaren! 
+        <!-- Riktig kommer när sida finns -->
+        <a href="#" title="Länken inte inplementerad än">Vår chokladmeny</a>
+      </p>
+      
+      <h3>Här hittar du oss</h3>
+      <img src="images/cols-img3.png" alt="Penna & linjal">
+      <p>
+        Du hittar oss på en bakgata nära Kungsparken. Kolla in kartan och besök oss. 
+        <!-- Riktig kommer när sida finns -->
+        <a href="#" title="Länken inte inplementerad än">Se karta</a>
+      </p>
+    </section>
+    <!-- Horisontell linje (<hr>) mellan sektions element -->
+    <hr>
+    <section>
+      <article>
+        <h3>Nyheter</h3>
+        <h4>Chokladprovning 25 april</h4>
+        <p>
+          Boka dig själv, dina kollegor, dina vänner för en kväll där vi testar choklad från olika kakaobönor 
+          och pratar om chokladens historia.<br>
+          <a href="chocolate_tasting.html">Läs mer om chokladprovning</a>
+        </p>
+      </article>
+      <article>
+        <h4>Ny kaffesmak 22 april</h4>
+        <p>
+          Vi testar ständigt nya rostningar och smaker. Idag är det premiär för vår nya smak Roman arches.<br>
+          <!-- Riktig url kommer när sida finns -->
+          <a href="#" title="Länken inte inplementerad än">Läs mer om kaffesmaker</a>
+        </p>
+      </article>
+    </section>
+    <hr>
+  </main>
+    <!-- Sidfot för webbsajten. Footer-elementet med lite sajt-information -->
   <footer>
-    <p>© copyright 2025 | Café Choco-Latte</p>
+    <p>&copy; copyright 2025 | Café Choco-Latte</p>
   </footer>
 </body>
 </html>

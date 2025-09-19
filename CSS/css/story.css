@@ -1,0 +1,7 @@
+#story {
+    display:block; 
+}
+#story img {
+    float: left;
+    margin-right: 2rem;
+}

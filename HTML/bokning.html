@@ -30,96 +30,98 @@
     </nav>
     <hr>
   </header>
-  <section>
-    <h2>Boka Chokladprovning</h2>
-    <!-- Ett formulär element med boknings-fält -->
-    <form action="bokning.html" method="get">
-        <!-- Fieldset, för att rama in en grupp av form element -->
-        <fieldset>
-            <!-- Rubril till formulär-fältet -->
-            <legend>Välj datum:</legend>
-            <!-- En-vals knappar för att välja chokladprovnings datum -->
-            <!-- Wrappade input av label-elementet behöver inte for-attribut refferencen -->
-            <label>
-                <input type="radio" name="date" value="april-30">
-                30 april
-            </label><br>
-            <label>
-                <input type="radio" name="date" value="may-2">
-                2 maj
-            </label><br>
-            <label>
-                <input type="radio" name="date" value="may-7">
-                7 maj
-            </label><br>
-            <label>
-                <input type="radio" name="date" value="may-9">
-                9 maj
-            </label><br>
-            <label>
-                <input type="radio" name="date" value="may-14">
-                14 maj
-            </label><br>
-            <label>
-                <input type="radio" name="date" value="may-16">
-                16 maj
-            </label>
-        </fieldset>
-        <fieldset>
-            <legend>Antal personer:</legend>
-            <!-- Dropdown lista för att välja antal personer -->
-            <select id="persons" name="persons">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-            </select>
-        </fieldset>
-        <fieldset>
-            <legend>Fyll i dina uppgifter</legend>
-            <!-- Textfält -->
-            <label>Förnamn:
-                <input type="text" name="name">
-            </label>
-            <br><br>
-            <label>Efternamn:
-                <input type="text" name="email">
-            </label>
-            <br><br>
-            <!-- Fält för mobil (validering möjligheter) -->
-            <label>Mobil:
-                <input type="tel" name="mobile">
-            </label>
-            <br><br>
-            <!-- Fält för epost (validering möjligheter) -->
-            <label>Epost:
-                <input type="email" name="email">
-            </label>
-            <br><br>
-            <!-- Textruta för medelande -->
-            <label>Meddelande:
-                <textarea name="message" rows="3" cols="20"></textarea>
-            </label>
-            <br>      
+  <main>
+    <section>
+      <h2>Boka Chokladprovning</h2>
+      <!-- Ett formulär element med boknings-fält -->
+      <form action="bokning.html" method="get">
+          <!-- Fieldset, för att rama in en grupp av form element -->
+          <fieldset>
+              <!-- Rubril till formulär-fältet -->
+              <legend>Välj datum:</legend>
+              <!-- En-vals knappar för att välja chokladprovnings datum -->
+              <!-- Wrappade input av label-elementet behöver inte for-attribut refferencen -->
+              <label>
+                  <input type="radio" name="date" value="april-30">
+                  30 april
+              </label><br>
+              <label>
+                  <input type="radio" name="date" value="may-2">
+                  2 maj
+              </label><br>
+              <label>
+                  <input type="radio" name="date" value="may-7">
+                  7 maj
+              </label><br>
+              <label>
+                  <input type="radio" name="date" value="may-9">
+                  9 maj
+              </label><br>
+              <label>
+                  <input type="radio" name="date" value="may-14">
+                  14 maj
+              </label><br>
+              <label>
+                  <input type="radio" name="date" value="may-16">
+                  16 maj
+              </label>
           </fieldset>
-          <!-- Skicka formulärdata-knapp för att skicka bokningen -->
-          <button type="submit" title="Formulär action är inte inplementerad än">Boka</button>
-          <br><br>  
-      </form>
-      
-  </section>
-  <hr>
+          <fieldset>
+              <legend>Antal personer:</legend>
+              <!-- Dropdown lista för att välja antal personer -->
+              <select id="persons" name="persons">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+              </select>
+          </fieldset>
+          <fieldset>
+              <legend>Fyll i dina uppgifter</legend>
+              <!-- Textfält -->
+              <label>Förnamn:
+                  <input type="text" name="name">
+              </label>
+              <br><br>
+              <label>Efternamn:
+                  <input type="text" name="lastname">
+              </label>
+              <br><br>
+              <!-- Fält för mobil (validering möjligheter) -->
+              <label>Mobil:
+                  <input type="tel" name="mobile">
+              </label>
+              <br><br>
+              <!-- Fält för epost (validering möjligheter) -->
+              <label>Epost:
+                  <input type="email" name="email">
+              </label>
+              <br><br>
+              <!-- Textruta för medelande -->
+              <label>Meddelande:
+                  <textarea name="message" rows="3" cols="20"></textarea>
+              </label>
+              <br>      
+            </fieldset>
+            <!-- Skicka formulärdata-knapp för att skicka bokningen -->
+            <button type="submit" title="Formulär action är inte inplementerad än">Boka</button>
+            <br><br>  
+        </form>
+        
+    </section>
+    <hr>
+  </main>
   <!-- Sidfot för webbsajten. Footer-elementet med lite sajt-information -->
   <footer>
-    <p>© copyright 2025 | Café Choco-Latte</p>
+    <p>&copy; copyright 2025 | Café Choco-Latte</p>
   </footer>
 </body>
 </html>

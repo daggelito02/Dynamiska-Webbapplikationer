@@ -1,3 +1,6 @@
+#products{
+    margin-bottom: 2.1875rem;
+}
 .promote {
     display: grid;
     grid-template-columns: max-content 1fr;
