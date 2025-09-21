@@ -1,3 +1,5 @@
+ /* Start reset */
+
 /* 1. Use a more-intuitive box-sizing model */
 *, *::before, *::after {
     box-sizing: border-box;
@@ -45,3 +47,5 @@
   #root, #__next {
     isolation: isolate;
   }
+
+  /* end reset */

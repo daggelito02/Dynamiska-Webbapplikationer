@@ -7,11 +7,14 @@ article {
 }
 article h2 {
     width: max-content;
-    padding-top: 6px;
-    min-width: 50%;
+    padding-top: .375rem;
+    white-space: nowrap; 
+    overflow: hidden;  
+    text-overflow: ellipsis; 
+    width: 70%;
 }
 article h3 {
-    min-width: 50%;
+    min-width: 30%;
     align-self: center;
     display: flex;
     justify-content: end;
@@ -19,6 +22,7 @@ article h3 {
 article img {
     order: 4;
     width: 20%;
+    height: fit-content;
 }
 article p {
     flex: 1;

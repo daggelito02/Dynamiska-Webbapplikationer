@@ -8,22 +8,12 @@
     --color-main-white: #fff;
     --color-main-black: #222;
     --color-base-font: #fff;
-    --color-base-font-outgreyed: #999;
-    --color-link-selected-background: #333;
     --color-link-button: #323232;
     --color-link-button-hover: #565656;
-    --color-link-focus-background: #cdcdcd;
-    --color-link-border-bottom: #777;
-    --color-link-border: #888;
-    --color-link-hover: #fff;
     --color-border: #fff;
-    --color-border-black: #999;
 
-    --color-button-accept: #0051A8;
-    --color-button-accept-hover: #5b82ac;
-
-    --button-hover-color: color-mix(in srgb, #000 10%, #808000);
-    --button-active-color: color-mix(in srgb, #000 20%, #808000);
+    --button-color: color-mix(in srgb, var(--color-main-background) 80%, white 20%);
+    --button-radio-checked-color: color-mix(in srgb, var(--color-main-black) 70%, var(--color-main-background) 100%); 
 
     /* Font units */
     --ingress-font-size: 1.125rem;

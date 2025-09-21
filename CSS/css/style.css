@@ -3,7 +3,6 @@ långa filer för att hitta lättare och få en bra överblick.
 namnen på filerna ska vara talande för området css:en berör */
 
 @import url("tokens.css"); /* importerar css variabler */
-@import url("reset.css"); /* importerar Joch Comeaus reset-styles */
 @import url("common.css"); /* importerar common styles */
 @import url("header-nav.css"); /* importerar header & nav styles */
 @import url("promote.css"); /* importerar promote styles */

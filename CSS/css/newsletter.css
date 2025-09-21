@@ -31,7 +31,7 @@
     border-radius: .2rem;
 }
 [type="Submit"] {
-    background-color: color-mix(in srgb, var(--color-main-background) 80%, white 20%);
+    background-color: var(--button-color);
     color: var(--color-main-white);
     border: solid 0.0625rem var(--color-border);
     padding: 0.3rem 1rem;
@@ -60,6 +60,6 @@ input[type="radio"] {
 }
 input[type="radio"]:checked {
     padding: .1rem;
-    background-color: color-mix(in srgb, var(--color-main-black) 70%, var(--color-main-background) 100%); 
+    background-color: var(--button-radio-checked-color); 
     border-color: #fff;
 }

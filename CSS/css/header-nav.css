@@ -16,7 +16,6 @@ nav ul {
     margin: 0;
 }
 nav li {
-    padding: .5rem 1rem;
     border-left: 0.0625rem solid var(--color-border);
 }
 nav li:last-child {
@@ -24,7 +23,27 @@ nav li:last-child {
 }
 nav li:hover {
     background-color: var(--color-main-white);
+    color: black;
+}
+nav a {
+    text-decoration: none;
+    padding: .5rem 1rem;
+    display: inline-block;
 }
 nav li:hover a {
+    background-color: var(--color-main-white);
     color: var(--color-main-black);
-}
+}  
+header {
+    background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    height: fit-content;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.9); /* lätt skugga på texten */
+    padding-top: 1rem;
+  }
