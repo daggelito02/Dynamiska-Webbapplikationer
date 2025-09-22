@@ -1,14 +1,495 @@
-/* Delar upp all css i olika css-filer för att få bätter överblick och inte så 
-långa filer för att hitta lättare och få en bra överblick.
-namnen på filerna ska vara talande för området css:en berör */
+:root {
+    /* Size units */
+    --max-width-main-area: 70rem;
+    --max-width-aside-area: 20rem;
 
-@import url("tokens.css"); /* importerar css variabler */
-@import url("common.css"); /* importerar common styles */
-@import url("header-nav.css"); /* importerar header & nav styles */
-@import url("promote.css"); /* importerar promote styles */
-@import url("article.css"); /* importerar article styles */
-@import url("newsletter.css"); /* importerar newsletter styles */
-@import url("classes.css"); /* importerar classes styles */
-@import url("story.css"); /* importerar story styles */
-@import url("footer.css"); /* importerar footer styles */
-@import url("compact-view.css"); /* importerar compact-view styles */
+    /* Color units */
+    --color-main-background: #56859e; /* Surf blå https://encycolorpedia.se/search?q=Surf+Blue */
+    --color-main-white: #fff;
+    --color-main-black: #222;
+    --color-base-font: #fff;
+    --color-border: #fff;
+
+    --button-color: color-mix(in srgb, var(--color-main-background) 80%, white 20%);
+    --button-radio-checked-color: color-mix(in srgb, var(--color-main-black) 70%, var(--color-main-background) 100%); 
+
+    /* Font units */
+    --body-font-size: 1rem;
+    --h1-font-size: 2rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.125rem;
+
+    /* Margin and padding units */
+    --default-margin: 2rem;
+    --default-padding: 1rem;
+}
+/* Alla var(token) värden hämtas från tokens.css filen */
+body {
+    font-family: 'Darkmode Trial', Arial, Helvetica, sans-serif;
+    font-size: var(--body-font-size);
+    display: grid;
+  
+    /* Grid: vänstermarginal, main, aside, högermarginal */
+    grid-template-columns: 
+     1fr /* infinity marginal */
+    minmax(auto, var(--max-width-main-area)) /* main centrerd med aside */
+    minmax(auto, var(--max-width-aside-area)) /* aside centrerd med main */
+    1fr; /* infinity marginal */
+  
+    grid-template-areas:
+      "header header header header"
+      "nav nav nav nav"
+      ". main aside ."
+      "footer footer footer footer";
+  
+    background-color: var(--color-main-background);
+    color: var(--color-base-font);
+    margin-bottom: var(--default-margin);
+}
+main {
+    grid-area: main;
+    margin: var(--default-margin);;
+}
+aside {
+    grid-area: aside;
+    margin: var(--default-margin);;
+}
+#container {
+    display: contents;
+}
+h1 {
+    font-size: var(--h1-font-size);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+h2 {
+    font-size: var(--h2-font-size);
+    font-weight: 600;
+    margin: 0.5rem 0 1.5rem;
+}
+h3 {
+    font-size: var(--h3-font-size);
+    margin-bottom: 0.2rem;
+    font-weight: 600;
+}
+p {
+    margin: 0 0 1.2rem;
+    font-weight: 500;
+}
+a {
+    color: var(--color-main-white);
+    font-weight: 500;
+    text-decoration: underline;
+}
+a:hover {
+    color: var(--color-main-black);
+    background-color: var(--color-main-white);
+}
+
+/* Ser till att länkar med absolut url får en tooltip med berättande text */
+main a[href^="http"],
+footer a[href^="http"] {
+  position: relative;
+}
+/* Ser till att länkar med absolut url får en tooltip med berättande text */
+main a[href^="http"]:hover::after,
+footer a[href^="http"]:hover::after {
+    content: "You are leaving this website!";
+    position: absolute;
+    top: 120%; 
+    left: 0;
+    white-space: nowrap;
+    background: var(--color-main-black);
+    color: var(--color-main-white);
+    padding: 0.375rem 0.625rem;
+    border-radius: 0.25rem;
+    font-size: 1rem; 
+    z-index: 100;
+    opacity: 0;
+    transform: translateY(-0.3125rem); 
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    pointer-events: none;
+}
+/* Ser till att länkar med absolut url får en tooltip med berättande text */
+main a[href^="http"]:hover::after,
+footer a[href^="http"]:hover::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+ul {
+    margin: 0.5rem 0;
+    padding: 0;
+}
+nav, footer {
+    display: flex;
+    justify-content: center;
+    border-top: 0.0625rem solid var(--color-border);
+    border-bottom: 0.0625rem solid var(--color-border);
+}
+header {
+    grid-area: header;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--default-padding);
+}
+nav {
+    grid-area: nav; 
+}
+nav ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+}
+nav li {
+    border-left: 0.0625rem solid var(--color-border);
+}
+nav li:last-child {
+    border-right: 0.0625rem solid var(--color-border);
+}
+nav li:hover {
+    background-color: var(--color-main-white);
+    color: black;
+}
+nav a {
+    text-decoration: none;
+    padding: .5rem 1rem;
+    display: inline-block;
+}
+nav li:hover a {
+    background-color: var(--color-main-white);
+    color: var(--color-main-black);
+}  
+header {
+    background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    height: fit-content;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.9); /* lätt skugga på texten */
+    padding-top: 1rem;
+  }
+  #products{
+    margin-bottom: 2.1875rem;
+}
+.promote {
+    display: grid;
+    grid-template-columns: auto 60%;
+    grid-template-areas:
+    "headings2 headings3"
+    "img content";
+    row-gap: 0.5rem;
+    align-items: start;
+    margin-top: 0;
+}
+.promote h2 {
+    grid-area: headings2;
+    margin: 0;
+    padding-top: 0;
+    border-bottom: solid 0.0625rem var(--color-border);
+    width: 100%;
+}
+.promote h3 {
+    grid-area: headings3;
+    justify-self: end;
+    align-self: end;
+    margin: 0;
+    width: unset;
+    min-width: unset;
+    border-bottom: solid 0.0625rem var(--color-border);
+    width: 100%;
+}
+.promote img {
+    grid-area: img;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-top: 1.5rem;
+}
+.promote p {
+    grid-area: content;
+    margin: 1.5rem 0 0 2rem;
+}
+article {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    border-bottom: solid 0.0625rem var(--color-border);
+    padding-bottom: 2rem;
+}
+article h2 {
+    width: max-content;
+    padding-top: .375rem;
+    white-space: nowrap; 
+    overflow: hidden;  
+    text-overflow: ellipsis; 
+    width: 70%;
+}
+article h3 {
+    min-width: 30%;
+    align-self: center;
+    display: flex;
+    justify-content: end;
+}
+article img {
+    order: 4;
+    width: 20%;
+    height: fit-content;
+}
+article p {
+    flex: 1;
+    margin-right: var(--default-margin);;
+}
+#newsletter ul {
+    list-style-type: none;
+    margin: 0;
+}
+#newsletter h2 {
+    margin: 0 0 1rem;
+    border-bottom: solid 0.0625rem var(--color-border);
+}
+#newsletter form > ul {
+    padding: 1rem;
+    border: solid 0.0625rem var(--color-border);
+}
+#newsletter h3 {
+    margin: 1rem 0 .5rem;
+}
+[for="form-name"], 
+[for="form-email"] {
+    display: block;
+    margin-bottom: .2rem;
+}
+[for="form-email"] {
+    margin-top: 1rem;
+}
+[name="form-name"],
+[name="form-email"] {
+    width: 100%;
+    height: 2.2rem;
+    padding: 0 1rem 0 .5rem;
+    background-color: var(--color-main-white);;
+    border: 0;
+    border-radius: .2rem;
+}
+[type="Submit"] {
+    background-color: var(--button-color);
+    color: var(--color-main-white);
+    border: solid 0.0625rem var(--color-border);
+    padding: 0.3rem 1rem;
+    margin: 1rem 0 0;
+    cursor: pointer;
+    border-radius: 0.3125rem;
+    font-size: 1.125rem;
+}
+[type="Submit"]:hover {
+    border: solid 0.0625rem var(--color-border);
+    background-color: var(--color-base-font);
+    color: var(--color-main-black);
+}
+input[type="radio"] {
+    appearance: none; 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 1rem;
+    height: 1rem;
+    border: .1rem solid var(--color-border);
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    margin-right: 0.3rem;
+}
+input[type="radio"]:checked {
+    padding: .1rem;
+    background-color: var(--button-radio-checked-color); 
+    border-color: #fff;
+}
+#classes{
+    margin-bottom: var(--default-margin);;
+}
+#classes th,
+#classes td {
+    padding: 1rem 1rem  .5rem 0;
+    border-bottom: solid 0.0625rem var(--color-border);
+}
+#classes th {
+    text-align: left;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+#classes h2 {
+    margin-bottom: .5rem;
+}
+#story {
+    display:block; 
+}
+#story img {
+    float: left;
+    margin-right: var(--default-margin);
+}
+footer {
+    grid-area: footer; /* mappar footer kontainern grid rad */
+    padding: 1rem 2rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+footer p {
+    margin: 0;
+    padding: 0 1rem;
+    text-align: center;
+}
+@media (max-width: 1200px) {
+    #story img {
+        width: 40%;
+    }
+}
+@media (max-width: 1030px) {
+    article img {
+        width: 35%;
+    }
+}
+@media (max-width: 991px) {
+    main {
+        margin: 2rem 1rem 2rem 2rem;
+    }
+    aside {
+        margin: 2rem 2rem 2rem 1rem;
+    }
+    .promote {
+        grid-template-areas:
+            "headings2 headings3"
+            "img img"
+            "content content";
+        row-gap: 1rem;
+    }
+    .promote img {
+        margin-top: .5rem;
+        max-width: 70%;
+        grid-area: img;
+        justify-self: center;
+        align-self: start;
+    }
+    .promote p {
+        margin: 0;
+    }
+    article {
+        margin: 0;
+        padding-bottom: 1rem;
+    }
+}
+@media (max-width: 850px) {
+    article {
+        display: block;
+        margin-top: 1rem;
+        clear: both;
+    }
+    article h2 {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+    }
+    article h3 {
+        display: inline;
+        text-align: right;
+        float: right;
+        clear: right;
+        padding-top: 0.4375rem;
+    }
+    article img {
+        display: block;
+        float: left;
+        margin: 1rem 1.5rem .5rem 0;
+    }
+    article p {
+        margin-top: 1rem;
+    }
+}
+@media (max-width: 768px) {
+    body {
+        grid-template-areas:
+      "header header header header"
+      "nav nav nav nav"
+      ". main main ."
+      ". aside aside ."
+      "footer footer footer footer";
+    }
+    body {
+        margin-top: 0;
+        border-bottom: 1rem;
+    }
+    main {
+        margin: 1rem 2rem ;
+    }
+    aside {
+        margin: -1rem 2rem 2rem;
+    }
+    .promote {
+        grid-template-areas:
+            "headings2 headings3"
+            "img img"
+            "content content";
+        row-gap: 1rem;
+    }
+    .promote p {
+        margin: 0;
+    }
+    article img {
+        width: 20%;
+        max-width: 8rem;
+        margin-right: 1rem;
+    }
+}
+@media (max-width: 640px) {
+    nav ul {
+        justify-content: space-between;
+        width: 100%;
+    }
+    nav li {
+        flex: 0 0 25%;
+        text-align: center;
+    }
+    nav li:first-child{
+        border-left: none;
+    }
+    nav li:last-child{
+        border-right: none;
+    }
+    main {
+        margin: 1rem 1rem 2rem;
+    }
+    .promote img {
+        max-width: 70%;
+    }
+    aside {
+        margin: -2rem 1rem 2rem;
+    }
+}
+@media (max-width: 500px) {
+    .promote img {
+        max-width: 100%;
+        margin: 0;
+    }
+    article h2 {
+        text-overflow: unset; 
+        width: 100%;
+    }
+    article h3 {
+        display: block;
+        float: unset;
+        text-align: left;
+        padding-top: 0;
+    }
+    #story img {
+        width: 100%;
+    }
+}

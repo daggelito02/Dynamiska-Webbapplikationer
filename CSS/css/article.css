@@ -26,5 +26,5 @@ article img {
 }
 article p {
     flex: 1;
-    margin-right: 2rem;
+    margin-right: var(--default-margin);;
 }

@@ -5,7 +5,7 @@ header {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 1rem;
+    padding: var(--default-padding);
 }
 nav {
     grid-area: nav; 

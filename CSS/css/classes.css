@@ -1,5 +1,5 @@
 #classes{
-    margin-bottom: 2rem;
+    margin-bottom: var(--default-margin);;
 }
 #classes th,
 #classes td {

@@ -3,5 +3,5 @@
 }
 #story img {
     float: left;
-    margin-right: 2rem;
+    margin-right: var(--default-margin);
 }
