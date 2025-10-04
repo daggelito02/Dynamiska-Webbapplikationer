@@ -1,0 +1,58 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+}
+
+.background {
+    background: url('./../img/back.png') center center no-repeat;
+    min-width: 1200px;
+    min-height: 675px;
+    position: relative;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+.hero {
+    position: absolute;
+    max-width: 80px;
+    height: auto;
+    will-change: opacity;
+    transition: opacity 400ms ease-out;
+}
+
+.hero-1, .hero-3, .hero-5, .hero-7, .hero-9 {
+    left: 470px;
+}
+
+.hero-2, .hero-4, .hero-6, .hero-8, .hero-10 {
+    left: 650px;
+}
+
+.hero-1, .hero-2 {
+   top: 210px;
+}
+
+ .hero-3, .hero-4 {
+    top: 285px;
+}
+ 
+ .hero-5, .hero-6 {
+    top: 358px;
+}
+ 
+.hero-7, .hero-8 {
+    top: 433px;
+}
+ 
+.hero-9, .hero-10 {
+    top: 508px;
+}

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
+
 :root {
     /* Size units */
     --max-width-main-area: 70rem;
@@ -10,8 +12,11 @@
     --color-base-font: #fff;
     --color-border: #fff;
 
+    /* Detta "color-mix()" stöds i alla moderna webbläsare (Chrome, Edge, Firefox, Safari) numera stöder color-mix() 
+    men inte med validatorn vi använder color mix tycker jag är mycket bra för att alltid vara i samma färrgskala som
+    till exempel webbsidans grundfärg */
     --button-color: color-mix(in srgb, var(--color-main-background) 80%, white 20%);
-    --button-radio-checked-color: color-mix(in srgb, var(--color-main-black) 70%, var(--color-main-background) 100%); 
+    --button-radio-checked-color: color-mix(in srgb, var(--color-main-black) 70%, var(--color-main-background) 30%); 
 
     /* Font units */
     --body-font-size: 1rem;
@@ -85,15 +90,14 @@ a:hover {
     color: var(--color-main-black);
     background-color: var(--color-main-white);
 }
-
 /* Ser till att länkar med absolut url får en tooltip med berättande text */
 main a[href^="http"],
 footer a[href^="http"] {
   position: relative;
 }
 /* Ser till att länkar med absolut url får en tooltip med berättande text */
-main a[href^="http"]:hover::after,
-footer a[href^="http"]:hover::after {
+main a[href^="http"]:hover::before,
+footer a[href^="http"]:hover::before {
     content: "You are leaving this website!";
     position: absolute;
     top: 120%; 
@@ -111,12 +115,19 @@ footer a[href^="http"]:hover::after {
     pointer-events: none;
 }
 /* Ser till att länkar med absolut url får en tooltip med berättande text */
-main a[href^="http"]:hover::after,
-footer a[href^="http"]:hover::after {
+main a[href^="http"]:hover::before,
+footer a[href^="http"]:hover::before {
   opacity: 1;
   transform: translateY(0);
 }
-
+main p a::after,
+footer a::after {
+    font-family: 'Material Symbols Outlined';
+    content: 'open_in_new';
+    font-size: 1rem;
+    position: relative;
+    top: 0.125rem;
+}
 ul {
     margin: 0.5rem 0;
     padding: 0;
@@ -135,6 +146,16 @@ header {
     justify-content: center;
     text-align: center;
     padding: var(--default-padding);
+    background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    height: fit-content;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
 }
 nav {
     grid-area: nav; 
@@ -163,20 +184,7 @@ nav li:hover a {
     background-color: var(--color-main-white);
     color: var(--color-main-black);
 }  
-header {
-    background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80');
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat;
-    height: fit-content;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.9); /* lätt skugga på texten */
-    padding-top: 1rem;
-  }
-  #products{
+#products{
     margin-bottom: 2.1875rem;
 }
 .promote {
@@ -280,7 +288,10 @@ article p {
     border-radius: .2rem;
 }
 [type="Submit"] {
-    background-color: var(--button-color);
+    background-color: #789db1;
+    /* Detta "color-mix()" stöds i alla moderna webbläsare (Chrome, Edge, Firefox, Safari) numera stöder color-mix() 
+    men inte med  validatorn vi använder*/
+    /* background-color: var(--button-color); */
     color: var(--color-main-white);
     border: solid 0.0625rem var(--color-border);
     padding: 0.3rem 1rem;
@@ -296,8 +307,6 @@ article p {
 }
 input[type="radio"] {
     appearance: none; 
-    -webkit-appearance: none;
-    -moz-appearance: none;
     width: 1rem;
     height: 1rem;
     border: .1rem solid var(--color-border);
@@ -309,7 +318,10 @@ input[type="radio"] {
 }
 input[type="radio"]:checked {
     padding: .1rem;
-    background-color: var(--button-radio-checked-color); 
+    background-color: #2f3b40;
+    /* Detta "color-mix()" stöds i alla moderna webbläsare (Chrome, Edge, Firefox, Safari) numera stöder color-mix() 
+    men inte med  validatorn vi använder */
+    /* background-color: var(--button-radio-checked-color); */
     border-color: #fff;
 }
 #classes{

@@ -1,0 +1,23 @@
+body {
+    background: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#game-area {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 550px;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.2);
+}
+
+.card {
+    background: url('../img/q-mark.png') no-repeat center;
+    background-size: 80%;
+}
+
+.hidden {
+    opacity: 0;
+}

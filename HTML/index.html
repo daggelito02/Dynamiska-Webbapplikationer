@@ -54,6 +54,9 @@
     img-taggar för bilder
     p-taggar för löptexter
     a-taggar för länkar -->
+    <!-- Main taggen är här för att samla huvudinnehållet i, så bara en per sida.
+    Den bör oxå finnas så skärmläsare kan hoppa dit direkt utan att behöva stega igenom till exempel alla 
+    navigationslänkar i headern. Ger oxå en bra startpunkt om man navigerar med tangentbord -->
   <main>
     <section>
       <h3>Fantastiskt kaffe</h3>
@@ -64,7 +67,7 @@
         Intensiva aromer, fylliga smaker och oavsett rostning och tillagning finns det kaffe för alla smaker. 
         Vårt kaffe är fantastiskt! 
         <!-- Riktig kommer när sida finns -->
-        <a href="#" title="Länken inte inplementerad än">Vår kaffemeny</a>
+        <a href="#" title="Länken inte implementerad än">Vår kaffemeny</a>
       </p>
 
       <h3>Läckra bakverk</h3>
@@ -72,7 +75,7 @@
       <p>
         Högkvalitativ choklad i varje bakverk. Kraftfullt och smakrikt. Himmelriket för chokladälskaren! 
         <!-- Riktig kommer när sida finns -->
-        <a href="#" title="Länken inte inplementerad än">Vår chokladmeny</a>
+        <a href="#" title="Länken inte implementerad än">Vår chokladmeny</a>
       </p>
       
       <h3>Här hittar du oss</h3>
@@ -80,14 +83,19 @@
       <p>
         Du hittar oss på en bakgata nära Kungsparken. Kolla in kartan och besök oss. 
         <!-- Riktig kommer när sida finns -->
-        <a href="#" title="Länken inte inplementerad än">Se karta</a>
+        <a href="#" title="Länken inte implementerad än">Se karta</a>
       </p>
     </section>
     <!-- Horisontell linje (<hr>) mellan sektions element -->
     <hr>
+    <!--  I denna sektion finns två artiklar som visar information om 
+    olika event Chokladprovning och kommande ny kaffesmak vilket motiverar att 
+    dela upp i separata taggar för att tex en skärmläsare ska kunna hitta deras h-tagg-->
     <section>
+      <h3>Nyheter</h3>
+      <!-- Här har jag valt <article> då det är tydligt en sådan.
+        Ligger i en sektion med en till -->
       <article>
-        <h3>Nyheter</h3>
         <h4>Chokladprovning 25 april</h4>
         <p>
           Boka dig själv, dina kollegor, dina vänner för en kväll där vi testar choklad från olika kakaobönor 
@@ -100,7 +108,7 @@
         <p>
           Vi testar ständigt nya rostningar och smaker. Idag är det premiär för vår nya smak Roman arches.<br>
           <!-- Riktig url kommer när sida finns -->
-          <a href="#" title="Länken inte inplementerad än">Läs mer om kaffesmaker</a>
+          <a href="#" title="Länken inte implementerad än">Läs mer om kaffesmaker</a>
         </p>
       </article>
     </section>
