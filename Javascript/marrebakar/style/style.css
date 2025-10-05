@@ -1,0 +1,91 @@
+body{
+	font: 80% Verdana, sans-serif;
+	color: #000;
+	background: linear-gradient(#ccc, #eee) no-repeat fixed;
+	text-align: center;
+}
+#wrapper{
+	width: 960px;
+	margin: 10px auto;
+}
+p{
+	padding: 10px 0;
+}
+h1, h2, nav{
+	text-transform: uppercase;
+}
+h1{
+	font-size: 4em;
+	padding-top: 35px;
+}
+h2{
+	font-size: 1.5em;
+	margin-bottom: 10px;
+}
+a:hover img { 
+	border: solid 1px #3D402C; 
+	box-shadow: 1px 1px 5px #3D402C; 
+}
+header, nav, main{
+	background-color: #F2F2F2;
+	overflow: hidden;
+}
+nav{
+	font-weight: 400;
+	letter-spacing: 2px; 
+	padding: 25px 0;
+	list-style: none;
+	margin-bottom: 10px;
+}
+li {
+	display:inline-block;
+	padding-right: 40px;
+}
+nav ul li:last-child {
+	padding-right: 0;
+}
+nav a {
+	color: #000;
+	text-decoration: underline;
+}
+nav a:hover, nav a:focus{
+	text-decoration: none;
+}
+#leftCol, #rightCol{
+	margin: 10px 15px;
+	border-top: 1px dotted;
+	border-bottom: 1px dotted;
+	padding: 10px 0;
+}
+#rightCol{
+	float: right;
+	width: 34%;
+}
+#rightCol img { 
+	padding: 2px; 
+	border: solid 3px #fff; 
+}
+#leftCol{
+	float: left;
+	width: 59%;
+}
+#leftCol figure{
+	width: 100%;
+	padding-bottom: 10px;
+	border-bottom: 2px solid;
+	margin: 0 0 15px 0;
+}
+figcaption{
+	text-align: right;
+	padding-right: 5px;
+}
+#recept{
+	float:left;
+	text-align: left;
+	border-right: 1px solid;
+	padding: 0 15px 0 0;
+}
+#howTo{
+	float: right;
+	width: 78%;
+}

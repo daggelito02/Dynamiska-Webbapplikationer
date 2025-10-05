@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deck of Cards Game</title>
+  <link rel="stylesheet" href="index2.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🎴 Deck of Cards</h1>
+    <p>Dra kort och se vem som vinner!</p>
+
+    <div class="buttons">
+      <button id="player1">Spelare 1 drar kort</button>
+      <button id="player2">Spelare 2 drar kort</button>
+      <button id="newGame">Starta ny lek</button>
+    </div>
+
+    <div class="game-area">
+      <div class="player">
+        <h2>Spelare 1</h2>
+        <img id="card1" src="" alt="Spelare 1 kort" class="card">
+        <p class="score">Poäng: <span id="score1">0</span></p>
+      </div>
+
+      <div class="player">
+        <h2>Spelare 2</h2>
+        <img id="card2" src="" alt="Spelare 2 kort" class="card">
+        <p class="score">Poäng: <span id="score2">0</span></p>
+      </div>
+    </div>
+
+    <div class="result">
+      <h3 id="winner"></h3>
+    </div>
+  </div>
+  <script src="index2.js" type="module"></script>
+</body>
+</html>

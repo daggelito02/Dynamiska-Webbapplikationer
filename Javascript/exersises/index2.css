@@ -1,0 +1,68 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #0b132b;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .container {
+    background: #1c2541;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    width: 90%;
+    max-width: 700px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+  }
+  
+  h1 {
+    margin-bottom: 1rem;
+  }
+  
+  .buttons {
+    margin-bottom: 2rem;
+  }
+  
+  button {
+    background: #3a506b;
+    border: none;
+    color: #fff;
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 0.3rem;
+  }
+  
+  button:hover {
+    background: #5bc0be;
+  }
+  
+  .game-area {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1.5rem;
+  }
+  
+  .player {
+    text-align: center;
+  }
+  
+  .card {
+    width: 120px;
+    height: auto;
+    margin: 0.5rem 0;
+    border-radius: 6px;
+  }
+  
+  .result {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #f6ae2d;
+  }
+  

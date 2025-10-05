@@ -1,0 +1,29 @@
+body {
+    background-image: url('./../img/time.jpg');
+    background-size: cover;
+    background-position:  center center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+.card {
+    background-color: #FFF;
+    width: 400px;
+    min-height: 200px;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    display: flex;
+    padding: 30px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.card > div {
+    margin-bottom: 30px;
+}
+
+span {
+    font-size: 22px !important;
+}

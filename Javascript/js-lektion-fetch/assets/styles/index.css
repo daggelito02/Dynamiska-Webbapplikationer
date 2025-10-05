@@ -1,0 +1,63 @@
+html, body {
+    background-color: #16a085;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.box {
+    background-color: #FFF;
+    min-width: 400px;
+    height: 200px;
+    border-radius: 3px;
+    position: relative;
+}
+
+.text {
+    text-align: center;
+    margin-top: 30px;
+    font-style: italic; 
+}
+.author {
+    margin-top: 15px;
+    text-align: right;
+    font-size: 0.7em;
+}
+
+.author, 
+.text {
+    color: #16a085;
+    padding: 0 30px;
+} 
+
+button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    border:none;
+    border-radius:3px;
+    color:#fff;
+    background-color:#333;
+    outline:none;
+    padding: 8px;
+    opacity:1;
+    will-change: opacity;
+    transition: opacity 300ms ease-out;
+    cursor:pointer;
+}
+button:hover {
+    opacity:0.9;
+}
