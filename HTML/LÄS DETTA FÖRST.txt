@@ -39,3 +39,5 @@ sidan om Kakao och dess historia finns där och fungerar, liksom länken till bo
 Om Kakao - här hittar du texten med rubriker.
 
 Bokning - formuläret för att boka chokladprovningen
+
+test dagge
