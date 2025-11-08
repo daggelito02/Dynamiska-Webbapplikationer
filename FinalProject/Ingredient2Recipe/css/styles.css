@@ -1,0 +1,169 @@
+
+/* styles.css - Global styles for "Ingrediensen ger receptet"
+   WCAG 2.2 AA-minded base, responsive across 320px–2560px.
+*/
+:root{
+  --bg:#fff;
+  --body-font-size:1rem;
+  --text:#222222; /* AAA on white at >= 16px */
+  --muted:#3a3a3a;
+  --brand:#1f6feb; /* deep blue for links */
+  --brand-visited:#56198b;
+  --accent:#3a4242;
+  --card:#222;
+  --border:#e5e7eb;
+  --focus:#ffbf47; /* high-vis focus */
+  --radius:14px;
+
+    --color-main-white: #fff;
+    --color-main-black: #222;
+    --color-base-font: #fff;
+    --color-border: #fff;
+
+  /* Size units */
+    --max-width-main-area: 70rem;
+
+}
+
+
+body{
+  font-size: var(--body-font-size);
+  display: grid;
+  grid: auto auto auto / 1fr minmax(1px, var(--max-width-main-area)) 1fr;
+  grid-template-areas: /* Specifiserar gridens kontainers tre rader och tre kolumner */
+      "header header header"
+      ". main-content ." /* centrerar main innehållet */
+      "footer footer footer";
+
+  color: var(--color-base-font);
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  color:var(--text);
+  background:var(--bg);
+
+}
+a{color:var(--brand)}
+a:visited{color:var(--brand-visited)}
+img{max-width:100%; height:auto; display:block}
+svg{max-width:100%}
+
+header {
+  grid-area:header;
+  display: grid;
+  justify-content: center;
+}
+main {grid-area:main-content}
+footer {grid-area:footer}
+
+
+
+
+
+/* .container{max-width:var(--maxw); margin-inline:auto; padding-inline:1rem} */
+
+/* .site-header{
+  background:#fff;
+  border-bottom:1px solid var(--border);
+  position:sticky; top:0; z-index:10;
+}
+.brand{display:flex; align-items:center; gap:.75rem; padding:.75rem 0}
+.brand__logo{width:40px;height:40px}
+.brand__title{font-weight:700; font-size:1.125rem} */
+
+.nav-toggle{display:none}
+nav ul{list-style:none; margin:0; padding:0; display:flex; gap:.75rem; flex-wrap:wrap}
+nav a{display:block; padding:.5rem .75rem; border-radius:.5rem; text-decoration:none}
+nav a[aria-current="page"]{background:#eef3ff}
+
+@media (max-width: 720px){
+  /* CSS-only hamburger */
+  .nav-label{display:flex; align-items:center; gap:.5rem; cursor:pointer; padding:.5rem .75rem; border:1px solid var(--border); border-radius:.5rem}
+  nav ul{display:none; flex-direction:column; gap:0}
+  .nav-toggle:checked + label + ul{display:flex}
+}
+@media (min-width: 721px){
+  .nav-label{display:none}
+}
+
+main{padding-block:1.25rem}
+/* .grid{
+  display:grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap:1rem;
+} */
+/* .card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:1rem;
+  box-shadow:0 1px 1px rgba(0,0,0,.03);
+} */
+.footer{
+  margin-top:2rem;
+  border-top:1px solid var(--border);
+  padding-block:2rem;
+  color:var(--muted);
+  background:#fff;
+}
+
+table{border-collapse:collapse; width:100%}
+th,td{padding:.5rem .75rem; border:1px solid var(--border); text-align:left}
+thead th{background:#f8fafc}
+
+form{display:grid; gap:.75rem; max-width:38rem}
+input, select, textarea, button{
+  font:inherit;
+}
+input[type="text"], input[type="email"], textarea{
+  width:100%;
+  padding:.6rem .75rem;
+  border:1px solid var(--border);
+  border-radius:.5rem;
+}
+button{
+  padding:.65rem .9rem;
+  border-radius:.65rem;
+  border:1px solid var(--border);
+  background:#111827;
+  color:white;
+  cursor:pointer;
+}
+button:hover{filter:brightness(1.05)}
+button:focus, a:focus, input:focus, textarea:focus{
+  outline:3px solid var(--focus);
+  outline-offset:2px;
+}
+
+/* Responsive imagery */
+.hero img{border-radius:var(--radius)}
+
+/* Layout helpers */
+.col-span-12{grid-column:span 12}
+@media (min-width: 768px){
+  .col-span-6-md{grid-column:span 6}
+  .col-span-4-md{grid-column:span 4}
+  .col-span-8-md{grid-column:span 8}
+}
+@media (min-width: 1024px){
+  .col-span-3-lg{grid-column:span 3}
+  .col-span-9-lg{grid-column:span 9}
+}
+
+/* Visually hidden utility for accessible labels */
+.visually-hidden{
+  position:absolute !important;
+  width:1px; height:1px;
+  padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0,0,0,0);
+  white-space:nowrap; border:0;
+}
+
+/* Skip-link */
+.skip-link{
+  position:absolute; left:-999px; top:auto;
+  width:1px; height:1px; overflow:hidden;
+}
+.skip-link:focus{
+  left:1rem; top:1rem; width:auto; height:auto;
+  background:#fff; border:2px solid var(--focus); padding:.5rem .75rem; z-index:1000;
+}
