@@ -1,12 +1,12 @@
 
-/* styles.css - Global styles for "Ingrediensen ger receptet"
-   WCAG 2.2 AA-minded base, responsive across 320px–2560px.
+/* Styles for "Ingrediensen ger receptet"
+  by Dag Fredriksson, Uppsala University 2024
 */
 :root {
   --bg:#fff;
   --body-font-size:1rem;
   --muted:#3a3a3a;
-  --brand:#1f6feb; /* deep blue for links */
+  --brand:#1f6feb;
   --brand-visited:#56198b;
   --accent:#3a4242;
   --border:#e5e7eb;
@@ -14,11 +14,11 @@
   --radius:14px;
 
 /* Size units */
-  --max-width-main-area: 70rem;
+  --max-width-main-area: 75rem;
   --border-width: 0.0625rem; /* 1px */
 
   /* Color units */
-  --color-focus:#ffbf47; /* high-vis focus */
+  --color-border:#3a4242; 
   --color-background: #fff;
   --color-black: #222;
   --color-white: #fff;
@@ -28,9 +28,16 @@
 
   /* Font units */
   --font-size-text: 1rem;
+  --font-size-h1: 2rem;
+  --font-size-h2: 1.5rem;
+  --font-size-h3: 1.25rem;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
 
-    /* Margin and padding units */
+  /* Margin and padding units */
   --default-margin: 2rem;
+  --default-outer-space: 2rem;
   --default-padding: 1rem;
   --default-gap: 1rem;
 }
@@ -39,7 +46,10 @@
 body {
   font-family: 'Darkmode Trial', Arial, Helvetica, sans-serif;
   font-size: var(--font-size-text);
+  font-weight: var(--font-weight-normal);
+  line-height: normal;
   display: grid;
+  row-gap: 0.4375rem;
   grid: auto auto auto / 1fr minmax(1px, var(--max-width-main-area)) 1fr;
   grid-template-areas: /* Specifiserar gridens kontainers tre rader och tre kolumner */
       "header header header"
@@ -72,8 +82,8 @@ button{
 }
 button:hover{filter:brightness(1.05)}
 button:focus, a:focus, input:focus, textarea:focus{
-  outline:3px solid var(--color-black );
-  outline-offset: 2px;
+  outline:3px solid var(--color-border );
+  outline-offset: 0.125rem;
 }
 a.skip-link:focus {
   outline-offset: 0 ;
@@ -85,15 +95,15 @@ header {
   display: flex;
   justify-content: center;
   column-gap: var(--default-gap);
-  border-bottom: var(--color-black) var(--border-width) solid;
+  border-bottom: var(--color-border) var(--border-width) solid;
 }
 .header-wrapper {
   display: flex;
   justify-content: space-between;
-  max-width: 70rem;
+  max-width: var(--max-width-main-area);
   align-items: center;
   align-items: flex-end;
-  margin: 0 var(--default-margin);
+  padding: 0 var(--default-outer-space);
 }
 .brand {
   max-width: 25%;
@@ -111,12 +121,12 @@ nav ul {
   display: flex; 
   gap: var(--default-gap);
   flex-wrap: wrap;
-      
+  position: relative;
 }
 nav a {
   display:block; 
   padding:.5rem .75rem;
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   text-decoration:none
 }
 nav a:visited {
@@ -126,6 +136,15 @@ nav a[aria-current="page"]{
   color: var(--color-white);
   background:var(--color-black)
 }
+nav ul:after { /* Hide the bootom line of the outline to fit the design */
+    content: '';
+    height: 0.25rem;
+    background: #fff;
+    width: calc(100% + 0.625rem);
+    position: absolute;
+    bottom: -0.3125rem;
+    left: -0.3125rem;
+}
 
 /* Skip länk */
 .skip-link {
@@ -134,29 +153,33 @@ nav a[aria-current="page"]{
   left: 2rem;
   background-color: var(--color-white);
   color: var(--color-black);
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   padding: 0.625rem;
   z-index: 1000;
   text-decoration: none;
   border-radius: 0.3125rem;
   transition: top 0.3s ease;
 }
-  
-  /* Skip kontainern vid fokus */
+
 .skip-link:focus {
   top: 2rem; 
   left: 2rem;
 }
 .skip-link:visited {
   color: var(--color-black);
-  font-weight: 500;
 }
 
 /* Main content styles */
 main {
   grid-area:main-content;
-  margin: 0 var(--default-margin);
+  margin: 0 var(--default-outer-space);
 }
+main:focus-visible {
+  outline: 3px solid var(--color-border);
+  outline-offset: 2px;
+  position: relative;
+}
+
 /* Footer content styles */
 footer {
   grid-area:footer;
@@ -168,26 +191,9 @@ footer {
   display: flex;
 }
 .footer-container {
-  max-width: 70rem;
-  margin: 0 var(--default-margin);
+  max-width: var(--max-width-main-area);
+  padding: 0 var(--default-outer-space);
 }
-
-
-
-
-
-/* .container{max-width:var(--maxw); margin-inline:auto; padding-inline:1rem} */
-
-/* .site-header{
-  background:#fff;
-  border-bottom:1px solid var(--border);
-  position:sticky; top:0; z-index:10;
-}
-.brand{display:flex; align-items:center; gap:.75rem; padding:.75rem 0}
-.brand__logo{width:40px;height:40px}
-.brand__title{font-weight:700; font-size:1.125rem} */
-
-
 
 @media (max-width: 720px){
   /* CSS-only hamburger */
@@ -199,6 +205,12 @@ footer {
   .nav-label{display:none}
 }
 
+
+
+
+
+
+/* Utility classes temp */
 main{padding-block:1.25rem}
 /* .grid{
   display:grid;
