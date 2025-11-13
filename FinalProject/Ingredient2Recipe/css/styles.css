@@ -25,6 +25,7 @@
   --color-base-font: #222;
   --color-link: #0000ee;
   --color-link-visited: #56198b;
+  --color-link-hover:#3a4242; 
 
   /* Font units */
   --font-size-text: 1rem;
@@ -120,16 +121,16 @@ header {
 .nav-toggle {
   display:none
 }
-nav ul {
+.navigation-list {
   list-style: none; 
   margin: 0; 
   padding: 0; 
   display: flex; 
-  gap: var(--default-gap);
   flex-wrap: wrap;
+  gap: .4rem;
   position: relative;
 }
-nav ul:after { /* Hide the bootom line of the outline to fit the design */
+.navigation-list:after { /* Hide the bootom line of the outline to fit the design */
     content: '';
     height: 0.25rem;
     background: #fff;
@@ -138,19 +139,20 @@ nav ul:after { /* Hide the bootom line of the outline to fit the design */
     bottom: -0.3125rem;
     left: -0.3125rem;
 }
-nav a {
+.navigation-link {
   display:block; 
   padding:.5rem .75rem;
   font-weight: var(--font-weight-medium);
   text-decoration:none
 }
-nav a:visited {
+.navigation-link:visited {
   color: var(--color-black);
 }
-nav a:hover {
+.navigation-link:hover {
   color: var(--color-white);
+  background-color: var(--color-link-hover);
 }
-nav a[aria-current="page"]{
+.navigation-link[aria-current="page"]{
   color: var(--color-white);
   background:var(--color-black)
 }
@@ -268,7 +270,7 @@ input[type="text"], input[type="email"], textarea{
 
 
 /* Responsive imagery */
-.hero img{border-radius:var(--radius)}
+/* .hero img{border-radius:var(--radius)} */
 
 /* Layout helpers */
 .col-span-12{grid-column:span 12}

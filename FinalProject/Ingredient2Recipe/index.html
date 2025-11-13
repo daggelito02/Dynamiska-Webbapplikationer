@@ -21,12 +21,12 @@
       <nav class="navigation" aria-label="Huvudmeny">
         <input id="nav-toggle" class="nav-toggle" type="checkbox" />
         <label for="nav-toggle" class="nav-label" aria-controls="primary-navigation" aria-expanded="false">Meny</label>
-        <ul id="primary-navigation" role="list">
-          <li><a href="index.html" aria-current='page'>Hem</a></li>
-          <li><a href="html/search.html" >Sök</a></li>
-          <li><a href="html/inspiration.html" >Inspiration</a></li>
-          <li><a href="html/about.html" >Om oss</a></li>
-          <li><a href="html/contact.html" >Kontakt</a></li>
+        <ul id="primary-navigation" class="navigation-list" role="list">
+          <li><a class="navigation-link" href="index.html" aria-current='page'>Hem</a></li>
+          <li><a class="navigation-link" href="html/search.html" >Sök</a></li>
+          <li><a class="navigation-link" href="html/inspiration.html" >Inspiration</a></li>
+          <li><a class="navigation-link" href="html/about.html" >Om oss</a></li>
+          <li><a class="navigation-link" href="html/contact.html" >Kontakt</a></li>
         </ul>
       </nav>
     </div>
@@ -36,7 +36,7 @@
   <section class="intro-information" aria-labelledby="intro-title">
     <h1 id="intro-title">Hitta recept utifrån på vad du har hemma</h1>
     <p class="intro-text">
-      Saknar du inspiration till maten? Med vår smarta <a href="html/search.html" title="Gå till söksidan för att söka på ingredienser">sökfunktion</a> kan du 
+      Saknar du inspiration till maten? Med vår smarta sökfunktion kan du 
       enkelt hitta recept baserat på de ingredienser du redan har hemma. 
       Skriv bara in en valfri ingrediens på söksidan – till exempel "tomat", 
       "kyckling" eller "pasta" – så får du en lista med receptförslag som 
@@ -61,7 +61,8 @@
     <h2 id="weekly-tips-title">Här ser du veckans tips!</h2>
     
     <div class="recipe-grid">
-      <!-- Veckans recept med ingrediens (Banan) -->
+      <h3>Veckans recept med ingrediens (Banan) </h3>
+      <h3>Slumpat recept</h3>
       <div id="weekly-recipe-card" class="recipe-card">
         <a href="#" class="recipe-link" id="weekly-recipe-link">
           <article class="recipe-article">
@@ -77,7 +78,7 @@
         </a>
       </div>
 
-      <!-- Slumpat recept -->
+      
       <div id="random-recipe-card" class="recipe-card">
         <a href="#" class="recipe-link" id="random-recipe-link">
           <article class="recipe-article">
@@ -102,6 +103,6 @@
       <p><small>Data från TheMealDB (öppet API). Innehåll kan variera.</small></p>
     </div>
   </footer>
-  <script src="js/weekly-tips.js" defer></script>
+  <script src="js/weekly-tips.js" defer type="module"></script>
 </body>
 </html>
