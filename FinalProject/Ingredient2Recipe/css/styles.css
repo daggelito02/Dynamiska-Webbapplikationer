@@ -40,6 +40,8 @@
   --default-outer-space: 2rem;
   --default-padding: 1rem;
   --default-gap: 1rem;
+  --section-margin: 1rem;
+  --text-margin: .5rem;
 }
 
 /* Base elements */
@@ -49,7 +51,7 @@ body {
   font-weight: var(--font-weight-normal);
   line-height: normal;
   display: grid;
-  row-gap: 0.4375rem;
+  row-gap: var(--default-gap);
   grid: auto auto auto / 1fr minmax(1px, var(--max-width-main-area)) 1fr;
   grid-template-areas: /* Specifiserar gridens kontainers tre rader och tre kolumner */
       "header header header"
@@ -65,6 +67,10 @@ a {
 }
 a:visited {
   color:var(--color-link-visited)
+}
+a:hover {
+  background-color: var(--color-black);
+  color: var(--color-white);
 }
 img {
   max-width:100%; 
@@ -123,19 +129,6 @@ nav ul {
   flex-wrap: wrap;
   position: relative;
 }
-nav a {
-  display:block; 
-  padding:.5rem .75rem;
-  font-weight: var(--font-weight-medium);
-  text-decoration:none
-}
-nav a:visited {
-  color: var(--color-black);
-}
-nav a[aria-current="page"]{
-  color: var(--color-white);
-  background:var(--color-black)
-}
 nav ul:after { /* Hide the bootom line of the outline to fit the design */
     content: '';
     height: 0.25rem;
@@ -145,8 +138,24 @@ nav ul:after { /* Hide the bootom line of the outline to fit the design */
     bottom: -0.3125rem;
     left: -0.3125rem;
 }
+nav a {
+  display:block; 
+  padding:.5rem .75rem;
+  font-weight: var(--font-weight-medium);
+  text-decoration:none
+}
+nav a:visited {
+  color: var(--color-black);
+}
+nav a:hover {
+  color: var(--color-white);
+}
+nav a[aria-current="page"]{
+  color: var(--color-white);
+  background:var(--color-black)
+}
 
-/* Skip länk */
+/* Skip link */
 .skip-link {
   position: absolute;
   top: -3rem; /* Gömmer kontainern i default */
@@ -160,7 +169,6 @@ nav ul:after { /* Hide the bootom line of the outline to fit the design */
   border-radius: 0.3125rem;
   transition: top 0.3s ease;
 }
-
 .skip-link:focus {
   top: 2rem; 
   left: 2rem;
@@ -173,6 +181,7 @@ nav ul:after { /* Hide the bootom line of the outline to fit the design */
 main {
   grid-area:main-content;
   margin: 0 var(--default-outer-space);
+  padding-bottom: var(--default-padding);
 }
 main:focus-visible {
   outline: 3px solid var(--color-border);
@@ -180,10 +189,18 @@ main:focus-visible {
   position: relative;
 }
 
+.intro-information {
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--section-margin);
+  max-width: 80%;
+}
+.intro-text {
+  margin-bottom: var(--text-margin);
+}
+
 /* Footer content styles */
 footer {
   grid-area:footer;
-  margin-top: var(--default-margin);
   border-top: var(--border-width) solid var(--color-black);
   padding-block: var(--default-padding);
   color:var(--muted);
@@ -194,6 +211,9 @@ footer {
   max-width: var(--max-width-main-area);
   padding: 0 var(--default-outer-space);
 }
+
+
+
 
 @media (max-width: 720px){
   /* CSS-only hamburger */
@@ -211,7 +231,6 @@ footer {
 
 
 /* Utility classes temp */
-main{padding-block:1.25rem}
 /* .grid{
   display:grid;
   grid-template-columns: repeat(12, 1fr);
@@ -261,6 +280,116 @@ input[type="text"], input[type="email"], textarea{
 @media (min-width: 1024px){
   .col-span-3-lg{grid-column:span 3}
   .col-span-9-lg{grid-column:span 9}
+}
+
+/* Weekly/Random Tips Section */
+.weekly-random-tip {
+  margin: 3rem 0;
+}
+
+.weekly-random-tip h2 {
+  margin-bottom: 2rem;
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+/* Recipe Grid */
+.recipe-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .recipe-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .recipe-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+/* Recipe Card */
+.recipe-card {
+  overflow: hidden;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: var(--bg);
+}
+
+.recipe-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Recipe Link (removes default link styling) */
+.recipe-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.recipe-link:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+/* Recipe Article */
+.recipe-article {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Recipe Image */
+.recipe-image {
+  margin: 0;
+  overflow: hidden;
+  background: var(--border);
+  aspect-ratio: 16 / 9;
+}
+
+.recipe-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Recipe Info */
+.recipe-info {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.recipe-header {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--accent);
+}
+
+.recipe-meta {
+  margin: 0 0 1rem 0;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.recipe-text {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--muted);
+  flex-grow: 1;
 }
 
 /* Visually hidden utility for accessible labels */

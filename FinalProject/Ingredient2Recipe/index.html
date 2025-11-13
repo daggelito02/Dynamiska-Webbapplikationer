@@ -33,49 +33,66 @@
   </header>
   <main id="main" class="main-container" tabindex="-1">
 
-  <section class="hero card" aria-labelledby="intro-title">
-    <h1 id="intro-title">Hitta recept genom att söka på rättens namn</h1>
-    <p>Sök efter rätter med valfria ord – vi hittar matchande recept åt dig.</p>
+  <section class="intro-information" aria-labelledby="intro-title">
+    <h1 id="intro-title">Hitta recept utifrån på vad du har hemma</h1>
+    <p class="intro-text">
+      Saknar du inspiration till maten? Med vår smarta <a href="html/search.html" title="Gå till söksidan för att söka på ingredienser">sökfunktion</a> kan du 
+      enkelt hitta recept baserat på de ingredienser du redan har hemma. 
+      Skriv bara in en valfri ingrediens på söksidan – till exempel "tomat", 
+      "kyckling" eller "pasta" – så får du en lista med receptförslag som 
+      matchar just det du söker. 
+    </p>
+    <p class="intro-text">
+      Perfekt när du vill spara tid, minska matsvinn och laga något gott utan krångel.
+      Pröva att 
+      <a href="html/search.html" title="Gå till söksidan för att söka på ingredienser">söka</a> 
+      fram något recept redan idag! Eller pröva att <strong>slumpa</strong> fram ett gemom att 
+      klicka på det slumpvalda receptet nedan.
+    </p>
 
-    <picture>
+    <!-- <picture>
       <source srcset="images/hero-1600.jpg" media="(min-width:1024px)">
       <source srcset="images/hero-800.jpg" media="(min-width:480px)">
       <img src="images/hero-400.jpg" alt="Olika ingredienser upplagda på en bänk: paprika, tomat, pasta och örter.">
-    </picture>
+    </picture> -->
   </section>
 
-  <section class="grid" aria-labelledby="week-tips">
-    <h2 id="week-tips" class="col-span-12">Veckans ingrediens: paprika</h2>
+  <section class="weekly-random-tip" aria-labelledby="weekly-tips-title">
+    <h2 id="weekly-tips-title">Här ser du veckans tips!</h2>
+    
+    <div class="recipe-grid">
+      <!-- Veckans recept med ingrediens (Banan) -->
+      <div id="weekly-recipe-card" class="recipe-card">
+        <a href="#" class="recipe-link" id="weekly-recipe-link">
+          <article class="recipe-article">
+            <figure class="recipe-image">
+              <img id="weekly-recipe-img" src="" alt="Veckans recept">
+            </figure>
+            <div class="recipe-info">
+              <h3 id="weekly-recipe-title" class="recipe-header">Laddar...</h3>
+              <p id="weekly-recipe-category" class="recipe-meta"></p>
+              <p id="weekly-recipe-description" class="recipe-text"></p>
+            </div>
+          </article>
+        </a>
+      </div>
 
-    <div class="col-span-12 card">
-      <h3>Snabböversikt</h3>
-      <p>Tips som funkar i vardagen. Tabellen är rullbar i små skärmar.</p>
-      <div style="overflow:auto">
-        <table>
-          <caption class="visually-hidden">Tips för paprikarätter</caption>
-          <thead>
-            <tr><th>Rätt</th><th>Tillagningstid</th><th>Svårighet</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Fylld paprika</td><td>40 min</td><td>Lätt</td></tr>
-            <tr><td>Paprikagryta</td><td>25 min</td><td>Lätt</td></tr>
-            <tr><td>Paella med paprika</td><td>50 min</td><td>Medel</td></tr>
-          </tbody>
-        </table>
+      <!-- Slumpat recept -->
+      <div id="random-recipe-card" class="recipe-card">
+        <a href="#" class="recipe-link" id="random-recipe-link">
+          <article class="recipe-article">
+            <figure class="recipe-image">
+              <img id="random-recipe-img" src="" alt="Slumpat recept">
+            </figure>
+            <div class="recipe-info">
+              <h3 id="random-recipe-title" class="recipe-header">Laddar...</h3>
+              <p id="random-recipe-category" class="recipe-meta"></p>
+              <p id="random-recipe-description" class="recipe-text"></p>
+            </div>
+          </article>
+        </a>
       </div>
     </div>
-
-    <article class="card col-span-12 col-span-6-md">
-      <h3>Sök recept</h3>
-      <p>Sök efter recept genom att skriva delar av eller hela rättens namn.</p>
-      <p><a href="search.html" class="button">Gå till sök (namn)</a></p>
-    </article>
-
-    <article class="card col-span-12 col-span-6-md">
-      <h3>Om sajten</h3>
-      <p>Minimal, tillgänglig och responsiv – byggd för att vara enkel att förstå och använda.</p>
-      <p><a href="about.html">Läs mer om oss</a></p>
-    </article>
   </section>
 
   </main>
@@ -85,5 +102,6 @@
       <p><small>Data från TheMealDB (öppet API). Innehåll kan variera.</small></p>
     </div>
   </footer>
+  <script src="js/weekly-tips.js" defer></script>
 </body>
 </html>
