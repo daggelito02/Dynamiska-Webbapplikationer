@@ -69,10 +69,47 @@
     const descriptionEl = document.getElementById(`${cardPrefix}-recipe-description`);
     const linkEl = document.getElementById(`${cardPrefix}-recipe-link`);
 
-    // Set image
+    // Set responsive image using a <picture> with small/medium/large
     if (imgEl) {
-      imgEl.src = meal.strMealThumb || '';
-      imgEl.alt = safeText(meal.strMeal || 'Recipe');
+      const figureEl = imgEl.closest('figure');
+      const base = (meal.strMealThumb || '').replace(/\/(small|medium|large)$/, '');
+      const smallSrc = base ? `${base}/small` : '';
+      const mediumSrc = base ? `${base}/medium` : '';
+      const largeSrc = base ? `${base}/large` : '';
+
+      // Build picture element
+      if (figureEl) {
+        const picture = document.createElement('picture');
+
+        if (largeSrc) {
+          const sLarge = document.createElement('source');
+          sLarge.setAttribute('srcset', largeSrc);
+          sLarge.setAttribute('media', '(min-width:1024px)');
+          picture.appendChild(sLarge);
+        }
+
+        if (mediumSrc) {
+          const sMedium = document.createElement('source');
+          sMedium.setAttribute('srcset', mediumSrc);
+          sMedium.setAttribute('media', '(min-width:480px)');
+          picture.appendChild(sMedium);
+        }
+
+        // fallback img (used as default medium)
+        const fallbackImg = document.createElement('img');
+        fallbackImg.id = imgEl.id || '';
+        fallbackImg.className = imgEl.className || '';
+        fallbackImg.src = mediumSrc || (meal.strMealThumb || '');
+        fallbackImg.alt = safeText(meal.strMeal || 'Recipe');
+        picture.appendChild(fallbackImg);
+
+        // Replace existing img with picture
+        figureEl.replaceChild(picture, imgEl);
+      } else {
+        // Fallback: just update the img element
+        imgEl.src = mediumSrc || (meal.strMealThumb || '');
+        imgEl.alt = safeText(meal.strMeal || 'Recipe');
+      }
     }
 
     // Set title

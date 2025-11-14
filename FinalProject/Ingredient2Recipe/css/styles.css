@@ -357,10 +357,15 @@ input[type="text"], input[type="email"], textarea{
   outline: none;
   outline-offset: 0
 }
-
-
 .recipe-link:hover {
   background-color: transparent;
+}
+.recipe-link:hover .recipe-img {
+  filter: brightness(50%);
+}
+.recipe-link:hover .recipe-header {
+  text-decoration: underline;
+  color: var(--color-link-hover);
 }
 
 /* Recipe Article */
@@ -383,6 +388,8 @@ input[type="text"], input[type="email"], textarea{
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: all 0.3s 
+ease-in-out;
 }
 
 /* Recipe Info */
@@ -394,11 +401,7 @@ input[type="text"], input[type="email"], textarea{
 }
 
 .recipe-header {
-  margin: 0 0 0.5rem 0;
-  font-size: 1.25rem;
-  font-weight: 600;
-  line-height: 1.4;
-  color: var(--accent);
+  color: var(--color-black);
 }
 
 .recipe-meta {
