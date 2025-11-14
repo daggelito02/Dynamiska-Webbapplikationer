@@ -7,6 +7,7 @@
   <meta name="description" content="Hitta recept baserat på ingredienser du har hemma i kylsyåpet" />
   <link rel="preconnect" href="https://www.themealdb.com" />
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0">
   <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/darkmode-trial">
   <link rel="stylesheet" href="css/reset.css" />
   <link rel="stylesheet" href="css/styles.css" />
@@ -36,19 +37,16 @@
   <section class="intro-information" aria-labelledby="intro-title">
     <h1 id="intro-title">Hitta recept utifrån på vad du har hemma</h1>
     <p class="intro-text">
-      Saknar du inspiration till maten? Med vår smarta sökfunktion kan du 
-      enkelt hitta recept baserat på de ingredienser du redan har hemma. 
-      Skriv bara in en valfri ingrediens på söksidan – till exempel "tomat", 
-      "kyckling" eller "pasta" – så får du en lista med receptförslag som 
-      matchar just det du söker. 
+      Behöver du matinspiration? Med vår smarta <strong>sökfunktion</strong> hittar du enkelt 
+      recept utifrån ingredienserna du redan har hemma. Skriv till exempel "tomat", 
+      "kyckling" eller "pasta" på söksidan – så får du direkt recept som matchar det du söker.
     </p>
     <p class="intro-text">
-      Perfekt när du vill spara tid, minska matsvinn och laga något gott utan krångel.
-      Pröva att 
-      <a href="html/search.html" title="Gå till söksidan för att söka på ingredienser">söka</a> 
-      fram något recept redan idag! Eller pröva att <strong>slumpa</strong> fram ett gemom att 
-      klicka på det slumpvalda receptet nedan.
+      Spara tid, minska matsvinn och laga något gott utan krångel. 
+      <a href="html/search.html" title="Gå till söksidan för att söka på ingredienser">Sök</a> 
+      efter recept redan idag – eller klicka på det slumpade receptet nedan för att bli överraskad!
     </p>
+
 
     <!-- <picture>
       <source srcset="images/hero-1600.jpg" media="(min-width:1024px)">
@@ -61,9 +59,8 @@
     <h2 id="weekly-tips-title">Här ser du veckans tips!</h2>
     
     <div class="recipe-grid">
-      <h3>Veckans recept med ingrediens (Banan) </h3>
-      <h3>Slumpat recept</h3>
       <div id="weekly-recipe-card" class="recipe-card">
+        <h3 class="recipe-card-header">Denna veckas ingrediens: Banan </h3>
         <a href="#" class="recipe-link" id="weekly-recipe-link">
           <article class="recipe-article">
             <figure class="recipe-image">
@@ -77,9 +74,11 @@
           </article>
         </a>
       </div>
-
-      
       <div id="random-recipe-card" class="recipe-card">
+        <h3 class="recipe-card-header random-header">Slumpat fram ett recept</h3>
+        <button type="button" class="random-btn" id="new-random-recipe-btn" aria-label="Hämta nytt slumpat recept">
+          <span class="material-symbols-outlined">shuffle</span>
+        </button>
         <a href="#" class="recipe-link" id="random-recipe-link">
           <article class="recipe-article">
             <figure class="recipe-image">

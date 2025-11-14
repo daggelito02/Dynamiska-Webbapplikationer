@@ -98,6 +98,9 @@
     if (linkEl) {
       linkEl.href = `html/recipe.html?id=${encodeURIComponent(meal.idMeal)}`;
     }
+
+    // Return the link element so callers can move focus if needed
+    return linkEl;
   }
 
   // Main execution
@@ -108,4 +111,34 @@
 
   renderRecipeCard(weeklyMeal, 'weekly');
   renderRecipeCard(randomMeal, 'random');
+
+  // Attach click handler to the "new random recipe" button so it fetches a new random recipe
+  const newRandomBtn = document.getElementById('new-random-recipe-btn');
+  const randomCard = document.getElementById('random-recipe-card');
+  if (newRandomBtn) {
+    newRandomBtn.addEventListener('click', async (ev) => {
+      try {
+        // visual loading state on the card and button
+        if (randomCard) randomCard.classList.add('is-loading');
+        newRandomBtn.disabled = true;
+        newRandomBtn.setAttribute('aria-busy', 'true');
+
+        const newMeal = await fetchRandomRecipe();
+        if (newMeal) {
+          const linkEl = renderRecipeCard(newMeal, 'random');
+          // Move focus to the updated recipe link for accessibility
+          if (linkEl) {
+            // ensure it's focusable (anchor is focusable) and focus it
+            linkEl.focus({ preventScroll: false });
+          }
+        }
+      } catch (err) {
+        console.error('Error fetching new random recipe:', err);
+      } finally {
+        if (randomCard) randomCard.classList.remove('is-loading');
+        newRandomBtn.disabled = false;
+        newRandomBtn.removeAttribute('aria-busy');
+      }
+    });
+  }
 })();
