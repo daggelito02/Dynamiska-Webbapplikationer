@@ -7,6 +7,7 @@
   <meta name="description" content="Hitta recept baserat på ingredienser du har hemma." />
   <link rel="preconnect" href="https://www.themealdb.com" />
   <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0">
   <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/darkmode-trial">
   <link rel="stylesheet" href="../css/reset.css" />
   <link rel="stylesheet" href="../css/styles.css" />
@@ -19,14 +20,14 @@
         <img class="brand__logo" src="../images/logo.svg" alt="Ingrediensen ger receptet" />
       </div>
       <nav class="navigation" aria-label="Huvudmeny">
-        <input id="nav-toggle" class="nav-toggle" type="checkbox" />
-        <label for="nav-toggle" class="nav-label" aria-controls="primary-navigation" aria-expanded="false">Meny</label>
+        <button type="button" class="nav-toggle-btn" aria-controls="primary-navigation" aria-expanded="false">
+          <span class="material-symbols-outlined">menu</span>Meny
+        </button>
         <ul id="primary-navigation" class="navigation-list" role="list">
           <li><a class="navigation-link" href="../index.html">Hem</a></li>
           <li><a class="navigation-link" href="search.html">Sök</a></li>
-          <li><a class="navigation-link" href="inspiration.html" aria-current='page'>Inspiration</a></li>
+          <li><a class="navigation-link" href="inspiration.html" aria-current='page' tabindex="-1">Inspiration</a></li>
           <li><a class="navigation-link" href="about.html">Om oss</a></li>
-          <li><a class="navigation-link" href="contact.html">Kontakt</a></li>
         </ul>
       </nav>
     </div>
@@ -49,5 +50,6 @@
       <p><small>Data från TheMealDB (öppet API). Innehåll kan variera.</small></p>
     </div>
   </footer>
+  <script src="../js/nav-toggle.js" defer></script>
 </body>
 </html>

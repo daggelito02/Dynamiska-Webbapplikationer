@@ -63,53 +63,50 @@
   function renderRecipeCard(meal, cardPrefix) {
     if (!meal) return;
 
-    const imgEl = document.getElementById(`${cardPrefix}-recipe-img`);
     const titleEl = document.getElementById(`${cardPrefix}-recipe-title`);
     const categoryEl = document.getElementById(`${cardPrefix}-recipe-category`);
     const descriptionEl = document.getElementById(`${cardPrefix}-recipe-description`);
     const linkEl = document.getElementById(`${cardPrefix}-recipe-link`);
 
+    // Find the figure element by looking for the card
+    const cardEl = document.getElementById(`${cardPrefix}-recipe-card`);
+    const figureEl = cardEl ? cardEl.querySelector('.recipe-image') : null;
+
     // Set responsive image using a <picture> with small/medium/large
-    if (imgEl) {
-      const figureEl = imgEl.closest('figure');
+    if (figureEl) {
       const base = (meal.strMealThumb || '').replace(/\/(small|medium|large)$/, '');
       const smallSrc = base ? `${base}/small` : '';
       const mediumSrc = base ? `${base}/medium` : '';
       const largeSrc = base ? `${base}/large` : '';
 
-      // Build picture element
-      if (figureEl) {
-        const picture = document.createElement('picture');
+      // Build new picture element
+      const picture = document.createElement('picture');
 
-        if (largeSrc) {
-          const sLarge = document.createElement('source');
-          sLarge.setAttribute('srcset', largeSrc);
-          sLarge.setAttribute('media', '(min-width:1024px)');
-          picture.appendChild(sLarge);
-        }
-
-        if (mediumSrc) {
-          const sMedium = document.createElement('source');
-          sMedium.setAttribute('srcset', mediumSrc);
-          sMedium.setAttribute('media', '(min-width:480px)');
-          picture.appendChild(sMedium);
-        }
-
-        // fallback img (used as default medium)
-        const fallbackImg = document.createElement('img');
-        fallbackImg.id = imgEl.id || '';
-        fallbackImg.className = imgEl.className || '';
-        fallbackImg.src = mediumSrc || (meal.strMealThumb || '');
-        fallbackImg.alt = safeText(meal.strMeal || 'Recipe');
-        picture.appendChild(fallbackImg);
-
-        // Replace existing img with picture
-        figureEl.replaceChild(picture, imgEl);
-      } else {
-        // Fallback: just update the img element
-        imgEl.src = mediumSrc || (meal.strMealThumb || '');
-        imgEl.alt = safeText(meal.strMeal || 'Recipe');
+      if (largeSrc) {
+        const sLarge = document.createElement('source');
+        sLarge.setAttribute('srcset', largeSrc);
+        sLarge.setAttribute('media', '(min-width:1024px)');
+        picture.appendChild(sLarge);
       }
+
+      if (mediumSrc) {
+        const sMedium = document.createElement('source');
+        sMedium.setAttribute('srcset', mediumSrc);
+        sMedium.setAttribute('media', '(min-width:480px)');
+        picture.appendChild(sMedium);
+      }
+
+      // fallback img (used as default medium)
+      const fallbackImg = document.createElement('img');
+      fallbackImg.id = `${cardPrefix}-recipe-img`;
+      fallbackImg.className = 'recipe-img';
+      fallbackImg.src = mediumSrc || (meal.strMealThumb || '');
+      fallbackImg.alt = safeText(meal.strMeal || 'Recipe');
+      picture.appendChild(fallbackImg);
+
+      // Clear figure and insert new picture
+      figureEl.innerHTML = '';
+      figureEl.appendChild(picture);
     }
 
     // Set title

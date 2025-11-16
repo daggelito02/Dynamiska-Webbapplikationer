@@ -7,6 +7,7 @@
   <meta name="description" content="Hitta recept baserat på ingredienser du har hemma." />
   <link rel="preconnect" href="https://www.themealdb.com" />
   <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0">
   <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/darkmode-trial">
   <link rel="stylesheet" href="../css/reset.css" />
   <link rel="stylesheet" href="../css/styles.css" />
@@ -19,14 +20,14 @@
         <img class="brand__logo" src="../images/logo.svg" alt="Ingrediensen ger receptet" />
       </div>
       <nav class="navigation" aria-label="Huvudmeny">
-        <input id="nav-toggle" class="nav-toggle" type="checkbox" />
-        <label for="nav-toggle" class="nav-label" aria-controls="primary-navigation" aria-expanded="false">Meny</label>
+        <button type="button" class="nav-toggle-btn" aria-controls="primary-navigation" aria-expanded="false">
+          <span class="material-symbols-outlined">menu</span>Meny
+        </button>
         <ul id="primary-navigation" class="navigation-list" role="list">
           <li><a class="navigation-link" href="../index.html">Hem</a></li>
           <li><a class="navigation-link" href="search.html">Sök</a></li>
           <li><a class="navigation-link" href="inspiration.html">Inspiration</a></li>
-          <li><a class="navigation-link" href="about.html" aria-current='page'>Om oss</a></li>
-          <li><a class="navigation-link" href="contact.html">Kontakt</a></li>
+          <li><a class="navigation-link" href="about.html" aria-current='page' tabindex="-1" tabindex="-1">Om oss</a></li>
         </ul>
       </nav>
     </div>
@@ -39,6 +40,32 @@
     <p>Mål: hjälpa matglada personer 25–50 år att laga god mat utan krångel.</p>
     <p>Teknik: Semantisk HTML, responsiv CSS (mobile–desktop), och två JavaScript-sidor som hämtar data från öppet API.</p>
   </article>
+  <article class="card">
+    <h1>Kontakt</h1>
+    <form aria-labelledby="contact-title">
+      <fieldset>
+        <legend id="contact-title">Hör av dig</legend>
+        <label for="name">Namn</label>
+        <input id="name" name="name" type="text" autocomplete="name" required />
+
+        <label for="email">E-post</label>
+        <input id="email" name="email" type="email" autocomplete="email" required />
+
+        <label for="subject">Ämne</label>
+        <input id="subject" name="subject" type="text" required />
+
+        <label for="message">Meddelande</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <div>
+          <input id="consent" name="consent" type="checkbox" required />
+          <label for="consent">Jag samtycker till att ni hanterar mina uppgifter enligt beskrivningen.</label>
+        </div>
+
+        <button type="submit">Skicka</button>
+      </fieldset>
+    </form>
+  </article>
 
   </main>
   <footer class="footer" role="contentinfo">
@@ -47,5 +74,6 @@
       <p><small>Data från TheMealDB (öppet API). Innehåll kan variera.</small></p>
     </div>
   </footer>
+  <script src="../js/nav-toggle.js" defer></script>
 </body>
 </html>

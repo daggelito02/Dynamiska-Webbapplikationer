@@ -20,14 +20,14 @@
         <img class="brand__logo" src="images/logo.svg" alt="Ingrediensen ger receptet" />
       </div>
       <nav class="navigation" aria-label="Huvudmeny">
-        <input id="nav-toggle" class="nav-toggle" type="checkbox" />
-        <label for="nav-toggle" class="nav-label" aria-controls="primary-navigation" aria-expanded="false">Meny</label>
+        <button type="button" class="nav-toggle-btn" aria-controls="primary-navigation" aria-expanded="false">
+          <span class="material-symbols-outlined">menu</span>Meny
+        </button>
         <ul id="primary-navigation" class="navigation-list" role="list">
-          <li><a class="navigation-link" href="index.html" aria-current='page'>Hem</a></li>
+          <li><a class="navigation-link" href="index.html" aria-current='page' tabindex="-1">Hem</a></li>
           <li><a class="navigation-link" href="html/search.html" >Sök</a></li>
           <li><a class="navigation-link" href="html/inspiration.html" >Inspiration</a></li>
           <li><a class="navigation-link" href="html/about.html" >Om oss</a></li>
-          <li><a class="navigation-link" href="html/contact.html" >Kontakt</a></li>
         </ul>
       </nav>
     </div>
@@ -102,6 +102,7 @@
       <p><small>Data från TheMealDB (öppet API). Innehåll kan variera.</small></p>
     </div>
   </footer>
+  <script src="js/nav-toggle.js" defer></script>
   <script src="js/weekly-tips.js" defer type="module"></script>
 </body>
 </html>
