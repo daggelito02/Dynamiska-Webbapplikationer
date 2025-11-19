@@ -17,11 +17,13 @@
   <header class="site-header" role="banner">
     <div class="header-wrapper">
       <div class="brand">
-        <img class="brand__logo" src="../images/logo.svg" alt="Ingrediensen ger receptet" />
+        <a href="../index.html" aria-label="Gå till startsidan">
+          <img class="brand__logo" src="../images/logo.svg" alt="Ingrediensen ger receptet" />
+        </a>
       </div>
       <nav class="navigation" aria-label="Huvudmeny">
         <button type="button" class="nav-toggle-btn" aria-controls="primary-navigation" aria-expanded="false">
-          <span class="material-symbols-outlined">menu</span>Meny
+          Meny
         </button>
         <ul id="primary-navigation" class="navigation-list" role="list">
           <li><a class="navigation-link" href="../index.html">Hem</a></li>
@@ -33,6 +35,13 @@
     </div>
   </header>
   <main id="main" class="container" tabindex="-1">
+
+  <nav aria-label="Brödsmulenavigering">
+    <ol class="breadcrumbs">
+      <li><a href="search.html">Sök</a></li>
+      <li aria-current="page">Recept</li>
+    </ol>
+  </nav>
 
   <section class="card" id="recipe" aria-labelledby="recipe-title">
     <h1 id="recipe-title">Recept</h1>
