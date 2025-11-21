@@ -72,35 +72,42 @@
     const cardEl = document.getElementById(`${cardPrefix}-recipe-card`);
     const figureEl = cardEl ? cardEl.querySelector('.recipe-image') : null;
 
-    // Set responsive image using a <picture> with small/medium/large
+    // Set responsive image using a <picture> with default/medium/large
     if (figureEl) {
-      const base = (meal.strMealThumb || '').replace(/\/(small|medium|large)$/, '');
-      const smallSrc = base ? `${base}/small` : '';
+      const base = (meal.strMealThumb || '').replace(/\/(preview|medium|large)$/, '');
+      const defaultSrc = base || '';
       const mediumSrc = base ? `${base}/medium` : '';
       const largeSrc = base ? `${base}/large` : '';
 
       // Build new picture element
       const picture = document.createElement('picture');
 
+      if (defaultSrc) {
+        const sDefault = document.createElement('source');
+        sDefault.setAttribute('srcset', defaultSrc);
+        sDefault.setAttribute('media', '(min-width:1024px)');
+        picture.appendChild(sDefault);
+      }
+
       if (largeSrc) {
         const sLarge = document.createElement('source');
         sLarge.setAttribute('srcset', largeSrc);
-        sLarge.setAttribute('media', '(min-width:1024px)');
+        sLarge.setAttribute('media', '(min-width:640px)');
         picture.appendChild(sLarge);
       }
 
       if (mediumSrc) {
         const sMedium = document.createElement('source');
         sMedium.setAttribute('srcset', mediumSrc);
-        sMedium.setAttribute('media', '(min-width:480px)');
+        sMedium.setAttribute('media', '(min-width:350px)');
         picture.appendChild(sMedium);
       }
 
-      // fallback img (used as default medium)
+      // fallback img (uses medium size)
       const fallbackImg = document.createElement('img');
       fallbackImg.id = `${cardPrefix}-recipe-img`;
       fallbackImg.className = 'recipe-img';
-      fallbackImg.src = mediumSrc || (meal.strMealThumb || '');
+      fallbackImg.src = mediumSrc || defaultSrc || (meal.strMealThumb || '');
       fallbackImg.alt = safeText(meal.strMeal || 'Recipe');
       picture.appendChild(fallbackImg);
 

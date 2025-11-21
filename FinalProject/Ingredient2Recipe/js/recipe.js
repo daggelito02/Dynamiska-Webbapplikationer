@@ -3,7 +3,7 @@
 (function(){
   const params = new URLSearchParams(location.search);
   const id = params.get('id');
-  const wrap = document.getElementById('recipe-content');
+  const wrap = document.getElementById('recipe-article');
   if(!id){ wrap.innerHTML = "<p>Saknar id för recept.</p>"; return; }
 
   function listIngredients(meal){
@@ -24,20 +24,25 @@
       if(!meals){ wrap.innerHTML = "<p>Hittade inte recept.</p>"; return; }
       const m = meals[0];
       wrap.innerHTML = `
-        <div class="col-span-12 col-span-4-md card">
+        <h1 class="recipe-header">${m.strMeal}</h1>
+        <div class="recipe-overview">
           <img src="${m.strMealThumb}" alt="Foto av rätten ${m.strMeal}">
-          <p><strong>Kategori:</strong> ${m.strCategory || "-"}</p>
-          <p><strong>Kök:</strong> ${m.strArea || "-"}</p>
-          <p><a href="${m.strSource || '#'}" target="_blank" rel="noopener">Källa</a></p>
+          <div class="recipe-meta">
+            <p><strong>Kategori:</strong> ${m.strCategory || "-"}</p>
+            <p><strong>Kök:</strong> ${m.strArea || "-"}</p>
+          </div>
         </div>
-        <div class="col-span-12 col-span-8-md card">
-          <h2>${m.strMeal}</h2>
-          <h3>Ingredienser</h3>
+        <div class="recipe-ingredients">
+          <h2>Ingredienser</h2>
           <ul>${listIngredients(m)}</ul>
-          <h3>Instruktioner</h3>
-          <p>${(m.strInstructions || "").split("\r\n").map(line=>line.trim()).filter(Boolean).join("</p><p>")}</p>
-          ${m.strYoutube ? `<p><a href="${m.strYoutube}" target="_blank" rel="noopener">Se video på YouTube</a></p>` : ""}
         </div>
+        <div class="recipe-instructions">
+          <h2>Instruktioner</h2>
+          <p>${(m.strInstructions || "").split("\r\n").map(line=>line.trim()).filter(Boolean).join("</p><p>")}</p>
+          ${m.strYoutube ? `<p><a class="new-window" href="${m.strYoutube}" target="_blank" rel="noopener">Se video på YouTube</a></p>` : ""}
+          <p><a class="new-window" href="${m.strSource || '#'}" target="_blank" rel="noopener">Källa</a></p>
+        </div>
+        
       `;
     })
     .catch(err=>{
