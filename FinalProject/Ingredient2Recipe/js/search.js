@@ -34,7 +34,7 @@
       return;
     }
     try{
-      const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${encodeURIComponent(q)}`;
+      const url = `https://www.themealdb.com/api/json/v1/1/filter.php?i=${encodeURIComponent(q)}`;
       const res = await fetch(url);
       const data = await res.json();
       if(!data.meals){

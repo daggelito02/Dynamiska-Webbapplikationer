@@ -34,21 +34,32 @@
       </nav>
     </div>
   </header>
-  <main id="main" class="container" tabindex="-1">
+  <main id="main" class="main-container" tabindex="-1">
 
-  <section class="card" aria-labelledby="search-title">
-    <h1 id="search-title">Sök på rättens namn</h1>
-    <p>Exempel: <kbd>salt</kbd>, <kbd>beef</kbd>, <kbd>pasta</kbd> eller hela rätten, t.ex. <kbd>salt and pepper</kbd>. Resultaten hämtas från TheMealDB.</p>
-    <form id="ingredient-form" role="search" aria-label="Receptsökning på rättens namn">
-      <label for="q">Rättens namn</label>
+  <section class="search-form-section" aria-labelledby="search-title">
+    <h1 id="search-title">Sök och hitta ett recept baserat på ingredienser</h1>
+    <div class="search-intro-text">
+      <p>
+        Här kan du söka fram en lista med recept baserade på den ingrediens du vill ska ingå i receptet.
+        Tanken är att du kanske är sugen på en speciell råvara och vill se om det finns recept med just den ingrediensen,
+        eller att du helt enkelt behöver laga något av den innan den blir för gammal. Det finns som sagt många olika
+        anledningar till varför det kan vara en bra idé att söka på ingredienser.
+      </p>
+      <p>
+        Denna sökfunktion har tillgång till en databas med recept på engelska så använd engelska ord.
+      </p>
+    </div>
+    <p>Exempel: <kbd>salt</kbd>, <kbd>beef</kbd>, <kbd>pasta</kbd>.</p>
+    <form id="ingredient-form" class="search-form" aria-label="Receptsökning på ingrediensens namn">
+      <label for="q">Ingrediensens namn på engelska:</label>
       <input id="q" name="q" type="text" required
-             placeholder="Skriv ett namn, t.ex. salt" aria-describedby="help" />
-      <p id="help"><small>Sökningen kan innehålla bokstäver, mellanslag och bindestreck. Tomt fält tillåts inte.</small></p>
-      <button type="submit">Sök recept</button>
+             placeholder="Skriv en ingrediens, t.ex. flour" aria-describedby="help" /><button type="submit">Sök recept</button>
+      <p id="help"><small>Sökningen kan innehålla bokstäver och mellanslag. Tomt fält tillåts inte.</small></p>
+      
     </form>
   </section>
 
-  <section class="card" aria-live="polite" id="results" aria-labelledby="results-title">
+  <section class="search-results" aria-live="polite" id="results" aria-labelledby="results-title">
     <h2 id="results-title">Sökresultat</h2>
     <div id="result-grid" class="grid"></div>
   </section>

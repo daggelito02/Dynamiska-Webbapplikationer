@@ -82,21 +82,22 @@
       // Build new picture element
       const picture = document.createElement('picture');
 
-      if (defaultSrc) {
-        const sDefault = document.createElement('source');
-        sDefault.setAttribute('srcset', defaultSrc);
-        sDefault.setAttribute('media', '(min-width:1024px)');
-        picture.appendChild(sDefault);
-      }
-
-      if (largeSrc) {
+      // Order sources largest -> smallest: large (1024), default/base (640), medium (350)
+      if (largeSrc) { // >=1024px uses /large
         const sLarge = document.createElement('source');
         sLarge.setAttribute('srcset', largeSrc);
-        sLarge.setAttribute('media', '(min-width:640px)');
+        sLarge.setAttribute('media', '(min-width:1024px)');
         picture.appendChild(sLarge);
       }
 
-      if (mediumSrc) {
+      if (defaultSrc) { // >=640px uses original/base image
+        const sDefault = document.createElement('source');
+        sDefault.setAttribute('srcset', defaultSrc);
+        sDefault.setAttribute('media', '(min-width:640px)');
+        picture.appendChild(sDefault);
+      }
+
+      if (mediumSrc) { // >=350px uses /medium
         const sMedium = document.createElement('source');
         sMedium.setAttribute('srcset', mediumSrc);
         sMedium.setAttribute('media', '(min-width:350px)');

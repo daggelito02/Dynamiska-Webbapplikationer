@@ -23,26 +23,44 @@
     .then(({meals})=>{
       if(!meals){ wrap.innerHTML = "<p>Hittade inte recept.</p>"; return; }
       const m = meals[0];
+      const baseImg = (m.strMealThumb || '').replace(/\/(preview|medium|large)$/,'');
+      const mediumSrc = baseImg ? `${baseImg}/medium` : m.strMealThumb;
+      const largeSrc = baseImg ? `${baseImg}/large` : m.strMealThumb;
+      // For this page: >=1024px large, >=640px large, >=350px medium, fallback img uses large
       wrap.innerHTML = `
         <h1 class="recipe-header">${m.strMeal}</h1>
         <div class="recipe-overview">
-          <img src="${m.strMealThumb}" alt="Foto av rätten ${m.strMeal}">
+          <picture class="recipe-picture">
+            <source srcset="${largeSrc}" media="(min-width:1024px)">
+            <source srcset="${largeSrc}" media="(min-width:640px)">
+            <source srcset="${mediumSrc}" media="(min-width:350px)">
+            <img class="recipe-img" src="${largeSrc}" alt="Foto av rätten ${m.strMeal}">
+          </picture>
           <div class="recipe-meta">
             <p><strong>Kategori:</strong> ${m.strCategory || "-"}</p>
             <p><strong>Kök:</strong> ${m.strArea || "-"}</p>
           </div>
         </div>
-        <div class="recipe-ingredients">
-          <h2>Ingredienser</h2>
-          <ul>${listIngredients(m)}</ul>
+        <div class="recipe-text-content">
+           <div class="recipe-ingredients">
+            <h2>Ingredienser</h2>
+            <ul class="recipe-ingredients-list">${listIngredients(m)}</ul>
+          </div>
+          <div class="recipe-instructions">
+            <h2>Instruktioner</h2>
+            <p class="recipe-instruction-text">
+                  ${(m.strInstructions || "")
+                 .split("\r\n")
+                 .map(line => line.trim())
+                 .filter(line => line && !/^▢+$/.test(line))
+                 .join("</p><p class=\"recipe-instruction-text\">")}
+            </p>
+            <div class="recipe-links">
+              ${m.strYoutube ? `<p><a class="new-window" href="${m.strYoutube}" target="_blank" rel="noopener">Se video på YouTube</a></p>` : ""}
+              <p><a class="new-window" href="${m.strSource || '#'}" target="_blank" rel="noopener">Källa</a></p>
+            </div>
+          </div>
         </div>
-        <div class="recipe-instructions">
-          <h2>Instruktioner</h2>
-          <p>${(m.strInstructions || "").split("\r\n").map(line=>line.trim()).filter(Boolean).join("</p><p>")}</p>
-          ${m.strYoutube ? `<p><a class="new-window" href="${m.strYoutube}" target="_blank" rel="noopener">Se video på YouTube</a></p>` : ""}
-          <p><a class="new-window" href="${m.strSource || '#'}" target="_blank" rel="noopener">Källa</a></p>
-        </div>
-        
       `;
     })
     .catch(err=>{
