@@ -6,6 +6,7 @@
   --max-width-main-area: 75rem;
   --border-width: 0.0625rem; /* 1px */
   --border-radius: 1rem;
+  --info-content-width: 80%;
   /* Color units */
   --color-border: #3a4242;
   --color-background: #fff;
@@ -125,6 +126,19 @@ h2 {
 h3 {
   font-size: var(--font-size-h3);
   font-weight: var(--font-weight-bold);
+}
+input,
+select,
+textarea,
+button {
+  font: inherit;
+}
+input[type="text"],
+input[type="email"],
+textarea {
+  padding: 0.6rem 0.75rem;
+  border: var(--border-width) solid var(--color-border);
+  border-radius: 0.5rem;
 }
 /* Header content styles */
 header {
@@ -309,7 +323,7 @@ main:focus-visible {
 .intro-information {
   font-weight: var(--font-weight-medium);
   margin-bottom: var(--section-margin);
-  max-width: 80%;
+  max-width: var(--info-content-width);
 }
 .intro-text {
   margin-bottom: var(--text-margin);
@@ -332,14 +346,13 @@ footer {
   margin: var(--margin-default) 0;
 }
 /* Recipe Grid */
-.recipe-grid {
+.recipe-grid{
   display: grid;
-  /* grid-template-columns: 1fr; */
   grid-template-columns: repeat(2, 1fr);
   gap: var(--default-gap-lg);
 }
-/* Recipe Card */
-.recipe-card {
+/* Cards */
+.recipe-card, .aside-card {
   margin-top: var(--card-margin);
   overflow: hidden;
   border-radius: var(--border-radius);
@@ -493,15 +506,45 @@ footer {
   margin-top: .5rem;
 }
 /* search */
-.search-intro-text {
-  font-weight: var(--font-weight-medium);
-  margin-bottom: var(--section-margin);
-  max-width: 80%;
-}
-.search-form {
+.search-grid {
   display: grid;
-  gap: 0.75rem;
-  max-width: 38rem;
+  grid-template-columns: 55% 1fr;
+  gap: var(--default-gap-lg);
+  align-items: start;
+}
+.search-info-text-container {
+  font-weight: var(--font-weight-normal);
+  padding: 1rem;
+}
+.search-info-header  {
+  font-size: var(--font-size-h3);
+}
+
+.search-text-info {
+  font-weight: var(--font-weight-normal);
+  line-height: 1.5;
+  margin-bottom: var(--text-margin);
+}
+
+.search-form {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+  row-gap: .2rem;
+  column-gap: .5rem;
+}
+.search-form-label {
+  flex: 0 0 100%;
+  font-weight: var(--font-weight-medium);
+  margin-top: .5rem;
+}
+.search-form-type-text {
+  max-width: var(--info-content-width);
+ flex-grow: 1;
+}
+.search-form-help {
+  flex: 0 0 100%;
 }
 /* Visually hidden utility for accessible labels */
 .visually-hidden {
@@ -708,17 +751,4 @@ thead th {
 }
 
 
-input,
-select,
-textarea,
-button {
-  font: inherit;
-}
-input[type="text"],
-input[type="email"],
-textarea {
-  width: 100%;
-  padding: 0.6rem 0.75rem;
-  border: var(--border-width) solid var(--color-border);
-  border-radius: 0.5rem;
-}
+
