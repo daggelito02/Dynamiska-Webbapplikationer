@@ -70,8 +70,8 @@ a:visited {
   color: var(--color-link);
 }
 a:hover {
-  background-color: var(--color-black);
-  color: var(--color-white);
+  /* background-color: var(--color-black);
+  color: var(--color-white); */
 }
 a.skip-link:focus {
   outline-offset: 0;
@@ -545,6 +545,28 @@ footer {
 }
 .search-form-help {
   flex: 0 0 100%;
+}
+.search-result-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--default-gap);
+  padding: 1rem 0;
+  border-bottom: var(--border-width) solid var(--color-border);
+  text-decoration: none;
+}
+.search-result-list:hover {
+  text-decoration: underline;
+  color: var(--color-link-hover);
+}
+.search-result-header {
+  font-size: var(--font-size-h3);
+  margin-bottom: var(--text-margin);
+  width: 100%;
+  color: var(--color-black);
+}
+.search-result-instructions {
+ flex: 1;
+  color: var(--color-base-font);
 }
 /* Visually hidden utility for accessible labels */
 .visually-hidden {

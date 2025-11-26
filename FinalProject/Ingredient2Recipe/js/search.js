@@ -14,12 +14,20 @@
   function card(meal){
     const a = document.createElement('a');
     a.href = `recipe.html?id=${meal.idMeal}`;
-    a.className = 'card col-span-12 col-span-6-md col-span-3-lg';
+    a.className = 'search-result-list';
     a.setAttribute('aria-label', `Visa recept: ${meal.strMeal}`);
+    
+    // Extract snippet from instructions if available
+    const instructions = meal.strInstructions || '';
+    const snippet = instructions.substring(0, 500) + (instructions.length > 100 ? '...' : '');
+    
     a.innerHTML = `
-      <img src="${meal.strMealThumb}" alt="Foto av rätten ${safeText(meal.strMeal)}">
-      <h3>${safeText(meal.strMeal)}</h3>
-      <p><small>${safeText(meal.strArea || "")} ${meal.strCategory ? "• " + safeText(meal.strCategory) : ""}</small></p>
+      <h3 class="search-result-header">${safeText(meal.strMeal)}</h3>
+      <p class="search-result-instructions"> ${snippet ? `${safeText(snippet)}` : ''}
+        <br><small>${safeText(meal.strArea || "")} ${meal.strCategory ? "• " + safeText(meal.strCategory) : ""}</small>
+      </p>
+      <img src="${meal.strMealThumb}/small" alt="Foto av rätten ${safeText(meal.strMeal)}">
+     
     `;
     return a;
   }
@@ -34,15 +42,31 @@
       return;
     }
     try{
-      const url = `https://www.themealdb.com/api/json/v1/1/filter.php?i=${encodeURIComponent(q)}`;
-      const res = await fetch(url);
-      const data = await res.json();
-      if(!data.meals){
+      // Step 1: Get filtered list by ingredient
+      const filterUrl = `https://www.themealdb.com/api/json/v1/1/filter.php?i=${encodeURIComponent(q)}`;
+      const filterRes = await fetch(filterUrl);
+      const filterData = await filterRes.json();
+      
+      if(!filterData.meals){
         grid.innerHTML = "<p>Inga träffar. Testa ett annat sökord.</p>";
         return;
       }
+      
+      // Step 2: Fetch full details for each meal (limited to 12 for performance)
+      grid.innerHTML = "<p>Laddar recept...</p>";
+      const mealPromises = filterData.meals.slice(0, 12).map(meal => 
+        fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meal.idMeal}`)
+          .then(r => r.json())
+          .then(data => data.meals?.[0])
+          .catch(() => null) // Handle individual failures
+      );
+      
+      const fullMeals = await Promise.all(mealPromises);
+      
+      // Step 3: Render cards with full data
+      grid.innerHTML = "";
       const frag = document.createDocumentFragment();
-      data.meals.slice(0, 24).forEach(m => frag.appendChild(card(m)));
+      fullMeals.filter(Boolean).forEach(m => frag.appendChild(card(m)));
       grid.appendChild(frag);
     }catch(err){
       grid.innerHTML = "<p>Kunde inte hämta data just nu.</p>";
