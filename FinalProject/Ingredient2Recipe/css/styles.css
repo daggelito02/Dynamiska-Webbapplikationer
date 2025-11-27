@@ -558,6 +558,14 @@ footer {
   text-decoration: underline;
   color: var(--color-link-hover);
 }
+.search-result-list:hover img{
+  filter: brightness(50%);
+  
+}
+.search-list-img {
+  border-radius: .3rem;
+  transition: 0.3s ease-in-out;
+}
 .search-result-header {
   font-size: var(--font-size-h3);
   margin-bottom: var(--text-margin);

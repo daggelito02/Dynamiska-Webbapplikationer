@@ -23,10 +23,15 @@
     
     a.innerHTML = `
       <h3 class="search-result-header">${safeText(meal.strMeal)}</h3>
-      <p class="search-result-instructions"> ${snippet ? `${safeText(snippet)}` : ''}
-        <br><small>${safeText(meal.strArea || "")} ${meal.strCategory ? "• " + safeText(meal.strCategory) : ""}</small>
-      </p>
-      <img src="${meal.strMealThumb}/small" alt="Foto av rätten ${safeText(meal.strMeal)}">
+      <div class="search-result-instructions">
+        <p> 
+          ${snippet ? `${safeText(snippet)}` : ''}
+        </p>
+        <footer class="search-result-meta">
+          <small>${safeText(meal.strArea || "")} ${meal.strCategory ? "• " + safeText(meal.strCategory) : ""}</small>
+        </footer>
+      </div>
+      <img class="search-list-img" src="${meal.strMealThumb}/small" alt="Foto av rätten ${safeText(meal.strMeal)}">
      
     `;
     return a;
