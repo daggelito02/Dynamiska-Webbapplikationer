@@ -46,6 +46,49 @@
   --section-margin: 1rem;
   --text-margin: 0.5rem;
 }
+/* Start reset */
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+body {
+  /* 3. Add accessible line-height */
+  line-height: 1.5;
+  /* 4. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+/* 5. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 6. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+/* 7. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+/* 8. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+/*
+  9. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+/* end reset */
 /* Base elements */
 body {
   font-family: "Darkmode Trial", Arial, Helvetica, sans-serif;
@@ -81,7 +124,6 @@ a.skip-link:hover {
   background-color: var(--color-background);
 }
 img {
-  max-width: 100%;
   height: auto;
   display: block;
 }
@@ -443,6 +485,7 @@ footer {
   object-fit: cover;
   display: block;
   transition: all 0.3s ease-in-out;
+  background-color: #fff!important;
 }
 /* Recipe Info */
 .recipe-info, .recipe-content {
@@ -519,13 +562,11 @@ footer {
 .search-info-header  {
   font-size: var(--font-size-h3);
 }
-
 .search-text-info {
   font-weight: var(--font-weight-normal);
   line-height: 1.5;
   margin-bottom: var(--text-margin);
 }
-
 .search-form {
   display: flex;
   flex-wrap: wrap;
@@ -546,35 +587,64 @@ footer {
 .search-form-help {
   flex: 0 0 100%;
 }
-.search-result-list {
+/* xxxxxxxxx */
+.search-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.search-result-article {
   display: flex;
   flex-wrap: wrap;
   gap: var(--default-gap);
   padding: 1rem 0;
   border-bottom: var(--border-width) solid var(--color-border);
-  text-decoration: none;
+  
 }
-.search-result-list:hover {
+li:last-child .search-result-article {
+    border: none;
+    padding-bottom: .5rem;
+}
+.search-result-link {
+  display: block;
+  text-decoration: none;
+  color: var(--color-link-hover);
+}
+.search-result-link:hover {
   text-decoration: underline;
   color: var(--color-link-hover);
 }
-.search-result-list:hover img{
+.search-result-link:hover img{
   filter: brightness(50%);
   
 }
 .search-list-img {
   border-radius: .3rem;
   transition: 0.3s ease-in-out;
+  max-height: fit-content;
 }
 .search-result-header {
-  font-size: var(--font-size-h3);
   margin-bottom: var(--text-margin);
   width: 100%;
   color: var(--color-black);
+  justify-content: start;
+  border: none;
 }
-.search-result-instructions {
+.search-result-text-content {
  flex: 1;
   color: var(--color-base-font);
+}
+.search-result-preview-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.search-result-meta {
+  padding: .5rem 0;
+  border: none;
+  justify-content: start;
+
 }
 /* Visually hidden utility for accessible labels */
 .visually-hidden {
