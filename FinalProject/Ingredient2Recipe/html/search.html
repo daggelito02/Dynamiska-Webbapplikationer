@@ -37,35 +37,42 @@
   <main id="main" class="main-container" tabindex="-1">
     <section class="search-form-section" aria-labelledby="search-title">
       <h1 id="search-title">Sök och hitta ett recept baserat på ingredienser</h1>
-      
       <div class="search-grid">
-      <form id="ingredient-form" class="search-form" 
-            aria-label="Receptsökning på ingrediensens namn" aria-describedby="search-info">
-        <p>
-          För att få bästa resultat, skriv in ingrediensens namn på engelska.</p>
-        <p>
-          Exempel: <kbd>salt</kbd>, <kbd>beef</kbd>, <kbd>noodles</kbd>.
-        </p>
-        <label class="search-form-label" for="q">Sök:</label>
-        <input class="search-form-type-text" id="q" name="q" type="text" required
-              placeholder="Skriv en ingrediens, t.ex. flour" aria-describedby="help" />
-        <button type="submit">Sök recept</button>
-        <p class="search-form-help" id="help">
-          <small>Sökningen kan innehålla bokstäver och mellanslag. Tomt fält tillåts inte.</small>
-        </p>
-      </form>
-      <aside id="search-info" class="search-info-text-container aside-card">
-        <h2 class="search-info-header">Om sökfunktionen</h2>
-        <p class="search-text-info">
-          Här kan du söka fram en lista med recept baserade på den ingrediens du vill ska ingå i receptet.
-        </p>
-        <p class="search-text-info">Tanken är att du kanske är sugen på en speciell råvara och vill se om det finns recept med just den ingrediensen,
-          eller att du helt enkelt behöver laga något av den innan den blir för gammal. 
-        </p>
-        <p class="search-text-info">
-          Det finns som sagt många olika anledningar till varför det kan vara en bra idé att söka på ingredienser.
-        </p>
-      </aside>
+        <form id="ingredient-form" class="search-form" 
+              aria-label="Receptsökning på ingrediensens namn" aria-describedby="search-info">
+          <p>
+            För att få bästa resultat, skriv in ingrediensens namn på engelska.</p>
+          <p>
+            Exempel: <kbd>salt</kbd>, <kbd>beef</kbd>, <kbd>noodles</kbd>.
+          </p>
+          <label class="search-form-label" for="q">Sök:</label>
+          <input class="search-form-type-text" id="q" name="q" type="text" required
+                placeholder="Skriv en ingrediens, t.ex. flour" aria-describedby="help" />
+          <button type="submit">Sök recept</button>
+          <p class="search-form-help" id="help">
+            <small>Sökningen kan innehålla bokstäver och mellanslag. Tomt fält tillåts inte.</small>
+          </p>
+        </form>
+        <aside class="search-aside">
+          <button type="button" id="search-info-toggle" class="search-info-toggle" aria-controls="search-info" aria-expanded="false">
+          <span class="search-button-text">Om sökfunktionen
+            <span aria-hidden="true" class="material-symbols-outlined search-arrow">keyboard_arrow_down</span>
+            <span aria-hidden="true" class="material-symbols-outlined search-arrow" hidden>keyboard_arrow_up</span>
+          </span>
+        </button>
+          <div id="search-info" class="search-info-text-container aside-card">
+            <h2 class="search-info-header">Om sökfunktionen</h2>
+            <p class="search-text-info">
+              Här kan du söka fram en lista med recept baserade på den ingrediens du vill ska ingå i receptet.
+            </p>
+            <p class="search-text-info">Tanken är att du kanske är sugen på en speciell råvara och vill se om det finns recept med just den ingrediensen,
+              eller att du helt enkelt behöver laga något av den innan den blir för gammal. 
+            </p>
+            <p class="search-text-info">
+              Det finns som sagt många olika anledningar till varför det kan vara en bra idé att söka på ingredienser.
+            </p>
+          </div>
+        </aside>
       </div>
     </section>
     <section class="search-results" aria-live="polite" id="results" aria-labelledby="results-title">

@@ -6,6 +6,42 @@
   const grid = document.getElementById('search-list');
   const resultsSection = document.getElementById('results');
 
+  // Toggle for search-info aside
+  const toggleBtn = document.getElementById('search-info-toggle');
+  const aside = document.getElementById('search-info');
+  
+  if (toggleBtn && aside) {
+    const arrows = toggleBtn.querySelectorAll('.search-arrow');
+    const downArrow = arrows[0];
+    const upArrow = arrows[1];
+
+    const setClosedVisual = () => {
+      if (downArrow) downArrow.hidden = false;
+      if (upArrow) upArrow.hidden = true;
+    };
+    const setOpenVisual = () => {
+      if (downArrow) downArrow.hidden = true;
+      if (upArrow) upArrow.hidden = false;
+    };
+
+    toggleBtn.addEventListener('click', () => {
+      const isOpen = aside.classList.contains('open');
+      aside.classList.toggle('open');
+      const nowOpen = !isOpen;
+      toggleBtn.setAttribute('aria-expanded', String(nowOpen));
+      if (nowOpen) setOpenVisual(); else setClosedVisual();
+    });
+    
+    aside.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        aside.classList.remove('open');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        setClosedVisual();
+        toggleBtn.focus();
+      }
+    });
+  }
+
   function safeText(str){
     return String(str || "").replace(/[&<>"']/g, s => ({
       "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&#34;","'":"&#39;"

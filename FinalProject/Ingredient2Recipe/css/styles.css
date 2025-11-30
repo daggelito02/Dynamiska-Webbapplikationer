@@ -43,6 +43,7 @@
   --default-gap: 1rem;
   --default-gap-lg: 2rem;
   --default-gap-md: 1.5rem;
+  --small-gap: 0.5rem;
   --section-margin: 1rem;
   --text-margin: 0.5rem;
 }
@@ -587,7 +588,6 @@ footer {
 .search-form-help {
   flex: 0 0 100%;
 }
-/* xxxxxxxxx */
 .search-list {
   list-style: none;
   margin: 0;
@@ -624,7 +624,7 @@ li:last-child .search-result-article {
   max-height: fit-content;
 }
 .search-result-header {
-  margin-bottom: var(--text-margin);
+  margin-bottom: -.6rem;
   width: 100%;
   color: var(--color-black);
   justify-content: start;
@@ -645,6 +645,41 @@ li:last-child .search-result-article {
   border: none;
   justify-content: start;
 
+}
+/* Toggle button - hidden on desktop, shown on mobile */
+.search-info-toggle {
+  display: none;
+  background: none;
+  padding: 0.2rem 0.5rem;
+  font: inherit;
+  color: var(--color-base-font);
+  cursor: pointer;
+  align-items: center;
+}
+.search-info-toggle:hover,
+.search-info-toggle:focus-visible {
+  text-decoration: none;
+  outline: 3px solid var(--color-border);
+  outline-offset: 0.125rem;
+  border-radius: 4px;
+}
+.search-info-toggle .toggle-label::after {
+  content: '';
+  font-family: 'Material Symbols Outlined';
+  margin-left: .3rem;
+  font-size: 1.1em;
+  position: relative;
+  top: 0.15rem;
+}
+span.search-button-text {
+    position: relative;
+    padding-right: 1.3rem;
+}
+.search-arrow {
+  position: absolute;
+}
+.search-arrow[hidden] {
+    display: none;
 }
 /* Visually hidden utility for accessible labels */
 .visually-hidden {
@@ -754,6 +789,25 @@ li:last-child .search-result-article {
     background: var(--color-border);
     aspect-ratio: 16 / 9;
   }
+  .search-info-toggle { 
+    display: inline-flex; 
+  }
+  .search-grid {
+    display: grid;
+    grid-template-columns: unset;
+    gap: unset;
+    align-items: start;
+  }
+  .search-aside {
+    order: -1;
+  }
+  .search-info-text-container { 
+    display: none;
+  }
+  .search-info-text-container.open {
+    display: block;
+    margin-bottom: var(--small-gap);
+  }
 }
 @media (max-width: 991px) and (min-width: 641px) {
   a.navigation-link {
@@ -833,6 +887,11 @@ li:last-child .search-result-article {
     display: none;
   }
 }
+
+/* Hide the search info toggle on desktop/tablet */
+/* @media (min-width: 769px) {
+  .search-info-toggle { display: none; }
+} */
 
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 
