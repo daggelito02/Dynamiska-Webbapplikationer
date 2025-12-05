@@ -36,38 +36,216 @@
   </header>
   <main id="main" class="main-container" tabindex="-1">
 
-  <article class="card">
-    <h1>Om oss</h1>
-    <p><strong>Ingrediensen ger receptet</strong> är en enkel tjänst för att hitta recept genom sökning på rättens namn.</p>
-    <p>Mål: hjälpa matglada personer 25–50 år att laga god mat utan krångel.</p>
-    <p>Teknik: Semantisk HTML, responsiv CSS (mobile–desktop), och två JavaScript-sidor som hämtar data från öppet API.</p>
-  </article>
-  <article class="card">
-    <h1>Kontakt</h1>
-    <form aria-labelledby="contact-title">
-      <fieldset>
-        <legend id="contact-title">Hör av dig</legend>
-        <label for="name">Namn</label>
-        <input id="name" name="name" type="text" autocomplete="name" required />
+  <!-- Intro / Hero -->
+    <section class="hero" aria-labelledby="about-title">
+      <div class="hero-text">
+        <h1 id="about-title">Om oss</h1>
+        <p>
+          ReceptSök hjälper dig hitta recept utifrån den ingrediens du är sugen på,
+          eller behöver använda innan den blir för gammal. Vi vill göra det enklare
+          att laga gott, minska matsvinn och få mer inspiration i vardagen.
+        </p>
+      </div>
 
-        <label for="email">E-post</label>
-        <input id="email" name="email" type="email" autocomplete="email" required />
+      <figure class="hero-figure">
+        <picture>
+          <source
+            srcset="
+              https://images.pexels.com/photos/9226253/pexels-photo-9226253.jpeg?auto=compress&cs=srgb&w=1400 1400w,
+              https://images.pexels.com/photos/9226253/pexels-photo-9226253.jpeg?auto=compress&cs=srgb&w=2200 2200w
+            "
+            sizes="(min-width: 900px) 40vw, 100vw"
+            type="image/jpeg"
+          />
+          <img
+            src="https://images.pexels.com/photos/9226253/pexels-photo-9226253.jpeg?auto=compress&cs=srgb&w=900"
+            srcset="
+              https://images.pexels.com/photos/9226253/pexels-photo-9226253.jpeg?auto=compress&cs=srgb&w=600 600w,
+              https://images.pexels.com/photos/9226253/pexels-photo-9226253.jpeg?auto=compress&cs=srgb&w=900 900w,
+              https://images.pexels.com/photos/9226253/pexels-photo-9226253.jpeg?auto=compress&cs=srgb&w=1400 1400w
+            "
+            sizes="(min-width: 900px) 40vw, 100vw"
+            alt="Ett ljust kök med färska ingredienser på en bänk"
+            loading="eager"
+            decoding="async"
+          />
+        </picture>
+      </figure>
+    </section>
 
-        <label for="subject">Ämne</label>
-        <input id="subject" name="subject" type="text" required />
+    <!-- Team -->
+    <section class="section" aria-labelledby="team-title">
+      <h2 id="team-title">Teamet bakom ReceptSök</h2>
+      <p class="section-lead">
+        Vi är ett litet team av matnördar och utvecklare som älskar att bygga smarta verktyg.
+      </p>
 
-        <label for="message">Meddelande</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
+      <ul class="team-grid" role="list">
+        <li class="team-card">
+          <picture class="team-photo">
+            <source
+              srcset="
+                https://images.pexels.com/photos/30004322/pexels-photo-30004322.jpeg?auto=compress&cs=srgb&w=400 400w,
+                https://images.pexels.com/photos/30004322/pexels-photo-30004322.jpeg?auto=compress&cs=srgb&w=600 600w,
+                https://images.pexels.com/photos/30004322/pexels-photo-30004322.jpeg?auto=compress&cs=srgb&w=800 800w
+              "
+              sizes="(min-width: 900px) 280px, (min-width: 560px) 40vw, 100vw"
+              type="image/jpeg"
+            />
+            <img
+              src="https://images.pexels.com/photos/30004322/pexels-photo-30004322.jpeg?auto=compress&cs=srgb&w=600"
+              alt="Porträtt av Alex Nilsson"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
 
+          <h3>Alex Nilsson</h3>
+          <p class="role">Produkt & UX</p>
+          <p>Ser till att allt känns enkelt, snabbt och trevligt att använda.</p>
+        </li>
+
+        <li class="team-card">
+          <picture class="team-photo">
+            <source
+              srcset="
+                https://images.pexels.com/photos/29852895/pexels-photo-29852895.jpeg?auto=compress&cs=srgb&w=400 400w,
+                https://images.pexels.com/photos/29852895/pexels-photo-29852895.jpeg?auto=compress&cs=srgb&w=600 600w,
+                https://images.pexels.com/photos/29852895/pexels-photo-29852895.jpeg?auto=compress&cs=srgb&w=800 800w
+              "
+              sizes="(min-width: 900px) 280px, (min-width: 560px) 40vw, 100vw"
+              type="image/jpeg"
+            />
+            <img
+              src="https://images.pexels.com/photos/29852895/pexels-photo-29852895.jpeg?auto=compress&cs=srgb&w=600"
+              alt="Porträtt av Samira Kahn"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
+
+          <h3>Samira Kahn</h3>
+          <p class="role">Frontendutvecklare</p>
+          <p>Bygger gränssnittet och gör att sökningen flyter som smör.</p>
+        </li>
+
+        <li class="team-card">
+          <picture class="team-photo">
+            <source
+              srcset="
+                https://images.pexels.com/photos/30004324/pexels-photo-30004324.jpeg?auto=compress&cs=srgb&w=400 400w,
+                https://images.pexels.com/photos/30004324/pexels-photo-30004324.jpeg?auto=compress&cs=srgb&w=600 600w,
+                https://images.pexels.com/photos/30004324/pexels-photo-30004324.jpeg?auto=compress&cs=srgb&w=800 800w
+              "
+              sizes="(min-width: 900px) 280px, (min-width: 560px) 40vw, 100vw"
+              type="image/jpeg"
+            />
+            <img
+              src="https://images.pexels.com/photos/30004324/pexels-photo-30004324.jpeg?auto=compress&cs=srgb&w=600"
+              alt="Porträtt av Jonas Berg"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
+
+          <h3>Jonas Berg</h3>
+          <p class="role">Backend & Data</p>
+          <p>Fixar logiken bakom kulisserna och håller ordning på recepten.</p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Vision / Mission -->
+    <section class="section" aria-labelledby="vision-title">
+      <div class="two-col">
         <div>
-          <input id="consent" name="consent" type="checkbox" required />
-          <label for="consent">Jag samtycker till att ni hanterar mina uppgifter enligt beskrivningen.</label>
+          <h2 id="vision-title">Vår idé</h2>
+          <p>
+            Många av oss står med en råvara i kylen och tänker “vad ska jag göra med den här?”.
+            Vi byggde ReceptSök för att göra den frågan superenkel att svara på.
+          </p>
+          <p>
+            Genom att söka på en ingrediens får du direkt en lista med recept där den ingår.
+            Oavsett om du är sugen på något specifikt eller bara vill ta vara på det du har hemma.
+          </p>
         </div>
 
-        <button type="submit">Skicka</button>
-      </fieldset>
-    </form>
-  </article>
+        <aside class="info-box" aria-label="Så jobbar vi">
+          <h3>Så jobbar vi</h3>
+          <ul>
+            <li>Vi prioriterar enkelhet framför krångel.</li>
+            <li>Vi testar recepten och rensar bort dåliga träffar.</li>
+            <li>Vi uppdaterar databasen löpande.</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Visit / Address -->
+    <section class="section" aria-labelledby="visit-title">
+      <h2 id="visit-title">Besök oss</h2>
+
+      <div class="visit-grid">
+        <div class="address-card">
+          <h3>Adress</h3>
+          <address>
+            ReceptSök AB<br />
+            Matgatan 12<br />
+            114 35 Stockholm<br />
+            Sverige
+          </address>
+
+          <p class="small">
+            Öppet vardagar 09–17 (förbokade besök).
+          </p>
+
+          <p>
+            <a href="https://maps.google.com/?q=Matgatan%2012%20Stockholm" target="_blank" rel="noopener">
+              Se på karta
+            </a>
+          </p>
+        </div>
+
+        <figure class="office-figure">
+          <picture>
+            <source
+              srcset="
+                https://images.pexels.com/photos/4412921/pexels-photo-4412921.jpeg?auto=compress&cs=srgb&w=900 900w,
+                https://images.pexels.com/photos/4412921/pexels-photo-4412921.jpeg?auto=compress&cs=srgb&w=1400 1400w,
+                https://images.pexels.com/photos/4412921/pexels-photo-4412921.jpeg?auto=compress&cs=srgb&w=2000 2000w
+              "
+              sizes="(min-width: 900px) 55vw, 100vw"
+              type="image/jpeg"
+            />
+            <img
+              src="https://images.pexels.com/photos/4412921/pexels-photo-4412921.jpeg?auto=compress&cs=srgb&w=900"
+              alt="Kontorsmiljö med långbord och växter"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
+          <figcaption>Vårt lilla kontor i Stockholm.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Contact info (no form) -->
+    <section class="section" aria-labelledby="contact-title">
+      <h2 id="contact-title">Kontakt</h2>
+      <p>
+        Har du frågor, idéer eller vill tipsa om ett recept vi borde lägga till?
+        Hör gärna av dig!
+      </p>
+
+      <ul class="contact-list">
+        <li>
+          <strong>E-post:</strong>
+          <a href="mailto:hej@receptsok.example">hej@receptsok.example</a>
+        </li>
+        <li><strong>Telefon:</strong> 08-123 45 67</li>
+        <li><strong>Press:</strong> press@receptsok.example</li>
+      </ul>
+    </section>
 
   </main>
   <footer class="footer" role="contentinfo">

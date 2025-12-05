@@ -46,6 +46,8 @@
   --small-gap: 0.5rem;
   --section-margin: 1rem;
   --text-margin: 0.5rem;
+
+  --radius: 14px;
 }
 /* Start reset */
 /* 1. Use a more-intuitive box-sizing model */
@@ -585,10 +587,13 @@ footer {
   max-width: var(--info-content-width);
  flex-grow: 1;
 }
+.search-form button {
+  font-weight: var(--font-weight-medium);
+}
 .search-form-help {
   flex: 0 0 100%;
 }
-.search-list {
+.search-list, .inspiration-list {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -654,7 +659,7 @@ li:last-child .search-result-article {
   font: inherit;
   color: var(--color-base-font);
   cursor: pointer;
-  align-items: center;
+  margin: 0 0 0 auto;
 }
 .search-info-toggle:hover,
 .search-info-toggle:focus-visible {
@@ -715,6 +720,27 @@ span.search-button-text {
 .breadcrumbs li[aria-current="page"] {
   color: var(--color-base-font);
   font-weight: var(--font-weight-medium);
+}
+.inspiration-list {
+  margin-top: var(--margin-default);
+}
+.inspiration-article {
+  display: flex;
+  margin-bottom: var(--default-gap);
+  padding-top: .5rem;
+  padding-bottom: 1rem;
+  border-bottom: var(--border-width) solid var(--color-border);
+}
+.inspiration-article-title {
+  font-size: var(--font-size-h3);
+  color: var(--color-black);
+  margin: 0;
+}
+.inspiration-img {
+  max-width: 2rem;
+  height: 100%;
+  border-radius: .3rem;
+  margin-right: .75rem;
 }
 /* Media Queries for responsiveness */
 @media (max-width: 1023px) {
@@ -790,7 +816,7 @@ span.search-button-text {
     aspect-ratio: 16 / 9;
   }
   .search-info-toggle { 
-    display: inline-flex; 
+    display: block; 
   }
   .search-grid {
     display: grid;
@@ -895,19 +921,105 @@ span.search-button-text {
 
 /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 
-table {
-  border-collapse: collapse;
+
+
+/* .section {
+  margin-top: 2.2rem;
+  padding: 1.2rem;
+  background: var(--panel);
+  border-radius: var(--radius);
+  border: 1px solid #222a31;
+}
+.section h2 { margin-top: 0; font-size: 1.6rem; }
+.section-lead { color: var(--muted); max-width: 70ch; } */
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 1.2rem;
+  align-items: center;
+  border-radius: calc(var(--radius) + 4px);
+  padding: 1.4rem;
+  align-items: start;
+}
+.hero-figure img {
   width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: var(--radius);
 }
-th,
-td {
-  padding: 0.5rem 0.75rem;
-  border: var(--border-width) solid var(--color-border);
-  text-align: left;
+.hero h1 { font-size: 2rem; margin: 0 0 0.4rem 0; }
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap);
+  padding: 0;
+  margin: 1rem 0 0;
 }
-thead th {
-  background: #f8fafc;
+.team-card {
+  list-style: none;
+  /* background: #11161a;
+  border: 1px solid #222a31; */
+  border-radius: var(--radius);
+  padding: 1rem;
+}
+.team-card img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.team-card h3 { margin: 0.7rem 0 0.2rem; }
+.role { margin: 0; color: var(--muted); font-size: 0.95rem; }
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: var(--gap);
+}
+.info-box {
+  border: 1px dashed #2a343d;
+  padding: 1rem;
+  border-radius: var(--radius);
+}
+.info-box h3 { margin-top: 0; }
+
+.visit-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: var(--gap);
+  align-items: start;
+}
+.address-card {
+  border-radius: var(--radius);
+  padding: 1rem;
+}
+address { font-style: normal; }
+.small { color: var(--muted); font-size: 0.95rem; }
+
+.office-figure img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+.office-figure figcaption { color: var(--muted); margin-top: 0.4rem; font-size: 0.95rem; }
+
+.contact-list { padding-left: 1.1rem; }
+.site-footer {
+  border-top: 1px solid #222a31;
+  color: var(--muted);
+  padding: 1rem;
+  text-align: center;
 }
 
-
-
+/* Responsive */
+@media (max-width: 900px) {
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero, .two-col, .visit-grid { grid-template-columns: 1fr; }
+  .hero-figure img { height: 220px; }
+}
+@media (max-width: 560px) {
+  .team-grid { grid-template-columns: 1fr; }
+}
