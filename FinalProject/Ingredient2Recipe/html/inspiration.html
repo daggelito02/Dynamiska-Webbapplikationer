@@ -14,7 +14,7 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Hoppa till innehåll</a>
-  <header class="site-header" role="banner">
+  <header class="site-header">
     <div class="header-wrapper">
       <div class="brand">
         <a href="../index.html" aria-label="Gå till startsidan">
@@ -25,29 +25,29 @@
         <button type="button" class="nav-toggle-btn" aria-controls="primary-navigation" aria-expanded="false">
           Meny
         </button>
-        <ul id="primary-navigation" class="navigation-list" role="list">
+        <ul id="primary-navigation" class="navigation-list">
           <li><a class="navigation-link" href="../index.html">Hem</a></li>
           <li><a class="navigation-link" href="search.html">Sök</a></li>
-          <li><a class="navigation-link" href="inspiration.html" aria-current='page' tabindex="-1">Inspiration</a></li>
+          <li><span class="navigation-link" aria-current='page'>Inspiration</span></li>
           <li><a class="navigation-link" href="about.html">Om oss</a></li>
         </ul>
       </nav>
     </div>
   </header>
-  <main id="main" class="main-container" tabindex="-1">
-    <section class="intro-information" aria-labelledby="inspiration-title">
-      <h1 id="inspiration-title">Inspiration</h1>
-      <p class="inspiration-intro">
-        Fastnat i mat-tänket? Här har vi samlat några riktigt bra receptsidor för extra inspiration.
-        Klicka dig vidare, spara favoriterna och kom tillbaka hit när du vill söka på det du har hemma.
-      </p>
-
+  <main id="main" class="main-container" tabindex="-1" aria-labelledby="inspiration-title">
+    <h1 id="inspiration-title">Inspiration</h1>
+    <p class="inspiration-ingress">
+      Fastnat i mat-tänket? Här har vi samlat några riktigt bra receptsidor för extra inspiration.
+      Klicka dig vidare, spara favoriterna och kom tillbaka hit när du vill söka på det du har hemma.
+    </p>
+    <section aria-labelledby="inspiration-sources-header">
+      <h2 id="inspiration-sources-header">Receptsidor vi gillar</h2>
       <ul class="inspiration-list">
         <li class="inspiration-item">
           <article class="inspiration-article">
             <img src="https://www.google.com/s2/favicons?domain=arla.se&sz=128" alt="" class="inspiration-img" loading="lazy">
             <div class="inspiration-content">
-              <h2 class="inspiration-article-title">Arla Recept</h2>
+              <h3 class="inspiration-article-title">Arla Recept</h3>
               <p>Provlagade recept med tydliga steg-för-steg.</p>
               <a href="https://www.arla.se/recept/" target="_blank" rel="noopener" class="new-window"
                 aria-label="Öppna Arla Recept i ny flik">Besök sidan</a>
@@ -59,7 +59,7 @@
           <article class="inspiration-article">
             <img src="https://www.google.com/s2/favicons?domain=coop.se&sz=128" alt="" class="inspiration-img" loading="lazy">
             <div class="inspiration-content">
-              <h2 class="inspiration-article-title">Coop Recept</h2>
+              <h3 class="inspiration-article-title">Coop Recept</h3>
               <p>Enkla recept och middagstips för hela veckan.</p>
               <a href="https://www.coop.se/recept/" target="_blank" rel="noopener" class="new-window"
                 aria-label="Öppna Coop Recept i ny flik">Besök sidan</a>
@@ -71,7 +71,7 @@
           <article class="inspiration-article">
             <img src="https://www.google.com/s2/favicons?domain=ica.se&sz=128" alt="" class="inspiration-img" loading="lazy">
             <div class="inspiration-content">
-              <h2 class="inspiration-article-title">ICA Recept</h2>
+              <h3 class="inspiration-article-title">ICA Recept</h3>
               <p>Stor receptbank med vardagsmat, fest och bakning.</p>
               <a href="https://www.ica.se/recept/" target="_blank" rel="noopener" class="new-window"
                 aria-label="Öppna ICA Recept i ny flik">Besök sidan</a>
@@ -83,7 +83,7 @@
           <article class="inspiration-article">
             <img src="https://www.google.com/s2/favicons?domain=koket.se&sz=128" alt="" class="inspiration-img" loading="lazy">
             <div class="inspiration-content">
-              <h2 class="inspiration-article-title">Köket.se</h2>
+              <h3 class="inspiration-article-title">Köket.se</h3>
               <p>Recept från kockar, teman och TV-program.</p>
               <a href="https://www.koket.se/recept" target="_blank" rel="noopener" class="new-window"
                 aria-label="Öppna Köket.se i ny flik">Besök sidan</a>
@@ -95,7 +95,7 @@
           <article class="inspiration-article">
             <img src="https://www.google.com/s2/favicons?domain=lindasbakskola.se&sz=128" alt="" class="inspiration-img" loading="lazy">
             <div class="inspiration-content">
-              <h2 class="inspiration-article-title">Lindas Bakskola</h2>
+              <h3 class="inspiration-article-title">Lindas Bakskola</h3>
               <p>Fika, bröd och lättbakade favoriter.</p>
               <a href="https://lindasbakskola.se/" target="_blank" rel="noopener" class="new-window"
                 aria-label="Öppna Lindas Bakskola i ny flik">Besök sidan</a>
@@ -107,7 +107,7 @@
           <article class="inspiration-article">
             <img src="https://www.google.com/s2/favicons?domain=mathem.se&sz=128" alt="" class="inspiration-img" loading="lazy">
             <div class="inspiration-content">
-              <h2 class="inspiration-article-title">Mathem Recept</h2>
+              <h3 class="inspiration-article-title">Mathem Recept</h3>
               <p>Vardagsmat, veckomenyer och smarta tips.</p>
               <a href="https://www.mathem.se/se/recipes/all/" target="_blank" rel="noopener" class="new-window"
                 aria-label="Öppna Mathem Recept i ny flik">Besök sidan</a>
@@ -119,7 +119,7 @@
           <article class="inspiration-article">
             <img src="https://www.google.com/s2/favicons?domain=recept.se&sz=128" alt="" class="inspiration-img" loading="lazy">
             <div class="inspiration-content">
-              <h2 class="inspiration-article-title">Recept.se</h2>
+              <h3 class="inspiration-article-title">Recept.se</h3>
               <p>Recept för vardag, fest och bakning.</p>
               <a href="https://recept.se/" target="_blank" rel="noopener" class="new-window"
                 aria-label="Öppna Recept.se i ny flik">Besök sidan</a>
@@ -131,7 +131,7 @@
           <article class="inspiration-article">
             <img src="https://www.google.com/s2/favicons?domain=recepten.se&sz=128" alt="" class="inspiration-img" loading="lazy">
             <div class="inspiration-content">
-              <h2 class="inspiration-article-title">Recepten.se</h2>
+              <h3 class="inspiration-article-title">Recepten.se</h3>
               <p>Enkla recept med tydliga instruktioner.</p>
               <a href="https://www.recepten.se/" target="_blank" rel="noopener" class="new-window"
                 aria-label="Öppna Recepten.se i ny flik">Besök sidan</a>
@@ -143,7 +143,7 @@
           <article class="inspiration-article">
             <img src="https://www.google.com/s2/favicons?domain=tasteline.com&sz=128" alt="" class="inspiration-img" loading="lazy">
             <div class="inspiration-content">
-              <h2 class="inspiration-article-title">Tasteline</h2>
+              <h3 class="inspiration-article-title">Tasteline</h3>
               <p>Populär inspirationsbank för mat, bak och dryck.</p>
               <a href="https://www.tasteline.com/recept/" target="_blank" rel="noopener" class="new-window"
                 aria-label="Öppna Tasteline i ny flik">Besök sidan</a>
@@ -155,9 +155,9 @@
           <article class="inspiration-article">
             <img src="https://www.google.com/s2/favicons?domain=zeta.nu&sz=128" alt="" class="inspiration-img" loading="lazy">
             <div class="inspiration-content">
-              <h2 class="inspiration-article-title">Zeta Recept</h2>
+              <h3 class="inspiration-article-title">Zeta Recept</h3>
               <p>Italiensk och medelhavsinspirerad mat.</p>
-              <a href="https://www.zeta.nu/recept/" target="_blank" rel="noopener" class="new-window"
+              <a href="https://www.zeta.nu/recept/" target="_blank" rel="noopener noreferrer" class="new-window"
                 aria-label="Öppna Zeta Recept i ny flik">Besök sidan</a>
             </div>
           </article>
@@ -165,7 +165,7 @@
       </ul>
     </section>
   </main>
-  <footer class="footer" role="contentinfo">
+  <footer class="footer">
     <div class="footer-container">
       <p>&copy; 2025 Ingrediensen ger receptet. All text tillgänglighetsanpassad enligt WCAG 2.2 AA. Bilder har beskrivande alt-texter.</p>
       <p><small>Data från TheMealDB (öppet API). Innehåll kan variera.</small></p>
