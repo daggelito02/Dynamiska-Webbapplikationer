@@ -28,6 +28,7 @@
   --font-size-sm-h1: 1.5rem;
   --font-size-sm-h2: 1.25rem;
   --font-size-sm-h3: 1.1rem;
+  --font-size-small: 0.875rem;
   --font-weight-normal: 400;
   --font-weight-medium: 500;
   --font-weight-bold: 700;
@@ -379,7 +380,6 @@ footer {
   grid-area: footer;
   border-top: var(--border-width) solid var(--color-black);
   padding-block: var(--default-padding);
-  color: var(--muted);
   justify-content: center;
   display: flex;
 }
@@ -477,10 +477,10 @@ footer {
   height: 100%;
 }
 /* Recipe Image */
-.recipe-image {
+.recipe-image, .about-hero-image, .about-recipe-image {
   margin: 0;
   overflow: hidden;
-  background: var(--color-border);
+  background: var(--color-white);
   aspect-ratio: 16 / 9;
 }
 .recipe-img {
@@ -494,8 +494,7 @@ footer {
 /* Recipe Info */
 .recipe-info, .recipe-content {
   padding: 1rem 1.5rem 1.5rem;
-  /* display: flex; */
-  flex-wrap: wrap;
+
 }
 .recipe-info {
   flex-direction: column;
@@ -507,7 +506,7 @@ footer {
 }
 .recipe-meta {
   margin: 0.3rem 0 .3rem;
-  font-size: 0.875rem;
+  font-size: var(--font-size-small)
   color: var(--color-base-font);
   display: flex;
 }
@@ -921,112 +920,109 @@ span.search-button-text {
   }
 }
 
-/* Hide the search info toggle on desktop/tablet */
-/* @media (min-width: 769px) {
-  .search-info-toggle { display: none; }
-} */
 
-/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
-
-
-
-/* .section {
-  margin-top: 2.2rem;
-  padding: 1.2rem;
-  background: var(--panel);
-  border-radius: var(--radius);
-  border: 1px solid #222a31;
-}
-.section h2 { margin-top: 0; font-size: 1.6rem; }
-.section-lead { color: var(--muted); max-width: 70ch; } */
-
-.hero {
+.about-hero {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
-  gap: 1.2rem;
-  align-items: center;
-  border-radius: calc(var(--radius) + 4px);
-  padding: 1.4rem;
-  align-items: start;
+  gap: var(--default-gap);
+  margin-top: 1rem;
 }
-.hero-figure img {
-  width: 100%;
-  height: 260px;
+.about-hero-image,
+.about-recipe-image  {
+  position: relative;
+  border-radius: var(--border-radius);
+}
+.about-recipe-image figcaption {
+  position: absolute;
+  bottom: 0.4rem;
+  left: 1rem;
+  color: #fff;
+  background: black;
+  padding: .2rem 0.5rem;
+  opacity: 0.7;
+  border-radius: var(--border-radius);
+}
+.about-hero-image img, 
+.about-recipe-image img {
   object-fit: cover;
-  border-radius: var(--radius);
+  width: 100%;
 }
-.hero h1 { font-size: 2rem; margin: 0 0 0.4rem 0; }
-
-.team-grid {
+.about-team-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--gap);
+  gap: var(--default-gap);
+  margin-top: var(--margin-default-sm);
   padding: 0;
-  margin: 1rem 0 0;
 }
-.team-card {
+.about-team-card {
   list-style: none;
-  /* background: #11161a;
-  border: 1px solid #222a31; */
-  border-radius: var(--radius);
-  padding: 1rem;
+  padding: 0 0 1rem;
 }
-.team-card img {
+.about-team-figure {
+  overflow: hidden;
+  border-radius: var(--border-radius);
+}
+.about-team-card img {
   width: 100%;
   height: 210px;
   object-fit: cover;
-  border-radius: 10px;
 }
-.team-card h3 { margin: 0.7rem 0 0.2rem; }
-.role { margin: 0; color: var(--muted); font-size: 0.95rem; }
-
-.two-col {
+.about-team-card h3 { 
+  margin: 0.7rem 0 0.2rem; 
+}
+.about-role { 
+  margin: 0; 
+  font-size: var(--font-size-small);
+}
+.about-info-box {
+  border: 1px dashed var(--color-border);
+  padding: 1rem;
+  border-radius: var(--radius);
+}
+.about-info-box h3 { 
+  margin-top: 0; 
+}
+.about-our-vision {
   display: grid;
   grid-template-columns: 1.3fr 0.7fr;
-  gap: var(--gap);
+  gap: var(--default-gap);
+  margin-top: var(--margin-default);
 }
-.info-box {
-  border: 1px dashed #2a343d;
-  padding: 1rem;
-  border-radius: var(--radius);
+.about-our-vision p {
+  margin-bottom: var(--margin-default-sm);
 }
-.info-box h3 { margin-top: 0; }
-
-.visit-grid {
+.about-info-box-list {
+  padding-left: 1.2rem;
+  margin: 0;
+}
+.about-visit, .about-contact {
+  margin-top: var(--margin-default);
+}
+.about-visit-grid {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
-  gap: var(--gap);
+  gap: var(--default-gap);
   align-items: start;
 }
-.address-card {
+.about-address-card {
   border-radius: var(--radius);
-  padding: 1rem;
+  padding: 1rem 0;
 }
-address { font-style: normal; }
-.small { color: var(--muted); font-size: 0.95rem; }
-
-.office-figure img {
-  width: 100%;
-  height: 280px;
-  object-fit: cover;
-  border-radius: var(--radius);
-}
-.office-figure figcaption { color: var(--muted); margin-top: 0.4rem; font-size: 0.95rem; }
-
-.contact-list { padding-left: 1.1rem; }
-.site-footer {
-  border-top: 1px solid #222a31;
-  color: var(--muted);
-  padding: 1rem;
-  text-align: center;
-}
+.about-address { font-style: normal; }
+.about-opening-hours { 
+  font-size: var(--font-size-small);
+ }
+.about-contact-list { padding-left: 1.1rem; }
 
 /* Responsive */
-@media (max-width: 900px) {
-  .team-grid { grid-template-columns: repeat(2, 1fr); }
-  .hero, .two-col, .visit-grid { grid-template-columns: 1fr; }
-  .hero-figure img { height: 220px; }
+@media (max-width: 768px) {
+  .about-team-grid { grid-template-columns: repeat(2, 1fr); }
+  .about-hero, 
+  .about-our-vision,
+  .visit-grid { grid-template-columns: 1fr; }
+  .about-hero-image img { height: 320px; }
 }
 @media (max-width: 560px) {
-  .team-grid { grid-template-columns: 1fr; }
+  .about-team-grid,
+  .about-visit-grid { grid-template-columns: 1fr; }
 }
