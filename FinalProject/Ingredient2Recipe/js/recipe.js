@@ -28,11 +28,11 @@
       const largeSrc = baseImg ? `${baseImg}/large` : m.strMealThumb;
       // For this page: >=1024px large, >=640px large, >=350px medium, fallback img uses large
       wrap.innerHTML = `
-        <h1 class="recipe-header">${m.strMeal}</h1>
+        <h1 id="recipe-title" class="recipe-header">${m.strMeal}</h1>
         <div class="recipe-overview">
           <picture class="recipe-picture">
             <source srcset="${largeSrc}" media="(min-width:1024px)">
-            <source srcset="${largeSrc}" media="(min-width:640px)">
+            <source srcset="${baseImg}" media="(min-width:640px)">
             <source srcset="${mediumSrc}" media="(min-width:350px)">
             <img class="recipe-img" src="${largeSrc}" alt="Foto av rätten ${m.strMeal}">
           </picture>
@@ -56,8 +56,8 @@
                  .join("</p><p class=\"recipe-instruction-text\">")}
             </p>
             <div class="recipe-links">
-              ${m.strYoutube ? `<p><a class="new-window" href="${m.strYoutube}" target="_blank" rel="noopener">Se video på YouTube</a></p>` : ""}
-              <p><a class="new-window" href="${m.strSource || '#'}" target="_blank" rel="noopener">Källa</a></p>
+              ${m.strYoutube ? `<p><a class="new-window" href="${m.strYoutube}" target="_blank" rel="noopener noreferrer">Se video på YouTube</a></p>` : ""}
+              <p><a class="new-window" href="${m.strSource || '#'}" target="_blank" rel="noopener noreferrer">Källa</a></p>
             </div>
           </div>
         </div>
