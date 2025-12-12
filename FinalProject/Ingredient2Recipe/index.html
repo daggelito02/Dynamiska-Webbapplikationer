@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="sv">
-<head>
+<head id="html#home">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Hem – Ingrediensen ger receptet</title>
-  <meta name="description" content="Hitta recept baserat på ingredienser du har hemma i kylsyåpet" />
-  <link rel="preconnect" href="https://www.themealdb.com" />
+  <meta name="description" content="Hitta recept baserat på ingredienser du har hemma i kylskåpet" />
+  <link rel="preconnect" href="https://www.themealdb.com" crossorigin/>
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0">
   <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/darkmode-trial">
@@ -17,9 +17,7 @@
   <header class="site-header">
     <div class="header-wrapper">
       <div class="brand">
-        <a href="index.html" aria-label="Gå till startsidan">
-          <img class="brand__logo" src="images/logo.svg" alt="Ingrediensen ger receptet" />
-        </a>
+        <img class="brand__logo" src="images/logo.svg" alt="Ingrediensen ger receptet" />
       </div>
       <nav class="navigation" aria-label="Huvudmeny">
         <button type="button" class="nav-toggle-btn" aria-controls="primary-navigation" aria-expanded="false">
@@ -37,7 +35,7 @@
   <main id="main" tabindex="-1">
 
   <section class="intro-information" aria-labelledby="intro-title">
-    <h1 id="intro-title">Hitta recept utifrån på vad du har hemma</h1>
+    <h1 id="intro-title">Hitta recept baserat på vad du har hemma</h1>
     <p class="intro-text">
       Behöver du matinspiration? Med vår smarta <strong>sökfunktion</strong> hittar du enkelt 
       recept utifrån ingredienserna du redan har hemma. Skriv till exempel "tomat", 
@@ -54,33 +52,33 @@
     <h2 id="weekly-tips-title">Här ser du veckans tips!</h2>
     
     <div class="recipe-grid">
-      <div id="weekly-recipe-card" class="recipe-card">
-        <h3 class="recipe-card-header">Denna veckas ingrediens: Banan </h3>
-        <a href="#" class="recipe-link" id="weekly-recipe-link">
+      <div id="weekly-recipe-card" class="recipe-card" aria-busy="true">
+        <h3 class="recipe-card-header">Denna veckas ingrediens: Banan</h3>
+        <a href="" class="recipe-link" id="weekly-recipe-link" aria-disabled="true" tabindex="-1">
           <article class="recipe-article">
             <figure class="recipe-image">
               <img id="weekly-recipe-img" class="recipe-img" src="" alt="Veckans recept">
             </figure>
             <div class="recipe-info">
-              <h3 id="weekly-recipe-title" class="recipe-header">Laddar...</h3>
+              <h4 id="weekly-recipe-title" class="recipe-header">Laddar...</h4>
               <p id="weekly-recipe-category" class="recipe-meta"></p>
               <p id="weekly-recipe-description" class="recipe-text"></p>
             </div>
           </article>
         </a>
       </div>
-      <div id="random-recipe-card" class="recipe-card">
+      <div id="random-recipe-card" class="recipe-card" aria-busy="true">
         <h3 class="recipe-card-header random-header">Slumpat fram ett recept</h3>
         <button type="button" class="random-btn" id="new-random-recipe-btn" aria-label="Hämta nytt slumpat recept">
-          <span class="material-symbols-outlined">shuffle</span>
+          <span class="material-symbols-outlined" aria-hidden="true">shuffle</span>
         </button>
-        <a href="#" class="recipe-link" id="random-recipe-link">
+        <a href="" class="recipe-link" id="random-recipe-link" aria-disabled="true" tabindex="-1">
           <article class="recipe-article">
             <figure class="recipe-image">
               <img id="random-recipe-img" class="recipe-img"  src="" alt="Slumpat recept">
             </figure>
             <div class="recipe-info">
-              <h3 id="random-recipe-title" class="recipe-header">Laddar...</h3>
+              <h4 id="random-recipe-title" class="recipe-header">Laddar...</h4>
               <p id="random-recipe-category" class="recipe-meta"></p>
               <p id="random-recipe-description" class="recipe-text"></p>
             </div>

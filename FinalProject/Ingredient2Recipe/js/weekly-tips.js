@@ -1,17 +1,6 @@
 // weekly-tips.js - Fetch weekly ingredient recipe and random recipe from TheMealDB
 (async function() {
   const API_BASE = 'https://www.themealdb.com/api/json/v1/1';
-  
-  // Helper function to safely extract text
-  function safeText(str) {
-    return String(str || "").replace(/[&<>"']/g, s => ({
-      "&": "&amp;",
-      "<": "&lt;",
-      ">": "&gt;",
-      "\"": "&#34;",
-      "'": "&#39;"
-    }[s]));
-  }
 
   // Fetch veckans recept med Banan (weekly ingredient)
   async function fetchWeeklyRecipe() {
@@ -61,89 +50,100 @@
 
   // Render recipe card
   function renderRecipeCard(meal, cardPrefix) {
-    if (!meal) return;
+  const cardEl = document.getElementById(`${cardPrefix}-recipe-card`);
 
-    const titleEl = document.getElementById(`${cardPrefix}-recipe-title`);
-    const categoryEl = document.getElementById(`${cardPrefix}-recipe-category`);
-    const descriptionEl = document.getElementById(`${cardPrefix}-recipe-description`);
-    const linkEl = document.getElementById(`${cardPrefix}-recipe-link`);
-
-    // Find the figure element by looking for the card
-    const cardEl = document.getElementById(`${cardPrefix}-recipe-card`);
-    const figureEl = cardEl ? cardEl.querySelector('.recipe-image') : null;
-
-    // Set responsive image using a <picture> with default/medium/large
-    if (figureEl) {
-      const base = (meal.strMealThumb || '').replace(/\/(preview|medium|large)$/, '');
-      const defaultSrc = base || '';
-      const mediumSrc = base ? `${base}/medium` : '';
-      const largeSrc = base ? `${base}/large` : '';
-
-      // Build new picture element
-      const picture = document.createElement('picture');
-
-      // Order sources largest -> smallest: large (1024), default/base (640), medium (350)
-      if (largeSrc) { // >=1024px uses /large
-        const sLarge = document.createElement('source');
-        sLarge.setAttribute('srcset', largeSrc);
-        sLarge.setAttribute('media', '(min-width:1024px)');
-        picture.appendChild(sLarge);
+  // Om vi inte får något meal, visa ett enkelt felmeddelande
+  if (!meal) {
+    if (cardEl) {
+      cardEl.setAttribute('aria-busy', 'false');
+      const descriptionEl = cardEl.querySelector('.recipe-text');
+      if (descriptionEl) {
+        descriptionEl.textContent = 'Kunde inte ladda recept just nu.';
       }
-
-      if (defaultSrc) { // >=640px uses original/base image
-        const sDefault = document.createElement('source');
-        sDefault.setAttribute('srcset', defaultSrc);
-        sDefault.setAttribute('media', '(min-width:640px)');
-        picture.appendChild(sDefault);
-      }
-
-      if (mediumSrc) { // >=350px uses /medium
-        const sMedium = document.createElement('source');
-        sMedium.setAttribute('srcset', mediumSrc);
-        sMedium.setAttribute('media', '(min-width:350px)');
-        picture.appendChild(sMedium);
-      }
-
-      // fallback img (uses medium size)
-      const fallbackImg = document.createElement('img');
-      fallbackImg.id = `${cardPrefix}-recipe-img`;
-      fallbackImg.className = 'recipe-img';
-      fallbackImg.src = mediumSrc || defaultSrc || (meal.strMealThumb || '');
-      fallbackImg.alt = safeText(meal.strMeal || 'Recipe');
-      picture.appendChild(fallbackImg);
-
-      // Clear figure and insert new picture
-      figureEl.innerHTML = '';
-      figureEl.appendChild(picture);
     }
-
-    // Set title
-    if (titleEl) {
-      titleEl.textContent = safeText(meal.strMeal || 'Unknown');
-    }
-
-    // Set category and area
-    if (categoryEl) {
-      const category = safeText(meal.strCategory || 'Unknown');
-      const area = safeText(meal.strArea || 'Unknown');
-      categoryEl.textContent = `${area} • ${category}`;
-    }
-
-    // Set description (use instructions or a snippet)
-    if (descriptionEl) {
-      const instructions = meal.strInstructions || '';
-      const snippet = instructions.substring(0, 120) + (instructions.length > 120 ? '...' : '');
-      descriptionEl.textContent = safeText(snippet);
-    }
-
-    // Set link to recipe page
-    if (linkEl) {
-      linkEl.href = `html/recipe.html?id=${encodeURIComponent(meal.idMeal)}`;
-    }
-
-    // Return the link element so callers can move focus if needed
-    return linkEl;
+    return;
   }
+
+  const titleEl = document.getElementById(`${cardPrefix}-recipe-title`);
+  const categoryEl = document.getElementById(`${cardPrefix}-recipe-category`);
+  const descriptionEl = document.getElementById(`${cardPrefix}-recipe-description`);
+  const linkEl = document.getElementById(`${cardPrefix}-recipe-link`);
+  const figureEl = cardEl ? cardEl.querySelector('.recipe-image') : null;
+
+  // Bild / <picture>
+  if (figureEl) {
+    const thumb = meal.strMealThumb || '';
+    const base = thumb.replace(/\/(preview|medium|large)$/, '');
+    const defaultSrc = base || thumb || '';
+    const mediumSrc = base ? `${base}/medium` : thumb;
+    const largeSrc  = base ? `${base}/large`  : '';
+
+    const picture = document.createElement('picture');
+
+    if (largeSrc) {
+      const sLarge = document.createElement('source');
+      sLarge.setAttribute('srcset', largeSrc);
+      sLarge.setAttribute('media', '(min-width:1024px)');
+      picture.appendChild(sLarge);
+    }
+
+    if (defaultSrc) {
+      const sDefault = document.createElement('source');
+      sDefault.setAttribute('srcset', defaultSrc);
+      sDefault.setAttribute('media', '(min-width:640px)');
+      picture.appendChild(sDefault);
+    }
+
+    if (mediumSrc) {
+      const sMedium = document.createElement('source');
+      sMedium.setAttribute('srcset', mediumSrc);
+      sMedium.setAttribute('media', '(min-width:350px)');
+      picture.appendChild(sMedium);
+    }
+
+    const fallbackImg = document.createElement('img');
+    fallbackImg.id = `${cardPrefix}-recipe-img`;
+    fallbackImg.className = 'recipe-img';
+    fallbackImg.src = mediumSrc || defaultSrc;
+    fallbackImg.alt = meal.strMeal || 'Recept';
+
+    picture.appendChild(fallbackImg);
+
+    figureEl.innerHTML = '';
+    figureEl.appendChild(picture);
+  }
+
+  // Titel
+  if (titleEl) {
+    titleEl.textContent = meal.strMeal || 'Okänt recept';
+  }
+
+  // Kategori + area
+  if (categoryEl) {
+    const category = meal.strCategory || 'Okänd kategori';
+    const area = meal.strArea || 'Okänt kök';
+    categoryEl.textContent = `${area} • ${category}`;
+  }
+
+  // Beskrivning – visa hela instruktionen
+  if (descriptionEl) {
+    descriptionEl.textContent = meal.strInstructions || '';
+  }
+
+  // Länk
+  if (linkEl) {
+    linkEl.href = `html/recipe.html?id=${encodeURIComponent(meal.idMeal)}`;
+    linkEl.removeAttribute('aria-disabled');
+    linkEl.removeAttribute('tabindex');
+  }
+
+  if (cardEl) {
+    cardEl.setAttribute('aria-busy', 'false');
+  }
+
+  return linkEl;
+}
+
 
   // Main execution
   const [weeklyMeal, randomMeal] = await Promise.all([
@@ -157,30 +157,35 @@
   // Attach click handler to the "new random recipe" button so it fetches a new random recipe
   const newRandomBtn = document.getElementById('new-random-recipe-btn');
   const randomCard = document.getElementById('random-recipe-card');
+
   if (newRandomBtn) {
     newRandomBtn.addEventListener('click', async (ev) => {
       try {
         // visual loading state on the card and button
-        if (randomCard) randomCard.classList.add('is-loading');
+        if (randomCard) {
+          randomCard.classList.add('is-loading');
+          randomCard.setAttribute('aria-busy', 'true');
+        }
         newRandomBtn.disabled = true;
-        newRandomBtn.setAttribute('aria-busy', 'true');
 
         const newMeal = await fetchRandomRecipe();
         if (newMeal) {
           const linkEl = renderRecipeCard(newMeal, 'random');
           // Move focus to the updated recipe link for accessibility
           if (linkEl) {
-            // ensure it's focusable (anchor is focusable) and focus it
             linkEl.focus({ preventScroll: false });
           }
         }
       } catch (err) {
         console.error('Error fetching new random recipe:', err);
       } finally {
-        if (randomCard) randomCard.classList.remove('is-loading');
+        if (randomCard) {
+          randomCard.classList.remove('is-loading');
+          randomCard.setAttribute('aria-busy', 'false');
+        }
         newRandomBtn.disabled = false;
-        newRandomBtn.removeAttribute('aria-busy');
       }
     });
   }
+
 })();

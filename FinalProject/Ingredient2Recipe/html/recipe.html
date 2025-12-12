@@ -17,7 +17,7 @@
   <header class="site-header">
     <div class="header-wrapper">
       <div class="brand">
-        <a href="../index.html" aria-label="Gå till startsidan">
+        <a href="../index.html#home" aria-label="Gå till startsidan">
           <img class="brand__logo" src="../images/logo.svg" alt="Ingrediensen ger receptet" />
         </a>
       </div>
@@ -43,12 +43,13 @@
     </ol>
   </nav>
 
-  <section class="recipe-card" aria-labelledby="recipe-title" aria-describedby="recipe-desc">
+  <section class="recipe-card" aria-describedby="recipe-desc">
     <p class="visually-hidden" id="recipe-desc">Information om valt recept.</p>
-    <article id="recipe-article" class="recipe-content"></article>
+    <article id="recipe-article" class="recipe-content">
+      <h1 id="recipe-title" class="recipe-header">Laddar recept…</h1>
+    </article>
   </section>
 
-  <noscript><p>JavaScript krävs på denna sida för att visa receptet.</p></noscript>
   <script src="../js/nav-toggle.js" defer></script>
   <script src="../js/recipe.js" defer></script>
 

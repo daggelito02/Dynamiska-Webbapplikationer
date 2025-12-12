@@ -17,7 +17,7 @@
   <header class="site-header">
     <div class="header-wrapper">
       <div class="brand">
-        <a href="../index.html" aria-label="Gå till startsidan">
+        <a href="../index.html#home#home" aria-label="Gå till startsidan">
           <img class="brand__logo" src="../images/logo.svg" alt="Ingrediensen ger receptet" />
         </a>
       </div>
@@ -25,7 +25,7 @@
         <button type="button" class="nav-toggle-btn" aria-controls="primary-navigation" aria-expanded="false">
           Meny
         </button>
-        <ul id="primary-navigation" class="navigation-list" role="list">
+        <ul id="primary-navigation" class="navigation-list">
           <li><a class="navigation-link" href="../index.html">Hem</a></li>
           <li><span class="navigation-link" aria-current='page'>Sök</span></li>
           <li><a class="navigation-link" href="inspiration.html">Inspiration</a></li>
@@ -41,7 +41,8 @@
         <form id="ingredient-form" class="search-form" 
               aria-label="Receptsökning på ingrediensens namn" aria-describedby="search-info">
           <p>
-            För att få bästa resultat, skriv in ingrediensens namn på engelska.</p>
+            För att få bästa resultat, skriv in ingrediensens namn på engelska.
+          </p>
           <p>
             Exempel: <kbd>salt</kbd>, <kbd>beef</kbd>, <kbd>noodles</kbd>.
           </p>
@@ -79,10 +80,6 @@
       <h2 id="results-title">Sökresultat</h2>
       <ul id="search-list" class="search-list"></ul>
     </section>
-
-    <noscript>
-      <p>JavaScript krävs på denna sida för att visa sökresultat.</p>
-    </noscript>
   </main>
   <footer class="footer">
     <div class="footer-container">
