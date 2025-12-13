@@ -62,6 +62,7 @@
     header.className = "search-result-header";
     const h3 = document.createElement("h3");
     h3.textContent = meal.strMeal || "Okänt recept";
+    h3.lang = "en";
     header.appendChild(h3);
 
     const body = document.createElement("div");
@@ -72,6 +73,7 @@
       const previewP = document.createElement("p");
       previewP.className = "search-result-preview-text";
       previewP.setAttribute("aria-hidden", "true");
+      previewP.lang = "en";
       previewP.textContent = instructions;
       body.appendChild(previewP);
     }
@@ -86,6 +88,7 @@
         ? `${area} • ${category}`
         : area
       : category;
+    small.lang = "en";
     footer.appendChild(small);
     body.appendChild(footer);
 
