@@ -226,7 +226,7 @@ background-color: var(--color-link-hover);
   display: block;
   cursor: pointer;
   margin-right: 0.5rem;
-  font-size: var(--font-weight-medium);
+  font-size: var(--font-size-text);
   font-weight: var(--font-weight-medium);
   border: none;
   border-radius: 0;
