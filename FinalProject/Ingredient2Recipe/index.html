@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="sv">
-<head id="home">
+<head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hem – Ingrediensen ger receptet</title>
@@ -13,17 +13,20 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <div id="home" aria-hidden="true"></div>
   <a class="skip-link" href="#main">Hoppa till innehåll</a>
   <header class="site-header">
     <div class="header-wrapper">
-      <div class="brand">
-        <img class="brand__logo" src="images/logo.svg" alt="Ingrediensen ger receptet">
-      </div>
+      <a href="index.html" aria-label="Gå till startsidan">
+        <div class="brand">
+          <img class="brand__logo" src="images/logo.svg" alt="Ingrediensen ger receptet">
+        </div>
+      </a>
       <nav class="navigation" aria-label="Huvudmeny">
         <button type="button" class="nav-toggle-btn" aria-controls="primary-navigation" aria-expanded="false">
           Meny
         </button>
-        <ul id="primary-navigation" class="navigation-list" role="list">
+        <ul id="primary-navigation" class="navigation-list">
           <li><span class="navigation-link" aria-current='page'>Hem</span></li>
           <li><a class="navigation-link" href="html/search.html" >Sök</a></li>
           <li><a class="navigation-link" href="html/inspiration.html" >Inspiration</a></li>

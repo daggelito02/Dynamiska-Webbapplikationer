@@ -179,6 +179,10 @@ header {
 .brand__logo {
   padding-bottom: var(--default-padding);
 }
+
+#home {
+  position: fixed;
+}
 .navigation-list {
   list-style: none;
   margin: 0;
