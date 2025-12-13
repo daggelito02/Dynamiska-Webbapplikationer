@@ -26,13 +26,7 @@
 
     const m = data.meals[0];
 
-    // Koppla sektionen till titel för tillgänglighet
-    const section = document.querySelector(".recipe-card");
     const titleEl = document.getElementById("recipe-title");
-
-    if (section && titleEl) {
-      section.setAttribute("aria-labelledby", "recipe-title");
-    }
 
     if (titleEl) {
       titleEl.textContent = m.strMeal || "Okänt recept";
