@@ -9,6 +9,7 @@
   --info-content-width: 80%;
   /* Color units */
   --color-border: #3a4242;
+  --color-gray: #3a4242;
   --color-background: #fff;
   --color-black: #222;
   --color-white: #fff;
@@ -17,6 +18,10 @@
   --color-link-visited: #56198b;
   --color-link-hover: #3a4242;
   --color-loading: #1f6feb;
+  --color-table-thead-background: #f5f5f5;
+  --color-table-tbody-background: #fafafa;
+  --color-table-tbody-background-hover: #f9f9f9;
+
   /* Font units */
   --font-size-text: 1rem;
   --font-size-h1: 2rem;
@@ -48,7 +53,7 @@
   --section-margin: 1rem;
   --text-margin: 0.5rem;
 
-  --radius: 14px;
+  --radius: .875rem;
 }
 /* Start reset */
 /* 1. Use a more-intuitive box-sizing model */
@@ -507,7 +512,7 @@ footer {
 }
 .recipe-meta {
   margin: 0.3rem 0 .3rem;
-  font-size: var(--font-size-small)
+  font-size: var(--font-size-small);
   color: var(--color-base-font);
   display: flex;
 }
@@ -958,6 +963,9 @@ span.search-button-text {
   object-fit: cover;
   width: 100%;
 }
+.about-team {
+  margin-top: var(--margin-default);
+}
 .about-team-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1006,8 +1014,45 @@ span.search-button-text {
   padding-left: 1.2rem;
   margin: 0;
 }
-.about-visit, .about-contact {
+.about-comparison, .about-visit, .about-contact {
   margin-top: var(--margin-default);
+}
+.about-comparison p {
+  margin-bottom: var(--margin-default-sm);
+}
+.about-comparison-table-container {
+  overflow-x: auto;
+  margin-top: var(--margin-default-sm);
+}
+.about-comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: var(--border-width) solid var(--color-border);
+  margin: var(--margin-default-sm) 0;
+}
+.about-comparison-table caption {
+  font-weight: var(--font-weight-medium);
+  text-align: left;
+  padding: 0.5rem 0;
+  font-size: var(--font-size-small);
+  color: var(--color-gray);
+}
+.about-comparison-table th,
+.about-comparison-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border: var(--border-width) solid var(--color-border);
+}
+.about-comparison-table thead th {
+  background-color: var(--color-table-thead-background);
+  font-weight: var(--font-weight-bold);
+}
+.about-comparison-table tbody th {
+  font-weight: var(--font-weight-medium);
+  background-color: var(--color-table-tbody-background);
+}
+.about-comparison-table tbody tr:hover {
+  background-color: var(--color-table-tbody-background-hover);
 }
 .about-visit-grid {
   display: grid;
