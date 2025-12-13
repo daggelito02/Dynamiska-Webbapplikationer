@@ -557,7 +557,7 @@ footer {
 }
 .recipe-instructions-list {
   line-height: 1.9;
-  padding-left: 1.3rem;
+  padding-left: 1.6rem;
 }
 .recipe-links {
   display: flex;
@@ -1086,7 +1086,7 @@ span.search-button-text {
 }
 @media (max-width: 560px) {
   .recipe-info, .recipe-content {
-    padding: .5rem 1rem .6rem;
+    padding: .5rem .8rem .6rem;
   }
   .about-team-grid,
   .about-visit-grid { grid-template-columns: 1fr; }
