@@ -12,17 +12,16 @@
   const aside = document.getElementById("search-info");
 
   if (toggleBtn && aside) {
-    const arrows = toggleBtn.querySelectorAll(".search-arrow");
-    const downArrow = arrows[0];
-    const upArrow = arrows[1];
+    const downArrow = toggleBtn.querySelector(".search-arrow-down");
+    const upArrow = toggleBtn.querySelector(".search-arrow-up");
 
     const setClosedVisual = () => {
-      if (downArrow) downArrow.hidden = false;
-      if (upArrow) upArrow.hidden = true;
+      if (downArrow) downArrow.style.display = "inline";
+      if (upArrow) upArrow.style.display = "none";
     };
     const setOpenVisual = () => {
-      if (downArrow) downArrow.hidden = true;
-      if (upArrow) upArrow.hidden = false;
+      if (downArrow) downArrow.style.display = "none";
+      if (upArrow) upArrow.style.display = "inline";
     };
 
     toggleBtn.addEventListener("click", () => {

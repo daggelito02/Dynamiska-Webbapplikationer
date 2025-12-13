@@ -638,7 +638,7 @@ span.search-button-text {
 .search-arrow {
   position: absolute;
 }
-.search-arrow[hidden] {
+.search-arrow-up {
     display: none;
 }
 /* Visually hidden utility for accessible labels */
