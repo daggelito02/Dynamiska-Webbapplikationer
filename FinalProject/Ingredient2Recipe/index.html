@@ -26,7 +26,7 @@
         <button type="button" class="nav-toggle-btn" aria-controls="primary-navigation" aria-expanded="false">
           Meny
         </button>
-        <ul id="primary-navigation" class="navigation-list" role="list">
+        <ul id="primary-navigation" class="navigation-list" >
           <li><span class="navigation-link" aria-current='page'>Hem</span></li>
           <li><a class="navigation-link" href="html/search.html" >Sök</a></li>
           <li><a class="navigation-link" href="html/inspiration.html" >Inspiration</a></li>
@@ -51,40 +51,7 @@
   </section>
   <section class="weekly-random-tip" aria-labelledby="weekly-tips-title">
     <h2 id="weekly-tips-title">Här ser du veckans tips!</h2>
-    <div class="recipe-grid">
-      <div id="weekly-recipe-card" class="recipe-card" aria-busy="true">
-        <h3 class="recipe-card-header">Denna veckas ingrediens: Banan</h3>
-        <a href="" class="recipe-link" id="weekly-recipe-link" aria-disabled="true" tabindex="-1">
-          <article class="recipe-article">
-            <figure class="recipe-image">
-              <img id="weekly-recipe-img" class="recipe-img" src="" alt="Veckans recept">
-            </figure>
-            <div class="recipe-info">
-              <h4 id="weekly-recipe-title" class="recipe-header">Laddar...</h4>
-              <p id="weekly-recipe-category" class="recipe-meta"></p>
-              <p id="weekly-recipe-description" class="recipe-text"></p>
-            </div>
-          </article>
-        </a>
-      </div>
-      <div id="random-recipe-card" class="recipe-card" aria-busy="true">
-        <h3 class="recipe-card-header random-header">Slumpat fram ett recept</h3>
-        <button type="button" class="random-btn" id="new-random-recipe-btn" aria-label="Hämta nytt slumpat recept">
-          <span class="material-symbols-outlined" aria-hidden="true">shuffle</span>
-        </button>
-        <a href="" class="recipe-link" id="random-recipe-link" aria-disabled="true" tabindex="-1">
-          <article class="recipe-article">
-            <figure class="recipe-image">
-              <img id="random-recipe-img" class="recipe-img"  src="" alt="Slumpat recept">
-            </figure>
-            <div class="recipe-info">
-              <h4 id="random-recipe-title" class="recipe-header">Laddar...</h4>
-              <p id="random-recipe-category" class="recipe-meta"></p>
-              <p id="random-recipe-description" class="recipe-text"></p>
-            </div>
-          </article>
-        </a>
-      </div>
+    <div id="recipe-grid" class="recipe-grid">
     </div>
   </section>
   </main>
@@ -95,6 +62,6 @@
     </div>
   </footer>
   <script src="js/nav-toggle.js" defer></script>
-  <script src="js/weekly-tips.js" defer type="module"></script>
+  <script src="js/weekly-tips.js" type="module"></script>
 </body>
 </html>
