@@ -36,6 +36,7 @@
 
     if (titleEl) {
       titleEl.textContent = m.strMeal || "Okänt recept";
+      titleEl.lang = "en";
     }
 
     // Sätt sidtitel dynamiskt (valfritt men trevligt)
@@ -97,17 +98,19 @@
     const catStrong = document.createElement("strong");
     catStrong.textContent = "Kategori:";
     catP.appendChild(catStrong);
-    catP.appendChild(
-      document.createTextNode(" " + (m.strCategory || "-"))
-    );
+    const catText = document.createElement("span");
+    catText.textContent = " " + (m.strCategory || "-");
+    catText.lang = "en";
+    catP.appendChild(catText);
 
     const areaP = document.createElement("p");
     const areaStrong = document.createElement("strong");
     areaStrong.textContent = "Kök:";
     areaP.appendChild(areaStrong);
-    areaP.appendChild(
-      document.createTextNode(" " + (m.strArea || "-"))
-    );
+    const areaText = document.createElement("span");
+    areaText.textContent = " " + (m.strArea || "-");
+    areaText.lang = "en";
+    areaP.appendChild(areaText);
 
     meta.appendChild(catP);
     meta.appendChild(areaP);
@@ -139,6 +142,7 @@
         li.textContent = meas
           ? `${ing.trim()} – ${meas.trim()}`
           : ing.trim();
+        li.lang = "en";
         ingUl.appendChild(li);
         hasIngredients = true;
       }
@@ -173,6 +177,7 @@
       for (const line of lines) {
         const li = document.createElement("li");
         li.textContent = line;
+        li.lang = "en";
         instrOl.appendChild(li);
       }
     } else {
