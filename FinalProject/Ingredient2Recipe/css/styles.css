@@ -1022,6 +1022,12 @@ span.search-button-text {
   }
 }
 @media (max-width: 560px) {
+  input[type="text"]::placeholder,
+  input[type="email"]::placeholder,
+  textarea::placeholder {
+    font-size: 0.9rem;
+    /* opacity: 0.7; */
+  }
   .recipe-info, .recipe-content {
     padding: .5rem .8rem .6rem;
   }
