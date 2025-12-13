@@ -1021,7 +1021,6 @@ span.search-button-text {
   margin-bottom: var(--margin-default-sm);
 }
 .about-comparison-table-container {
-  overflow-x: auto;
   margin-top: var(--margin-default-sm);
 }
 .about-comparison-table {
@@ -1081,4 +1080,15 @@ span.search-button-text {
 @media (max-width: 560px) {
   .about-team-grid,
   .about-visit-grid { grid-template-columns: 1fr; }
+  .about-comparison-table {
+    font-size: 0.8rem;
+  }
+  .about-comparison-table th,
+  .about-comparison-table td {
+    padding: 0.5rem 0.4rem;
+  }
+  .about-comparison-table caption {
+    font-size: 0.75rem;
+    padding: 0.25rem 0;
+  }
 }
