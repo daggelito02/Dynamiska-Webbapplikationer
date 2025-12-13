@@ -1061,7 +1061,7 @@ span.search-button-text {
 }
 .about-address-card {
   border-radius: var(--radius);
-  padding: 1rem 0;
+  padding: .5rem 0;
 }
 .about-address { font-style: normal; }
 .about-opening-hours { 
@@ -1069,13 +1069,21 @@ span.search-button-text {
  }
 .about-contact-list { padding-left: 1.1rem; }
 
-/* Responsive */
 @media (max-width: 768px) {
-  .about-team-grid { grid-template-columns: repeat(2, 1fr); }
+  .about-team-grid { 
+    grid-template-columns: repeat(2, 1fr); 
+  }
   .about-hero, 
   .about-our-vision,
-  .visit-grid { grid-template-columns: 1fr; }
-  .about-hero-image img { height: 320px; }
+  .visit-grid { 
+    grid-template-columns: 1fr; 
+  }
+  .about-hero-image img { 
+    height: 320px; 
+  }
+  .about-team-card {
+    padding: 0;
+  }
 }
 @media (max-width: 560px) {
   .about-team-grid,
@@ -1090,5 +1098,8 @@ span.search-button-text {
   .about-comparison-table caption {
     font-size: 0.75rem;
     padding: 0.25rem 0;
+  }
+  .about-address-card {
+    padding-top: 0;
   }
 }

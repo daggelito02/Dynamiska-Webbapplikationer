@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Om oss – Ingrediensen ger receptet</title>
   <meta name="description" content="Hitta recept baserat på ingredienser du har hemma." />
-  <link rel="preconnect" href="https://www.themealdb.com" />
   <link rel="icon" href="../favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0">
   <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/darkmode-trial">
@@ -189,6 +188,7 @@
           <p>
             <a class="new-window" href="https://maps.google.com/?q=Matgatan%2012%20Stockholm" target="_blank" rel="noopener noreferrer">
               Se på karta
+              <span class="visually-hidden">(öppnas i ny flik)</span>
             </a>
           </p>
         </div>
@@ -197,7 +197,10 @@
             <source srcset="https://images.pexels.com/photos/7688174/pexels-photo-7688174.jpeg?auto=compress&cs=srgb&w=1200" media="(min-width: 1024px)" />
             <source srcset="https://images.pexels.com/photos/7688174/pexels-photo-7688174.jpeg?auto=compress&cs=srgb&w=800" media="(min-width: 640px)" />
             <source srcset="https://images.pexels.com/photos/7688174/pexels-photo-7688174.jpeg?auto=compress&cs=srgb&w=700" media="(min-width: 350px)" />
-            <img src="https://images.pexels.com/photos/7688174/pexels-photo-7688174.jpeg?auto=compress&cs=srgb&w=600" alt="Kontorsmiljö med långbord och växter" />
+            <img src="https://images.pexels.com/photos/7688174/pexels-photo-7688174.jpeg?auto=compress&cs=srgb&w=600" 
+                 alt="Kontorsmiljö med långbord och växter" 
+                 loading="lazy"
+                 decoding="async"/>
           </picture>
           <figcaption>Vårt lilla kontor i Stockholm.</figcaption>
         </figure>
