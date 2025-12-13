@@ -192,44 +192,52 @@
   gridContainer.appendChild(weeklyCard);
   gridContainer.appendChild(randomCard);
 
+  // Handler function for shuffle button
+  async function handleShuffleClick() {
+    try {
+      const randomCardEl = document.getElementById('random-recipe-card');
+      const btn = document.getElementById('new-random-recipe-btn');
+      
+      if (randomCardEl) {
+        randomCardEl.classList.add('is-loading');
+        randomCardEl.setAttribute('aria-busy', 'true');
+      }
+      if (btn) {
+        btn.disabled = true;
+      }
+
+      const newMeal = await fetchRandomRecipe();
+      
+      if (newMeal && randomCardEl) {
+        const newCard = createRecipeCard(newMeal, 'random', 'Slumpat fram ett recept', true);
+        randomCardEl.replaceWith(newCard);
+        
+        // Reattach event listener to new button
+        const newBtn = document.getElementById('new-random-recipe-btn');
+        if (newBtn) {
+          newBtn.addEventListener('click', handleShuffleClick);
+          newBtn.disabled = false;
+        }
+        
+        // Focus on the link
+        const link = newCard.querySelector('.recipe-link');
+        if (link) {
+          link.focus({ preventScroll: false });
+        }
+      }
+    } catch (err) {
+      console.error('Error fetching new random recipe:', err);
+      const btn = document.getElementById('new-random-recipe-btn');
+      if (btn) {
+        btn.disabled = false;
+      }
+    }
+  }
+
   // Attach click handler to the shuffle button
   const newRandomBtn = document.getElementById('new-random-recipe-btn');
-
   if (newRandomBtn) {
-    newRandomBtn.addEventListener('click', async () => {
-      try {
-        const randomCardEl = document.getElementById('random-recipe-card');
-        
-        if (randomCardEl) {
-          randomCardEl.classList.add('is-loading');
-          randomCardEl.setAttribute('aria-busy', 'true');
-        }
-        newRandomBtn.disabled = true;
-
-        const newMeal = await fetchRandomRecipe();
-        
-        if (newMeal && randomCardEl) {
-          const newCard = createRecipeCard(newMeal, 'random', 'Slumpat fram ett recept', true);
-          randomCardEl.replaceWith(newCard);
-          
-          // Reattach event listener to new button
-          const newBtn = document.getElementById('new-random-recipe-btn');
-          if (newBtn) {
-            newBtn.click = arguments.callee;
-            newBtn.disabled = false;
-          }
-          
-          // Focus on the link
-          const link = newCard.querySelector('.recipe-link');
-          if (link) {
-            link.focus({ preventScroll: false });
-          }
-        }
-      } catch (err) {
-        console.error('Error fetching new random recipe:', err);
-        newRandomBtn.disabled = false;
-      }
-    });
+    newRandomBtn.addEventListener('click', handleShuffleClick);
   }
 
 })();
