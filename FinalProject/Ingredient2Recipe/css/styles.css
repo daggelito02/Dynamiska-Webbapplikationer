@@ -451,6 +451,10 @@ footer {
   color: var(--color-black);
   width: 100%;
 }
+.recipe-name {
+  margin: 0;
+  padding: 1rem 1.3rem 0;
+}
 .recipe-meta {
   margin: 0.3rem 0 .3rem;
   font-size: var(--font-size-small);
@@ -479,6 +483,9 @@ footer {
 .recipe-text-content {
   padding: 0 1rem 1rem 0;
   min-width: 0;
+}
+.recipe-text-content h3 {
+  font-size: var(--font-size-h2);
 }
 .recipe-content::after {
   content: "";
@@ -1006,6 +1013,9 @@ span.search-button-text {
 .about-contact-list { padding-left: 1.1rem; }
 
 @media (max-width: 768px) {
+  .recipe-text-content h3 {
+    font-size: var(--font-size-md-h3)
+  }
   .about-team-grid { 
     grid-template-columns: repeat(2, 1fr); 
   }
@@ -1029,6 +1039,13 @@ span.search-button-text {
   }
   .recipe-info, .recipe-content {
     padding: .5rem .8rem .6rem;
+  }
+  .recipe-name {
+    margin: 0;
+    padding: .5rem .8rem 0;
+  }
+  .recipe-text-content h3 {
+    font-size: var(--font-size-sm-h3)
   }
   .about-team-grid,
   .about-visit-grid { grid-template-columns: 1fr; }

@@ -119,9 +119,9 @@
     const ingDiv = document.createElement("div");
     ingDiv.className = "recipe-ingredients";
 
-    const ingH2 = document.createElement("h2");
-    ingH2.textContent = "Ingredienser";
-    ingDiv.appendChild(ingH2);
+    const ingH3 = document.createElement("h3");
+    ingH3.textContent = "Ingredienser";
+    ingDiv.appendChild(ingH3);
 
     const ingUl = document.createElement("ul");
     ingUl.className = "recipe-ingredients-list";
@@ -154,9 +154,9 @@
     const instrDiv = document.createElement("div");
     instrDiv.className = "recipe-instructions";
 
-    const instrH2 = document.createElement("h2");
-    instrH2.textContent = "Instruktioner";
-    instrDiv.appendChild(instrH2);
+    const instrH3 = document.createElement("h3");
+    instrH3.textContent = "Instruktioner";
+    instrDiv.appendChild(instrH3);
 
     const instrOl = document.createElement("ol");
     instrOl.className = "recipe-instructions-list";
