@@ -1026,7 +1026,6 @@ span.search-button-text {
   input[type="email"]::placeholder,
   textarea::placeholder {
     font-size: 0.9rem;
-    /* opacity: 0.7; */
   }
   .recipe-info, .recipe-content {
     padding: .5rem .8rem .6rem;
