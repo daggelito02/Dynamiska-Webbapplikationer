@@ -257,9 +257,9 @@ background-color: var(--color-link-hover);
   content: "open_in_new";
   font-family: "Material Symbols Outlined";
   position: relative;
-  top: 0.2rem;
+  top: 0.13rem;
   color: var(--color-link);
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 .new-window:hover::after {
   color: var(--color-white);
