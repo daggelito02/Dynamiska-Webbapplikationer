@@ -43,7 +43,13 @@ class SearchResultsWidget {
   }
 
   init() {
-    // Skapa results-sektionen
+    // Lyssna på form submit
+    this.form.addEventListener('submit', (e) => this.handleSearch(e));
+  }
+
+  createResultsSection() {
+    if (this.resultsSection) return; // Skapa bara en gång
+    
     this.resultsSection = document.createElement('section');
     this.resultsSection.className = 'search-results';
     this.resultsSection.setAttribute('aria-live', 'polite');
@@ -53,7 +59,7 @@ class SearchResultsWidget {
     
     const title = document.createElement('h2');
     title.id = 'results-title';
-    title.textContent = 'Sökresultat';
+    title.textContent = 'Sökresultat:';
     this.resultsSection.appendChild(title);
     
     const ul = document.createElement('ul');
@@ -62,9 +68,6 @@ class SearchResultsWidget {
     this.resultsSection.appendChild(ul);
     
     this.container.appendChild(this.resultsSection);
-    
-    // Lyssna på form submit
-    this.form.addEventListener('submit', (e) => this.handleSearch(e));
   }
 
   async handleSearch(e) {
@@ -74,6 +77,7 @@ class SearchResultsWidget {
 
     if (!query) return;
 
+    this.createResultsSection(); // Skapa sektion vid första sökningen
     this.showLoading();
 
     try {
@@ -404,7 +408,7 @@ class WeeklyTipsWidget {
     this.api = new RecipeAPI();
     this.gridContainer = document.getElementById('recipe-grid');
     this.WEEKLY_HEADER = 'Denna veckas ingrediens: Banan';
-    this.RANDOM_HEADER = 'Nytt recept? Klicka på symbolen';
+    this.RANDOM_HEADER = 'Slumpa recept? Klicka på symbolen';
     
     if (this.gridContainer) {
       this.init();
