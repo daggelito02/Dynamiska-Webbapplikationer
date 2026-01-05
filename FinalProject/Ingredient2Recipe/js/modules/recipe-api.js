@@ -1,4 +1,4 @@
-// widget-api.js - API modul för att hämta receptdata från TheMealDB
+// recipe-api.js - API modul för att hämta receptdata från TheMealDB
 export class RecipeAPI {
   constructor() {
     this.baseURL = 'https://www.themealdb.com/api/json/v1/1';
