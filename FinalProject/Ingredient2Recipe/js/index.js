@@ -1,5 +1,5 @@
 // index.js - Huvudfil för alla HTML-sidor
-import { RecipeAPI } from './widget-api.js';
+import { RecipeAPI } from './modules/widget-api.js';
 
 // ========== NAV TOGGLE FUNKTIONALITET ==========
 function initNavToggle() {
@@ -403,6 +403,8 @@ class WeeklyTipsWidget {
   constructor() {
     this.api = new RecipeAPI();
     this.gridContainer = document.getElementById('recipe-grid');
+    this.WEEKLY_HEADER = 'Denna veckas ingrediens: Banan';
+    this.RANDOM_HEADER = 'Nytt recept? Klicka på symbolen';
     
     if (this.gridContainer) {
       this.init();
@@ -415,8 +417,8 @@ class WeeklyTipsWidget {
       this.api.getRandomMeal()
     ]);
 
-    const weeklyCard = this.createRecipeCard(weeklyMeal, 'weekly', 'Denna veckas ingrediens: Banan', false);
-    const randomCard = this.createRecipeCard(randomMeal, 'random', 'Slumpat fram ett recept', true);
+    const weeklyCard = this.createRecipeCard(weeklyMeal, 'weekly', this.WEEKLY_HEADER, false);
+    const randomCard = this.createRecipeCard(randomMeal, 'random', this.RANDOM_HEADER, true);
 
     this.gridContainer.appendChild(weeklyCard);
     this.gridContainer.appendChild(randomCard);
@@ -553,7 +555,7 @@ class WeeklyTipsWidget {
         const newMeal = await this.api.getRandomMeal();
 
         if (newMeal && randomCardEl) {
-          const newCard = this.createRecipeCard(newMeal, 'random', 'Slumpat fram ett recept', true);
+          const newCard = this.createRecipeCard(newMeal, 'random', this.RANDOM_HEADER, true);
           randomCardEl.replaceWith(newCard);
 
           const newBtn = document.getElementById('new-random-recipe-btn');
