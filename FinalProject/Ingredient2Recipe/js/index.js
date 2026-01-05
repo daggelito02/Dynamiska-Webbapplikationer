@@ -2,17 +2,21 @@
 import { SearchResultsWidget } from './modules/search-widget.js';
 import { RecipeDetailPage } from './modules/recipe-page.js';
 import { WeeklyTipWidget } from './modules/weekly-tip.js';
-import { initNavToggle, initAsideToggle } from './modules/ui-helpers.js';
+import { mobileMenu, asideToggle } from './modules/ui-toggles.js';
 
-// ========== INITIALISERING ==========
+// ========== init ==========
 document.addEventListener('DOMContentLoaded', () => {
-  // Nav-toggle fungerar på alla sidor
-  initNavToggle();
+  // Mobilmenu-toggle
+  mobileMenu();
 
-  // Aside-toggle för search-sidan
-  initAsideToggle();
+  // Aside-toggle på search-sidan
+  asideToggle();
 
-  // Initiera rätt widget baserat på vilka element som finns
+  // Läser in rätt class baserat på vilket element som finns
+  if (document.getElementById('recipe-grid')) {
+    new WeeklyTipWidget();
+  }
+
   if (document.getElementById('search-results-widget')) {
     new SearchResultsWidget('search-results-widget');
   }
@@ -21,7 +25,5 @@ document.addEventListener('DOMContentLoaded', () => {
     new RecipeDetailPage();
   }
 
-  if (document.getElementById('recipe-grid')) {
-    new WeeklyTipWidget();
-  }
+  
 });

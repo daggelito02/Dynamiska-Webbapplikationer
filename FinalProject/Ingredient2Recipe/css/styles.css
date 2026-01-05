@@ -936,7 +936,7 @@ span.search-button-text {
   .search-info-text-container { 
     display: none;
   }
-  .search-info-text-container.open {
+  .search-info-text-container.is-open {
     display: block;
     margin-bottom: var(--small-gap);
   }
