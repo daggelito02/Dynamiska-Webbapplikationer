@@ -1,11 +1,12 @@
 /* Styles for "Ingrediensen ger receptet"
-  by Dag Fredriksson, Uppsala University 2024
+  by Dag Fredriksson, Uppsala University 2025
 */
 :root {
   /* Size units */
   --max-width-main-area: 75rem;
   --border-width: 0.0625rem; /* 1px */
   --border-radius: 1rem;
+  --border-radius-button: 0.65rem;
   --info-content-width: 80%;
   /* Color units */
   --color-border: #3a4242;
@@ -51,8 +52,10 @@
   --small-gap: 0.5rem;
   --section-margin: 1rem;
   --text-margin: 0.5rem;
+  --button-padding: 0.65rem 0.9rem;
 /* Other units */
   --radius: .875rem;
+  --default-outline-offset: 0.125rem;
 }
 body {
   font-family: "Darkmode Trial", Arial, Helvetica, sans-serif;
@@ -98,8 +101,8 @@ svg {
   max-width: 100%;
 }
 button {
-  padding: 0.65rem 0.9rem;
-  border-radius: 0.65rem;
+  padding:  var(--button-padding);
+  border-radius: var(--border-radius-button);
   border: var(--border-width) solid var(--color-border);
   background: var(--color-black);
   color: white;
@@ -113,7 +116,7 @@ a:focus-visible,
 input:focus-visible,
 textarea:focus-visible {
   outline: 0.1875rem solid var(--color-border);
-  outline-offset: 0.125rem;
+  outline-offset: var(--default-outline-offset);
 }
 h1,
 h2,
@@ -179,7 +182,6 @@ header {
 .brand__logo {
   padding-bottom: var(--default-padding);
 }
-
 #home {
   position: fixed;
 }
@@ -193,7 +195,7 @@ header {
   position: relative;
 }
 .navigation-list:after {
-  /* Hide the bootom line of the outline to fit the design */
+  /* Hide the bottom line of the outline to fit the design */
   content: "";
   height: 0.25rem;
   background: #fff;
@@ -239,7 +241,7 @@ background-color: var(--color-link-hover);
 }
 .nav-toggle-btn:hover {
   outline: 0.1875rem solid var(--color-border);
-  outline-offset: 0.125rem;
+  outline-offset: var(--default-outline-offset);
 }
 .nav-toggle-btn:before {
   content: "menu";
@@ -293,7 +295,7 @@ background-color: var(--color-link-hover);
 }
 .skip-link {
   position: absolute;
-  top: -3rem; /* Gömmer kontainern i default */
+  top: -3rem;
   left: 2rem;
   background-color: var(--color-white);
   color: var(--color-black);
@@ -327,7 +329,7 @@ main {
 }
 main:focus-visible {
   outline: 0.1875rem solid var(--color-border);
-  outline-offset: 0.125rem;
+  outline-offset: var(--default-outline-offset);
   position: relative;
 }
 .information-ingress {
@@ -399,8 +401,9 @@ footer {
   border-radius: 0;
   position: relative;
   top: 0.3125rem;
+  left: .375rem;
 }
-/* Loading spinner overlay for cards */
+/* Loading spinner overlay for random recipe card */
 .recipe-card.is-loading {
   position: relative;
   opacity: 0.85;
@@ -631,7 +634,7 @@ li:last-child .search-result-article {
 .search-info-toggle:focus-visible {
   text-decoration: none;
   outline: 0.1875rem solid var(--color-border);
-  outline-offset: 0.125rem;
+  outline-offset: var(--default-outline-offset);
   border-radius: 0.25rem;
 }
 .search-info-toggle .toggle-label::after {
@@ -712,176 +715,6 @@ span.search-button-text {
   border-radius: .3rem;
   margin-right: .75rem;
 }
-/* Media Queries for responsiveness */
-@media (max-width: 1023px) {
-  .recipe-grid {
-    gap: var(--default-gap-md);
-  }
-  .brand {
-    max-width: 32%;
-  }
-}
-@media (max-width: 991px) {
-  body {
-    margin: var(--margin-default-lg) 0 var(--margin-default);
-  }
-  h1 {
-    font-size: var(--font-size-md-h1);
-  }
-  h2 {
-    font-size: var(--font-size-md-h2);
-  }
-  h3 {
-    font-size: var(--font-size-md-h3);
-  }
-  .header-wrapper {
-    justify-content: space-around;
-    flex-wrap: wrap;
-    padding: 0 var(--default-outer-space-md);
-  }
-  .brand {
-    max-width: 35%;
-  }
-  .intro-information {
-    max-width: 100%;
-  }
-  .navigation {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-  .navigation:before {
-    content: "";
-    width: 100%;
-    position: absolute;
-    height: 0.0625rem;
-    background: black;
-  }
-  main {
-    margin: 0 var(--default-outer-space-md);
-  }
-  .footer-container {
-    padding: 0 var(--default-outer-space-md);
-  }
-}
-@media (max-width: 800px) {
-  .brand {
-    max-width: 42%;
-  }
-}
-@media (max-width: 768px) {
-  .recipe-grid {
-    grid-template-columns: 1fr;
-    gap: var(--default-gap);
-  }
-  .recipe-overview {
-    float: none;
-    width: 100%;
-    margin: 0 0 1rem 0;
-  }
-  .recipe-picture {
-    margin: 0;
-    overflow: hidden;
-    background: var(--color-border);
-    aspect-ratio: 16 / 9;
-  }
-  .search-info-toggle { 
-    display: block; 
-  }
-  .search-grid {
-    display: grid;
-    grid-template-columns: unset;
-    gap: unset;
-    align-items: start;
-  }
-  .search-aside {
-    order: -1;
-  }
-  .search-info-text-container { 
-    display: none;
-  }
-  .search-info-text-container.open {
-    display: block;
-    margin-bottom: var(--small-gap);
-  }
-}
-@media (max-width: 991px) and (min-width: 641px) {
-  a.navigation-link {
-    outline-offset: -0.175rem;
-  }
-}
-@media (max-width: 640px) {
-  body {
-    margin: var(--margin-default) 0 var(--margin-default-sm);
-  }
-  h1 {
-    font-size: var(--font-size-sm-h1);
-  }
-  h2 {
-    font-size: var(--font-size-sm-h2);
-  }
-  h3 {
-    font-size: var(--font-size-sm-h3);
-  }
-  .header {
-    justify-content: unset;
-  }
-  .header-wrapper {
-    justify-content: unset;
-    flex-wrap: nowrap;
-    align-items: start;
-    padding: 0 var(--default-outer-space-sm);
-  }
-  .brand {
-    max-width: 40%;
-    order: 1;
-  }
-  .brand__logo {
-    padding-bottom: 0.5rem;
-  }
-  .navigation {
-    justify-content: unset;
-    align-self: end;
-    position: relative;
-  }
-  .navigation::before {
-    content: none;
-  }
-  /* Hide navigation-list by default on mobile */
-  .navigation-list {
-    display: none;
-    flex-direction: column;
-    gap: 0;
-  }
-  /* Show when .is-open class is added with Javascript */
-  .navigation-list.is-open {
-    display: flex;
-    background-color: var(--color-background);
-    min-width: 15rem;
-    position: absolute;
-    top: 2.7rem;
-    z-index: 100;
-    box-shadow: 0.125rem 0.25rem 0.5rem rgba(0, 0, 0, 0.15),
-      -0.125rem 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
-  }
-  .navigation-list.is-open::after {
-    background-color: transparent;
-  }
-  .navigation-list.is-open .navigation-link {
-    outline-offset: -0.175rem;
-  }
-  main {
-    margin: 0 var(--default-outer-space-sm);
-  }
-  .footer-container {
-    padding: 0 var(--default-outer-space-sm);
-  }
-}
-@media (min-width: 641px) {
-  .nav-toggle-btn {
-    display: none;
-  }
-} 
 .about-hero {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
@@ -1015,7 +848,99 @@ span.search-button-text {
   font-size: var(--font-size-small);
  }
 .about-contact-list { padding-left: 1.1rem; }
-
+/* Media Queries for responsiveness */
+@media (max-width: 1023px) {
+  .recipe-grid {
+    gap: var(--default-gap-md);
+  }
+  .brand {
+    max-width: 32%;
+  }
+}
+@media (max-width: 991px) {
+  body {
+    margin: var(--margin-default-lg) 0 var(--margin-default);
+  }
+  h1 {
+    font-size: var(--font-size-md-h1);
+  }
+  h2 {
+    font-size: var(--font-size-md-h2);
+  }
+  h3 {
+    font-size: var(--font-size-md-h3);
+  }
+  .header-wrapper {
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 0 var(--default-outer-space-md);
+  }
+  .brand {
+    max-width: 35%;
+  }
+  .intro-information {
+    max-width: 100%;
+  }
+  .navigation {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .navigation:before {
+    content: "";
+    width: 100%;
+    position: absolute;
+    height: 0.0625rem;
+    background: black;
+  }
+  main {
+    margin: 0 var(--default-outer-space-md);
+  }
+  .footer-container {
+    padding: 0 var(--default-outer-space-md);
+  }
+}
+@media (max-width: 800px) {
+  .brand {
+    max-width: 42%;
+  }
+}
+@media (max-width: 768px) {
+  .recipe-grid {
+    grid-template-columns: 1fr;
+    gap: var(--default-gap);
+  }
+  .recipe-overview {
+    float: none;
+    width: 100%;
+    margin: 0 0 1rem 0;
+  }
+  .recipe-picture {
+    margin: 0;
+    overflow: hidden;
+    background: var(--color-border);
+    aspect-ratio: 16 / 9;
+  }
+  .search-info-toggle { 
+    display: block; 
+  }
+  .search-grid {
+    display: grid;
+    grid-template-columns: unset;
+    gap: unset;
+    align-items: start;
+  }
+  .search-aside {
+    order: -1;
+  }
+  .search-info-text-container { 
+    display: none;
+  }
+  .search-info-text-container.open {
+    display: block;
+    margin-bottom: var(--small-gap);
+  }
+}
 @media (max-width: 768px) {
   .recipe-text-content h3 {
     font-size: var(--font-size-md-h3)
@@ -1035,6 +960,78 @@ span.search-button-text {
     padding: 0;
   }
 }
+@media (max-width: 991px) and (min-width: 641px) {
+  a.navigation-link {
+    outline-offset: -0.175rem;
+  }
+}
+@media (max-width: 640px) {
+  body {
+    margin: var(--margin-default) 0 var(--margin-default-sm);
+  }
+  h1 {
+    font-size: var(--font-size-sm-h1);
+  }
+  h2 {
+    font-size: var(--font-size-sm-h2);
+  }
+  h3 {
+    font-size: var(--font-size-sm-h3);
+  }
+  .header {
+    justify-content: unset;
+  }
+  .header-wrapper {
+    justify-content: unset;
+    flex-wrap: nowrap;
+    align-items: start;
+    padding: 0 var(--default-outer-space-sm);
+  }
+  .brand {
+    max-width: 40%;
+    order: 1;
+  }
+  .brand__logo {
+    padding-bottom: 0.5rem;
+  }
+  .navigation {
+    justify-content: unset;
+    align-self: end;
+    position: relative;
+  }
+  .navigation::before {
+    content: none;
+  }
+  /* Hide navigation-list by default on mobile */
+  .navigation-list {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+  }
+  /* Show when .is-open class is added with Javascript */
+  .navigation-list.is-open {
+    display: flex;
+    background-color: var(--color-background);
+    min-width: 15rem;
+    position: absolute;
+    top: 2.7rem;
+    z-index: 100;
+    box-shadow: 0.125rem 0.25rem 0.5rem rgba(0, 0, 0, 0.15),
+      -0.125rem 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
+  }
+  .navigation-list.is-open::after {
+    background-color: transparent;
+  }
+  .navigation-list.is-open .navigation-link {
+    outline-offset: -0.175rem;
+  }
+  main {
+    margin: 0 var(--default-outer-space-sm);
+  }
+  .footer-container {
+    padding: 0 var(--default-outer-space-sm);
+  }
+} 
 @media (max-width: 560px) {
   input[type="text"]::placeholder,
   input[type="email"]::placeholder,
@@ -1066,5 +1063,10 @@ span.search-button-text {
   }
   .about-address-card {
     padding-top: 0;
+  }
+}
+@media (min-width: 641px) {
+  .nav-toggle-btn {
+    display: none;
   }
 }
