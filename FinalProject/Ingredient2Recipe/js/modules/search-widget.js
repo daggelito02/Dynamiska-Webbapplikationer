@@ -14,10 +14,10 @@ export class SearchResultsWidget {
   }
 
   init() {
-    // Lyssna på form submit
+    // Lyssna på form knappen
     this.form.addEventListener('submit', (e) => this.handleSearch(e));
   }
-
+  // Skapar sökresultatet på sidan
   createResultsSection() {
     if (this.resultsSection) return; // Skapa bara en gång
     
@@ -41,6 +41,7 @@ export class SearchResultsWidget {
     this.container.appendChild(this.resultsSection);
   }
 
+  // Hanterar sökningen
   async handleSearch(e) {
     e.preventDefault();
     const input = this.form.querySelector('#q');
@@ -65,18 +66,21 @@ export class SearchResultsWidget {
     }
   }
 
+  // Visar laddningsmeddelande
   showLoading() {
     const ul = this.resultsSection.querySelector('#search-list');
     this.resultsSection.setAttribute('aria-busy', 'true');
     ul.innerHTML = '<li class="loading-message">Söker recept...</li>';
   }
 
+  // Visar felmeddelande
   showError(message) {
     const ul = this.resultsSection.querySelector('#search-list');
     this.resultsSection.setAttribute('aria-busy', 'false');
     ul.innerHTML = `<li class="error-message">${message}</li>`;
   }
 
+  // Visar sökresultat
   showResults(meals) {
     const ul = this.resultsSection.querySelector('#search-list');
     this.resultsSection.setAttribute('aria-busy', 'false');

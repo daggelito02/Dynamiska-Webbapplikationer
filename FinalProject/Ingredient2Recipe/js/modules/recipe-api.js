@@ -30,13 +30,13 @@ export class RecipeAPI {
         return [];
       }
 
-      // Steg 2: Hämta fullständiga detaljer för första 12 recept
+      // Steg 2: Hämta alla detaljer för första 12 recept
       const detailPromises = filterData.meals
         .slice(0, 12)
         .map(meal => this.getMealDetails(meal.idMeal));
 
       const meals = await Promise.all(detailPromises);
-      return meals.filter(Boolean); // Ta bort null-värden
+      return meals.filter(Boolean); // Hämtar bara värden med data, inga null-värden
       
     } catch (error) {
       console.error('Error in searchByIngredient:', error);

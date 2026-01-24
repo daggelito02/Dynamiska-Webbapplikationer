@@ -28,7 +28,8 @@ export class RecipeDetailPage {
       this.showError('Något gick fel vid laddning av receptet');
     }
   }
-
+  
+  // Renderar receptet på sidan
   renderRecipe(meal) {
     const titleEl = document.getElementById('recipe-title');
     const articleEl = document.getElementById('recipe-article');
@@ -65,6 +66,8 @@ export class RecipeDetailPage {
     }
   }
 
+  
+  // Skapar picture-element för receptbild
   createPicture(meal) {
     const thumb = meal.strMealThumb || '';
     const base = thumb.replace(/\/(preview|medium|large)$/, '');
@@ -106,6 +109,7 @@ export class RecipeDetailPage {
     return picture;
   }
 
+  // Skapar meta-information för receptet
   createMeta(meal) {
     const metaDiv = document.createElement('div');
     metaDiv.className = 'recipe-meta';
@@ -127,6 +131,7 @@ export class RecipeDetailPage {
     return metaDiv;
   }
 
+  // Skapar ingredienslista
   createIngredients(meal) {
     const div = document.createElement('div');
     div.className = 'recipe-ingredients';
@@ -154,6 +159,7 @@ export class RecipeDetailPage {
     return div;
   }
 
+  // Skapar receptinstruktioner
   createInstructions(meal) {
     const div = document.createElement('div');
     div.className = 'recipe-instructions';
@@ -225,6 +231,7 @@ export class RecipeDetailPage {
     return div;
   }
 
+  // Visar felmeddelande
   showError(message) {
     const titleEl = document.getElementById('recipe-title');
     const articleEl = document.getElementById('recipe-article');

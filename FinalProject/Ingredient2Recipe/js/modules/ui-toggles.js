@@ -1,10 +1,6 @@
 // ui-toggles.js - Toggling för UI-element
 
-export function setupToggle({
-  button,
-  target,
-  openClass = 'is-open',
-}) {
+export function setupToggle({ button, target, openClass = 'is-open',}) {
   const toggleBtn = document.querySelector(button);
   const targetEl = document.querySelector(target);
 

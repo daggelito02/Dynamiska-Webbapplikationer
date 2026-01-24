@@ -25,34 +25,34 @@ export class WeeklyTipWidget {
     this.gridContainer.appendChild(weeklyCard);
     this.gridContainer.appendChild(randomCard);
 
-    this.setupShuffleButton();
+    this.setupRandomButton();
   }
-
-  createRecipeCard(meal, cardPrefix, headerText, showShuffleBtn = false) {
+  // Skapar receptkort
+  createRecipeCard(meal, cardPrefix, headerText, showRandomBtn = false) {
     const cardDiv = document.createElement('div');
     cardDiv.id = `${cardPrefix}-recipe-card`;
     cardDiv.className = 'recipe-card';
     cardDiv.setAttribute('aria-busy', 'false');
 
     const header = document.createElement('h3');
-    header.className = showShuffleBtn ? 'recipe-card-header random-header' : 'recipe-card-header';
+    header.className = showRandomBtn ? 'recipe-card-header random-header' : 'recipe-card-header';
     header.textContent = headerText;
     cardDiv.appendChild(header);
 
-    if (showShuffleBtn) {
-      const shuffleBtn = document.createElement('button');
-      shuffleBtn.type = 'button';
-      shuffleBtn.className = 'random-btn';
-      shuffleBtn.id = 'new-random-recipe-btn';
-      shuffleBtn.setAttribute('aria-label', 'Hämta nytt slumpat recept');
+    if (showRandomBtn) {
+      const randomBtn = document.createElement('button');
+      randomBtn.type = 'button';
+      randomBtn.className = 'random-btn';
+      randomBtn.id = 'new-random-recipe-btn';
+      randomBtn.setAttribute('aria-label', 'Hämta nytt slumpat recept');
 
       const icon = document.createElement('span');
       icon.className = 'material-symbols-outlined';
       icon.setAttribute('aria-hidden', 'true');
       icon.textContent = 'shuffle';
 
-      shuffleBtn.appendChild(icon);
-      cardDiv.appendChild(shuffleBtn);
+      randomBtn.appendChild(icon);
+      cardDiv.appendChild(randomBtn);
     }
 
     if (!meal) {
@@ -72,6 +72,7 @@ export class WeeklyTipWidget {
     const figure = document.createElement('figure');
     figure.className = 'recipe-image';
 
+    // Skapa picture-element med olika bildstorlekar
     const thumb = meal.strMealThumb || '';
     const base = thumb.replace(/\/(preview|medium|large)$/, '');
     const defaultSrc = base || thumb || '';
@@ -140,8 +141,9 @@ export class WeeklyTipWidget {
     return cardDiv;
   }
 
-  setupShuffleButton() {
-    const handleShuffleClick = async () => {
+  // Hanterar knapp för nytt slumpat recept
+  setupRandomButton() {
+    const handleRandomClick = async () => {
       try {
         const randomCardEl = document.getElementById('random-recipe-card');
         const btn = document.getElementById('new-random-recipe-btn');
@@ -162,7 +164,7 @@ export class WeeklyTipWidget {
 
           const newBtn = document.getElementById('new-random-recipe-btn');
           if (newBtn) {
-            newBtn.addEventListener('click', handleShuffleClick);
+            newBtn.addEventListener('click', handleRandomClick);
             newBtn.disabled = false;
           }
 
@@ -182,7 +184,7 @@ export class WeeklyTipWidget {
 
     const newRandomBtn = document.getElementById('new-random-recipe-btn');
     if (newRandomBtn) {
-      newRandomBtn.addEventListener('click', handleShuffleClick);
+      newRandomBtn.addEventListener('click', handleRandomClick);
     }
   }
 }
